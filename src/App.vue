@@ -1,7 +1,8 @@
 <template>
 	<v-app>
-		<v-content app>
-			<header-component></header-component>
+		<header-component></header-component>
+		
+		<v-content>
 			<main-banner></main-banner>
 		</v-content>
 
