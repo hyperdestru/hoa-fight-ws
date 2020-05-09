@@ -1,11 +1,9 @@
 <template>
-	<v-container fluid>
-		<div class="white--text banner d-flex flex-column justify-center align-center">
-			<h3 class="text-center display-2">HOA FIGHT</h3>
-			<p>LE jeu de platforme-combat du Web !</p>
-			<v-btn class="text-uppercase">jouez gratuitement</v-btn>
-		</div>
-	</v-container>
+	<div class="white--text banner d-flex flex-column justify-center align-center">
+		<h3 class="text-center display-2">HOA FIGHT</h3>
+		<p>LE jeu de platforme-combat du Web !</p>
+		<v-btn class="text-uppercase">jouez gratuitement</v-btn>
+	</div>
 </template>
 
 <script>
