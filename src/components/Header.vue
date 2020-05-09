@@ -1,6 +1,6 @@
 <template>
 	<v-container fluid class="d-flex flex-row justify-space-between align-center">
-		<v-icon x-large color="black">mdi-alien</v-icon>
+		<v-icon x-large>mdi-alien</v-icon>
 		<v-list>
 			<v-list-item-group class="d-flex flex-row text-uppercase">
 				<v-list-item 
@@ -27,15 +27,15 @@
 			
 			pages: {
 				public: [
-					{name: "acceuil", link: ""},
-					{name: "inscription", link: ""},
-					{name: "connexion", link: ""}
+					{ name: "acceuil", link: "" },
+					{ name: "inscription", link: "" },
+					{ name: "connexion", link: "" }
 				],
 				logged: [
-					{name: "acceuil", link: ""},
-					{name: "classement", link: ""},
-					{name: "tableau de bord", link: ""},
-					{name: "deconnexion", link: ""}
+					{ name: "acceuil", link: "" },
+					{ name: "classement", link: "" },
+					{ name: "tableau de bord", link: "" },
+					{ name: "deconnexion", link: "" }
 				]
 			}
 		})
