@@ -4,19 +4,13 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 const app = express()
-app.use(morgan('combine'))
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.post('/register', (req, res) => {
 	res.send({
-		message: "hello, home"
-	})
-})
-
-app.get('/status', (req, res) => {
-	res.send({
-		message: "hello, status"
+		message: `Bonjour ${req.body.email} ! Tu es bien inscrit !`
 	})
 })
 

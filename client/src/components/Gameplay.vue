@@ -1,5 +1,5 @@
 <template>
-	<div class="main-wrapper">
+	<div class="gameplay-grid">
 		<v-container>
 			<v-row>
 				<v-col
@@ -16,7 +16,9 @@
 							class="text-uppercase">
 						</v-card-title>
 
-						<v-icon size="100"> {{ card.icon }} </v-icon>
+						<v-icon size="100"> 
+							{{ card.icon }} 
+						</v-icon>
 					</v-card>
 
 				</v-col>
@@ -31,17 +33,33 @@
 
 		data: () => ({
 			cards: [
-				{ title:"elimine l'autre joueur !", src:"", icon:"mdi-boxing-glove" },
-				{ title:"evite les bombes !", src:"", icon:"mdi-bomb" },
-				{ title:"saute !", src:"", icon:"mdi-mushroom" },
-				{ title:"ameliore ton score et ton rang !", src:"", icon:"mdi-medal" },
+				{
+					title:"elimine l'autre joueur !", 
+					src:"", 
+					icon:"mdi-boxing-glove" 
+				},
+				{ 
+					title:"evite les bombes !", 
+					src:"", 
+					icon:"mdi-bomb" 
+				},
+				{ 
+					title:"saute !", 
+					src:"", 
+					icon:"mdi-mushroom" 
+				},
+				{ 
+					title:"ameliore ton score et ton rang !", 
+					src:"", 
+					icon:"mdi-medal" 
+				}
 			]
 		})
 	}
 </script>
 
 <style scoped>
-	.main-wrapper {
+	.gameplay-grid {
 		background-color: #4C6BCE;
 	}
 </style>

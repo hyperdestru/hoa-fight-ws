@@ -6,8 +6,8 @@
 </template>
 
 <script>
-	import Banner from '../components/Banner';
-	import Gameplay from '../components/Gameplay';
+	import Banner from '@/components/Banner';
+	import Gameplay from '@/components/Gameplay';
 
 	export default {
 		name: 'Home',
@@ -15,10 +15,6 @@
 		components: {
 			'main-banner': Banner,
 			'gameplay-grid': Gameplay
-		},
-
-		data: () => ({
-		
-		})
+		}
 	};
 </script>

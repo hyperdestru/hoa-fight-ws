@@ -1,9 +1,14 @@
 <template>
-	<div class="d-flex flex-column justify-center align-center mx-auto">
+	<div class="footer d-flex flex-column justify-center align-center mx-auto">
 		<p> Gaël Dumon &copy; {{ new Date().getFullYear() }} </p>
 		<ul class="d-flex flex-row justify-space-between align-center">
-			<li class="pl-3 pr-3" v-for="page in pages" v-bind:key="page.name">
-				<a v-on:click.prevent v-bind:href="page.link"> {{ page.name }} </a>
+			<li class="pl-3 pr-3" 
+				v-for="page in pages" 
+				v-bind:key="page.name">
+
+				<a v-on:click.prevent v-bind:href="page.link"> 
+					{{ page.name }} 
+				</a>
 			</li>
 		</ul>
 	</div>
@@ -24,10 +29,10 @@
 </script>
 
 <style scoped>
-	ul {
+	.footer ul {
 		list-style-type: none;
 	}
-	a {
+	.footer a {
 		text-decoration: none;
 	}
 </style>
