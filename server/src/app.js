@@ -10,8 +10,13 @@ app.use(cors())
 
 app.post('/register', (req, res) => {
 	res.send({
-		message: `Bonjour ${req.body.email} ! Tu es bien inscrit !`
+		message: {
+			msg: "Hello new user !",
+			username: req.body.username,
+			email: req.body.email,
+			password: req.body.password
+		}
 	})
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 8081)
