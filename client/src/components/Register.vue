@@ -1,6 +1,6 @@
 <template>
 	<v-container>
-		<h1 class="text-center">Inscription</h1>
+		<h1 class="text-center pa-10">Inscription</h1>
 
 		<v-form>
 			<v-text-field
@@ -54,7 +54,7 @@
 					email: this.email,
 					password: this.password
 				})
-				console.log(res.data)
+				console.log("Hello New User!", res.data)
 			}
 		}
 	}

@@ -2,21 +2,21 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const { sequelize } = require('./models')
+const config = require('./config/config')
 
 const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.post('/register', (req, res) => {
-	res.send({
-		message: {
-			msg: "Hello new user !",
-			username: req.body.username,
-			email: req.body.email,
-			password: req.body.password
-		}
-	})
+// Passing our backend app as argument of the module exported in routes.js
+require('./routes')(app)
+
+// Have sequelize connect to the db you have it configured for.
+// Starting the server if connection is successful.
+sequelize.sync().then(() => {
+	app.listen(config.port)
+	console.log(`Server started on port ${config.port}`)
 })
 
-app.listen(process.env.PORT || 8081)
