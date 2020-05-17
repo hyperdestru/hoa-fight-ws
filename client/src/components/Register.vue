@@ -54,7 +54,6 @@
 					email: this.email,
 					password: this.password
 				})
-				console.log("Hello New User!", res.data)
 			}
 		}
 	}
