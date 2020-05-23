@@ -1,12 +1,15 @@
 <template>
 	<v-app>
-		<header-component></header-component>
-
+		<header-component>
+		</header-component>
+		
 		<v-content>
-			<router-view></router-view>
+			<router-view>
+			</router-view>
 		</v-content>
 
-		<footer-component></footer-component>
+		<footer-component>
+		</footer-component>
 	</v-app>
 </template>
 

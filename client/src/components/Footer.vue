@@ -1,16 +1,14 @@
 <template>
-	<div class="footer d-flex flex-column justify-center align-center mx-auto">
-		<p> Gaël Dumon &copy; {{ new Date().getFullYear() }} </p>
-		<ul class="d-flex flex-row justify-space-between align-center">
-			<li class="pl-3 pr-3" 
-				v-for="page in pages" 
-				v-bind:key="page.name">
-
-				<a v-on:click.prevent v-bind:href="page.link"> 
-					{{ page.name }} 
-				</a>
-			</li>
-		</ul>
+	<div class="footer">
+		<v-container>
+			<ul class="pa-0 d-flex flex-row justify-space-between align-center">
+				<li v-for="(page, index) in pages" :key="index">
+					<a v-on:click.prevent v-bind:href="page.link"> 
+						{{ page.name }}
+					</a>
+				</li>
+			</ul>
+		</v-container>
 	</div>
 </template>
 
@@ -20,15 +18,27 @@
 
 		data: () => ({
 			pages: [
-				{ name: "Politique de confidentialité", link: "" },
-				{ name: "Conditions d'utilisation", link: "" },
-				{ name: "Politique sur les cookies", link: "" }
+				{
+					name: "Politique de confidentialité", 
+					link: ""
+				},
+				{
+					name: "Conditions d'utilisation",
+					link: ""
+				},
+				{
+					name: "Politique sur les cookies",
+					link: ""
+				}
 			]
 		})
 	}
 </script>
 
 <style scoped>
+	.footer {
+		background-color: #eeeeee;
+	}
 	.footer ul {
 		list-style-type: none;
 	}

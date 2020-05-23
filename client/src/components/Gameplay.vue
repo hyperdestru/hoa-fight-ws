@@ -1,26 +1,24 @@
 <template>
 	<div class="gameplay-grid">
 		<v-container>
-			<v-row>
-				<v-col
-					v-for="card in cards"
-					v-bind:key="card.title"
-					cols="6">
+			<v-row justify="center">
+				<v-col 
+					v-for="(card, index) in cards" :key="index"
+					cols="5">
 
-					<v-card tile
-						min-height="300px" 
+					<v-card 
+						tile
+						min-height="300px"
 						class="d-flex flex-column justify-center align-center">
 
-						<v-card-title 
-							v-text="card.title" 
-							class="text-uppercase">
+						<v-card-title class="text-uppercase">
+							{{ card.title }} !
 						</v-card-title>
 
-						<v-icon size="100"> 
-							{{ card.icon }} 
+						<v-icon x-large> 
+							{{ card.icon }}
 						</v-icon>
 					</v-card>
-
 				</v-col>
 			</v-row>
 		</v-container>
@@ -34,24 +32,24 @@
 		data: () => ({
 			cards: [
 				{
-					title:"elimine l'autre joueur !", 
-					src:"", 
-					icon:"mdi-boxing-glove" 
+					title:"Un ennemi",
+					src:"",
+					icon:"mdi-boxing-glove"
+				},
+				{
+					title:"Des bombes",
+					src:"",
+					icon:"mdi-bomb"
 				},
 				{ 
-					title:"evite les bombes !", 
-					src:"", 
-					icon:"mdi-bomb" 
+					title:"Des sauts",
+					src:"",
+					icon:"mdi-mushroom"
 				},
 				{ 
-					title:"saute !", 
-					src:"", 
-					icon:"mdi-mushroom" 
-				},
-				{ 
-					title:"ameliore ton score et ton rang !", 
-					src:"", 
-					icon:"mdi-medal" 
+					title:"Un score à battre",
+					src:"",
+					icon:"mdi-medal"
 				}
 			]
 		})
@@ -61,5 +59,8 @@
 <style scoped>
 	.gameplay-grid {
 		background-color: #4C6BCE;
+	}
+	.gameplay-grid .card {
+		background-color: #eeeeee;
 	}
 </style>
