@@ -8,8 +8,7 @@
 
 					<v-card 
 						tile
-						min-height="300px"
-						class="d-flex flex-column justify-center align-center">
+						class="card d-flex flex-column justify-center align-center">
 
 						<v-card-title class="text-uppercase">
 							{{ card.title }} !
@@ -61,6 +60,7 @@
 		background-color: #4C6BCE;
 	}
 	.gameplay-grid .card {
+		min-height: 300px;
 		background-color: #eeeeee;
 	}
 </style>

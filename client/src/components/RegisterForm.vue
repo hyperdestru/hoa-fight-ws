@@ -38,7 +38,7 @@
 						</v-text-field>
 
 						<v-btn 
-							min-width="100%"
+							class="submit-btn"
 							tile
 							v-on:click="register">
 							Créer mon compte
@@ -74,3 +74,9 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.register-form .submit-btn {
+		min-width: 100%;
+	}
+</style>

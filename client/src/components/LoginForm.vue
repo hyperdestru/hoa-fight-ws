@@ -21,7 +21,7 @@
 							required>
 						</v-text-field>
 
-						<v-btn tile min-width="100%">
+						<v-btn tile class="submit-btn">
 							Connexion
 						</v-btn>
 					</v-form>
@@ -45,3 +45,9 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.login-form .submit-btn {
+		min-width: 100%;
+	}
+</style>

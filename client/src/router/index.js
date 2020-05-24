@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
 import Ranking from '@/views/Ranking.vue'
+import Dashboard from '@/views/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
 		path: '/ranking',
 		name: 'Ranking',
 		component: Ranking
+	},
+	{
+		path: '/dashboard',
+		name: 'Dashboard',
+		component: Dashboard
 	}
 ]
 
