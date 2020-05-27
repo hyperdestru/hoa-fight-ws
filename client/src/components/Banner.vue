@@ -4,10 +4,10 @@
 			Hoa fight
 		</h3>
 
-		<p>LE jeu de platforme-combat du Web !</p>
+		<p> {{ $t("messages.homeCatchphrase") }} </p>
 
 		<v-btn class="text-uppercase">
-			Jouer gratuitement
+			{{ $t("messages.ctaPlay") }}
 		</v-btn>
 	</div>
 </template>
