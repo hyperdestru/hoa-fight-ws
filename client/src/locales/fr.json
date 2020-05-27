@@ -1,6 +1,11 @@
 {
 	"messages": {
+		"email": "E-mail",
+		"password": "Mot de passe",
+		"username": "Pseudo",
+		"createdAt": "Inscrit depuis le",
 		"homeCatchphrase": "LE jeu de plateforme-combat 1v1 du Web !",
-		"ctaPlay": "Joue gratuitement"
+		"ctaPlay": "Joue gratuitement",
+		"ctaModifProfile": "Modifier profil"
 	}
 }

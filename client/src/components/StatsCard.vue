@@ -17,8 +17,4 @@
 </script>
 
 <style scoped>
-	.card {
-		width: 350px;
-		height: 400px;
-	}
 </style>
