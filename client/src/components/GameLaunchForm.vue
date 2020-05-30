@@ -25,7 +25,7 @@
 				:label="$t('messages.guestMode')"
 				v-model="guestMode"
 			></v-switch>
-			<v-btn>
+			<v-btn min-width="100%">
 				{{ $t('messages.gameLaunch') }}
 			</v-btn>
 		</v-form>
