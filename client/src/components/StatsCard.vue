@@ -8,12 +8,18 @@
 			rotate="270"
 			width="32"
 			color="#3F5CD0"
-			value="90"
+			:value="getRatio()"
 		>
 			<ul class="pl-0 d-flex flex-column justify-center align-center">
 				<li class="display-1"> {{ getRatio() }}% </li>
-				<li class="won"> {{ user.games.won }} gagnée(s)</li>
-				<li> {{ user.games.total - user.games.won }} perdue(s)</li>
+				<li class="won"> 
+					{{ getGamesWon() }} 
+					{{ $t("messages.won") }}
+				</li>
+				<li> 
+					{{ getGamesLost() }} 
+					{{ $t("messages.lost") }}
+				</li>
 			</ul>
 		</v-progress-circular>
 	</v-card>
@@ -35,7 +41,27 @@
 
 		methods: {
 			getRatio: function() {
-				return (this.user.games.won*100)/this.user.games.total;
+				if (this.user.games.won <= this.user.games.total) {
+					return (this.user.games.won * 100) / this.user.games.total;
+				} else {
+					return "--";
+				}
+			},
+
+			getGamesWon: function() {
+				if (this.user.games.won <= this.user.games.total) {
+					return this.user.games.won;
+				} else {
+					return "--";
+				}
+			},
+
+			getGamesLost: function() {
+				if (this.user.games.won <= this.user.games.total) {
+					return  this.user.games.total - this.user.games.won;
+				} else {
+					return "--";
+				}
 			}
 		}
 	}
