@@ -8,7 +8,7 @@
 						<v-text-field
 							clearable
 							outlined
-							label="Pseudo"
+							:label="$t('messages.username')"
 							v-model="username"
 							required>
 						</v-text-field>
@@ -16,13 +16,13 @@
 						<v-text-field
 							clearable
 							outlined
-							label="Mot de passe"
+							:label="$t('messages.password')"
 							v-model="password"
 							required>
 						</v-text-field>
 
 						<v-btn tile class="submit-btn">
-							Connexion
+							{{ $t('messages.ctaConnect') }}
 						</v-btn>
 					</v-form>
 				</v-col>

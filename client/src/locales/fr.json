@@ -3,6 +3,11 @@
 		"email": "E-mail",
 		"password": "Mot de passe",
 		"username": "Pseudo",
+		"dashboard": "Tableau de bord",
+		"deleteAccount": "Suppression du compte",
+		"deleteAccountWarning": "Attention, une fois supprimé c'est pour toujours, soyez sûr de vous",
+		"enterEmail": "Par sécurité, entrez votre email",
+		"modifProfile": "Modification du profil",
 		"won": "Gagnée(s)",
 		"lost": "Perdue(s)",
 		"secondPlayer": "2eme joueur",
@@ -12,6 +17,8 @@
 		"createdAt": "Inscrit depuis le",
 		"homeCatchphrase": "LE jeu de plateforme-combat 1v1 du Web !",
 		"ctaPlay": "Joue gratuitement",
-		"ctaModifProfile": "Modifier profil"
+		"ctaModifProfile": "Modifier profil",
+		"ctaConnect": "Connexion",
+		"ctaDeleteAccount": "Supprimer compte"
 	}
 }

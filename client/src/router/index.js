@@ -5,34 +5,40 @@ import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
 import Ranking from '@/views/Ranking.vue'
 import Dashboard from '@/views/Dashboard.vue'
+import Settings from '@/views/Settings.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
 	{
 		path: '/',
-		name: 'Home',
+		name: 'home',
 		component: Home
 	},
 	{
 		path: '/register',
-		name: 'Register',
+		name: 'register',
 		component: Register
 	},
 	{
 		path: '/login',
-		name: 'Login',
+		name: 'login',
 		component: Login
 	},
 	{
 		path: '/ranking',
-		name: 'Ranking',
+		name: 'ranking',
 		component: Ranking
 	},
 	{
 		path: '/dashboard',
-		name: 'Dashboard',
+		name: 'dashboard',
 		component: Dashboard
+	},
+	{
+		path: '/settings',
+		name: 'settings',
+		component: Settings
 	}
 ]
 
