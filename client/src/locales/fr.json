@@ -46,6 +46,7 @@
 		"lkCookiesPolicy": "Politique sur les cookies",
 		"lkHome": "Acceuil",
 		"lkRegister": "Inscription",
-		"lkLogin": "Connexion"
+		"lkLogin": "Connexion",
+		"ctaUpdate": "Mettre à jour"
 	}
 }

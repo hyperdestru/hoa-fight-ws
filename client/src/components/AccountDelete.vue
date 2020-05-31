@@ -3,12 +3,12 @@
 		<v-col cols="10">
 			<v-card 
 				tile
-				min-height="450px"
+				min-height="460px"
 				min-width="290px"
 				class="
 					card
-					d-flex 
-					flex-column 
+					d-flex
+					flex-column
 					align-center
 				"
 			>
@@ -16,7 +16,7 @@
 					{{ $t('messages.tDeleteAccount') }}
 				</v-card-title>
 
-				<v-card-subtitle class="error--text text-center">
+				<v-card-subtitle class="subtitle mt-2 error--text text-center">
 					{{ $t('messages.stDeleteAccountWarning') }}.
 				</v-card-subtitle>
 
@@ -26,12 +26,11 @@
 							form
 							d-flex
 							flex-column 
-							justify-space-around
 							align-center
 						"
 					>	
 						<div>
-							<p class="error--text ma-0 text-center"> 
+							<p class="error--text text-center"> 
 								{{ $t('messages.lEnterEmail') }} 
 							</p>
 							<v-text-field
@@ -71,10 +70,7 @@
 </script>
 
 <style scoped>
-	.card .card-content {
-		height: 300px;
-	}
-	.card .card-content .form {
-		height: 100%;
+	.card .subtitle {
+		max-width: 60%;
 	}
 </style>
