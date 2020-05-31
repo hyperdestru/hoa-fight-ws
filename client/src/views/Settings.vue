@@ -1,7 +1,7 @@
 <template>
 	<div class="settings">
 		<h3 class="text-center pa-8 display-1">
-			{{ $t('messages.modifProfile') }}
+			{{ $t('messages.tModifProfile') }}
 		</h3>
 		<v-container 
 			class="

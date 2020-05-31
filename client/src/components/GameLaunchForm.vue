@@ -8,17 +8,17 @@
 				class='card d-flex flex-column align-center'
 			>
 				<v-card-title class='text-uppercase'>
-					{{ $t('messages.gameLaunching') }}
+					{{ $t('messages.tGameLaunching') }}
 				</v-card-title>
 
 				<v-card-subtitle>
-					{{ $t('messages.secondPlayer') }}
+					{{ $t('messages.stSecondPlayer') }}
 				</v-card-subtitle>
 
 				<div class="card-content mt-10">
 					<v-form 
 						class="
-							d-flex 
+							d-flex
 							flex-column 
 							justify-space-between 
 							align-center
@@ -27,7 +27,7 @@
 						<v-text-field
 							clearable
 							outlined
-							:label="$t('messages.username')"
+							:label="$t('messages.lUsername')"
 							v-model="secondPlayer.username"
 						>
 						</v-text-field>
@@ -35,18 +35,18 @@
 						<v-text-field
 							clearable
 							outlined
-							:label="$t('messages.password')"
+							:label="$t('messages.lPassword')"
 							v-model="secondPlayer.password"
 						>
 						</v-text-field>
 
 						<v-switch
-							:label="$t('messages.guestMode')"
+							:label="$t('messages.lGuestMode')"
 							v-model="guestMode"
 						></v-switch>
 
 						<v-btn min-width="100%">
-							{{ $t('messages.gameLaunch') }}
+							{{ $t('messages.ctaLaunchGame') }}
 						</v-btn>
 					</v-form>
 				</div>

@@ -8,7 +8,7 @@
 				class="card d-flex flex-column align-center"
 			>
 				<v-card-title class="text-uppercase">
-					Profil
+					{{ $t('messages.tProfile') }}
 				</v-card-title>
 
 				<div 
@@ -32,13 +32,13 @@
 
 					<ul class="user-details">
 						<li>
-							{{ $t("messages.email") }} : {{ user.email }}
+							{{ $t("messages.lEmail") }} : {{ user.email }}
 						</li>
 						<li>
-							{{ $t("messages.username") }} : {{ user.username }}
+							{{ $t("messages.lUsername") }} : {{ user.username }}
 						</li>
 						<li>
-							{{ $t("messages.createdAt") }} : {{ user.createdAt }}
+							{{ $t("messages.pCreatedAt") }} : {{ user.createdAt }}
 						</li>
 					</ul>
 

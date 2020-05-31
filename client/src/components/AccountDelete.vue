@@ -13,11 +13,11 @@
 				"
 			>
 				<v-card-title class="error--text">
-					{{ $t('messages.deleteAccount') }}
+					{{ $t('messages.tDeleteAccount') }}
 				</v-card-title>
 
 				<v-card-subtitle class="error--text text-center">
-					{{ $t('messages.deleteAccountWarning') }}.
+					{{ $t('messages.stDeleteAccountWarning') }}.
 				</v-card-subtitle>
 
 				<div class="card-content mt-10">
@@ -32,14 +32,14 @@
 					>	
 						<div>
 							<p class="error--text ma-0 text-center"> 
-								{{ $t('messages.enterEmail') }} 
+								{{ $t('messages.lEnterEmail') }} 
 							</p>
 							<v-text-field
 								clearable
 								outlined
 								dense
 								persistent-hint
-								:label="$t('messages.email')"
+								:label="$t('messages.lEmail')"
 								v-model="user.email"
 								required>
 							</v-text-field>

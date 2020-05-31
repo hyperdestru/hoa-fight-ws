@@ -3,12 +3,14 @@
 		<v-container>
 			<v-row justify="center">
 				<v-col cols="4" align="center">
-					<h3 class="text-center pa-8 display-1">S'inscrire</h3>
+					<h3 class="text-center pa-8 display-1">
+						{{ $t('messages.tRegister') }}
+					</h3>
 					<v-form>
 						<v-text-field
 							clearable
 							outlined
-							label="Pseudo"
+							:label="$t('messages.lUsername')"
 							v-model="username"
 							required>
 						</v-text-field>
@@ -16,7 +18,7 @@
 						<v-text-field
 							clearable
 							outlined
-							label="Email"
+							:label="$t('messages.lEmail')"
 							v-model="email"
 							required>
 						</v-text-field>
@@ -24,7 +26,7 @@
 						<v-text-field
 							clearable
 							outlined
-							label="Mot de passe"
+							:label="$t('messages.lPassword')"
 							v-model="password"
 							required>
 						</v-text-field>
@@ -32,16 +34,17 @@
 						<v-text-field
 							clearable
 							outlined
-							label="Confirmation du mot de passe"
+							:label="$t('messages.lConfirmPwd')"
 							v-model="passwordConfirm"
 							required>
 						</v-text-field>
 
-						<v-btn 
+						<v-btn
+							min-width="100%"
 							class="submit-btn"
 							tile
 							v-on:click="register">
-							Créer mon compte
+							{{ $t('messages.ctaRegister') }}
 						</v-btn>
 					</v-form>
 				</v-col>
@@ -74,9 +77,3 @@
 		}
 	}
 </script>
-
-<style scoped>
-	.register-form .submit-btn {
-		min-width: 100%;
-	}
-</style>

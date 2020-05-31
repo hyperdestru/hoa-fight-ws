@@ -4,7 +4,7 @@
 			<v-row justify="center">
 				<v-col cols="8">
 					<h3 class="text-center pa-8 display-1">
-						Classement
+						{{ $t('messages.tRanking') }}
 					</h3>
 
 					<v-data-table 
@@ -32,7 +32,7 @@
 		data: () => ({
 			headers: [
 				{ 
-					text: "Rang",
+					text: 'Rang',
 					value: "rank",
 				},
 				{ 
@@ -41,17 +41,16 @@
 					value: "avatar",
 				},
 				{ 
-					text: "Joueur",
+					text: 'Pseudo',
 					value: "username",
 				},
 				{ 
-					text: "Ratio",
+					text: 'Ratio',
 					value: "ratio",
 					align: "middle",
 				}
 			],
-			users: [
-			]
+			users: []
 		}),
 
 		created: function() {
@@ -60,15 +59,11 @@
 					{ 
 						rank: i,
 						avatar: "", 
-						username: "Pseudo", 
-						ratio: `${101 - i}%`
+						username: "SomePseudo", 
+						ratio: 101 - i
 					}
 				)
 			}
-		},
-
-		methods: {
-
 		}
 	}
 </script>

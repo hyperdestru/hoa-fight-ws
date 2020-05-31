@@ -1,13 +1,13 @@
 <template>
 	<div class="banner d-flex flex-column justify-center align-center">
 		<h3 class="text-center display-2 text-uppercase">
-			Hoa fight
+			{{ $t('messages.tProjectName') }}
 		</h3>
 
-		<p> {{ $t("messages.homeCatchphrase") }} </p>
+		<p> {{ $t("messages.pCatchphrase") }} </p>
 
 		<v-btn class="text-uppercase">
-			{{ $t("messages.ctaPlay") }}
+			{{ $t("messages.ctaPlayForFree") }}
 		</v-btn>
 	</div>
 </template>

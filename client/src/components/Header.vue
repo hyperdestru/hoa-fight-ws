@@ -1,12 +1,23 @@
 <template>
 	<div class="header">
-		<v-container fluid class="d-flex flex-row justify-space-between">
-			<v-icon x-large> mdi-alien </v-icon>
+		<v-container 
+			fluid 
+			class="
+				d-flex
+				flex-row
+				justify-space-between
+			"
+		>
+			<v-icon x-large>
+				mdi-alien
+			</v-icon>
+
 			<v-list class="menu-list">
 				<v-list-item-group class="d-flex text-uppercase">
 					<v-list-item v-for="(page, index) in pages" :key="index">
 						<v-list-item-content>
-							<v-list-item-title v-text="page.name">
+							<v-list-item-title>
+								{{ $t(page.name) }}
 							</v-list-item-title>
 						</v-list-item-content>
 					</v-list-item>
@@ -23,15 +34,15 @@
 		data: () => ({			
 			pages: [
 				{ 
-					name: "acceuil", 
+					name: 'messages.lkHome',
 					link: "" 
 				},
 				{ 
-					name: "inscription", 
+					name: 'messages.lkRegister',
 					link: "" 
 				},
 				{ 
-					name: "connexion", 
+					name: 'messages.lkLogin', 
 					link: "" 
 				}
 			]

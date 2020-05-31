@@ -1,7 +1,7 @@
 <template>
 	<div class="dashboard">
 		<h3 class="text-center pa-8 display-1">
-			{{ $t('messages.dashboard') }}
+			{{ $t('messages.tDashboard') }}
 		</h3>
 		<v-container 
 			fluid 

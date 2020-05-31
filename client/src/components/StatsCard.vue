@@ -8,7 +8,7 @@
 				class="card d-flex flex-column align-center"
 			>
 				<v-card-title class="text-uppercase">
-					Stats
+					{{ $t('messages.tStats') }}
 				</v-card-title>
 
 				<div class="card-content mt-10">
@@ -34,12 +34,12 @@
 
 							<li class="won"> 
 								{{ getGamesWon() }}
-								{{ $t("messages.won") }}
+								{{ $t("messages.pWon") }}
 							</li>
 							
 							<li> 
 								{{ getGamesLost() }}
-								{{ $t("messages.lost") }}
+								{{ $t("messages.pLost") }}
 							</li>
 						</ul>
 					</v-progress-circular>

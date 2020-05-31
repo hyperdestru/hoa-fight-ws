@@ -4,12 +4,19 @@
 			<v-row justify="center">
 				<v-col 
 					v-for="(card, index) in cards" :key="index"
-					cols="5">
+					cols="5"
+				>
 
 					<v-card 
 						tile
-						class="card d-flex flex-column justify-center align-center">
-
+						class="
+							card
+							d-flex
+							flex-column
+							justify-center
+							align-center
+						"
+					>
 						<v-card-title class="text-uppercase">
 							{{ card.title }} !
 						</v-card-title>
@@ -31,24 +38,24 @@
 		data: () => ({
 			cards: [
 				{
-					title:"Un ennemi",
-					src:"",
-					icon:"mdi-boxing-glove"
+					title: "Un ennemi",
+					src: "",
+					icon: "mdi-boxing-glove"
 				},
 				{
-					title:"Des bombes",
-					src:"",
-					icon:"mdi-bomb"
+					title: "Des bombes",
+					src: "",
+					icon: "mdi-bomb"
 				},
 				{ 
-					title:"Des sauts",
-					src:"",
-					icon:"mdi-mushroom"
+					title: "Des sauts",
+					src: "",
+					icon: "mdi-mushroom"
 				},
 				{ 
-					title:"Un score à battre",
-					src:"",
-					icon:"mdi-medal"
+					title: "Un score à battre",
+					src: "",
+					icon: "mdi-medal"
 				}
 			]
 		})
