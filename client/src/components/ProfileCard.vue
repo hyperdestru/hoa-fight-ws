@@ -1,20 +1,55 @@
 <template>
-	<v-card tile class="card pa-10 d-flex flex-column align-center">
-		<v-card-title class="pa-0 text-uppercase">
-			Profil
-		</v-card-title>
-		<v-avatar tile width="100px" height="100px" color="#3F5CD0">
-			<v-icon>mdi-account</v-icon>
-		</v-avatar>
-		<ul class="user-details">
-			<li> {{ $t("messages.email") }} : {{ user.email }} </li>
-			<li> {{ $t("messages.username") }} : {{ user.username }} </li>
-			<li> {{ $t("messages.createdAt") }} : {{ user.createdAt }} </li>
-		</ul>
-		<v-btn>
-			{{ $t("messages.ctaModifProfile") }}
-		</v-btn>
-	</v-card>
+	<v-row justify="center">
+		<v-col cols="10">
+			<v-card 
+				tile
+				min-height="450px"
+				min-width="290px"
+				class="card d-flex flex-column align-center"
+			>
+				<v-card-title class="text-uppercase">
+					Profil
+				</v-card-title>
+
+				<div 
+					class="
+						card-content 
+						mt-10 
+						d-flex 
+						flex-column
+						justify-space-between
+						align-center
+					"
+				>
+					<v-avatar 
+						tile 
+						width="100px" 
+						height="100px" 
+						color="#3F5CD0"
+					>
+						<v-icon>mdi-account</v-icon>
+					</v-avatar>
+
+					<ul class="user-details">
+						<li>
+							{{ $t("messages.email") }} : {{ user.email }}
+						</li>
+						<li>
+							{{ $t("messages.username") }} : {{ user.username }}
+						</li>
+						<li>
+							{{ $t("messages.createdAt") }} : {{ user.createdAt }}
+						</li>
+					</ul>
+
+					<v-btn min-width="100%">
+						{{ $t("messages.ctaModifProfile") }}
+					</v-btn>
+				</div>
+
+			</v-card>
+		</v-col>
+	</v-row>
 </template>
 
 <script>
@@ -35,5 +70,8 @@
 	.card .user-details {
 		list-style-type: none;
 		padding: 0;
+	}
+	.card .card-content {
+		height: 300px;
 	}
 </style>

@@ -3,7 +3,17 @@
 		<h3 class="text-center pa-8 display-1">
 			Tableau de bord
 		</h3>
-		<v-container class="d-flex flex-row justify-space-between align-center">
+		<v-container 
+			fluid 
+			class="
+				d-flex 
+				flex-xl-row
+				flex-lg-row
+				flex-md-row
+				flex-sm-column
+				justify-space-around
+			"
+		>
 			<profile-card></profile-card>
 			<stats-card></stats-card>
 			<game-launch-form></game-launch-form>

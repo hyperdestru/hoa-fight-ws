@@ -1,28 +1,53 @@
 <template>
-	<v-card tile class="card pa-10 d-flex flex-column align-center">
-		<v-card-title class="text-uppercase">
-			Stats
-		</v-card-title>
-		<v-progress-circular
-			size="256"
-			rotate="270"
-			width="32"
-			color="#3F5CD0"
-			:value="getRatio()"
-		>
-			<ul class="pl-0 d-flex flex-column justify-center align-center">
-				<li class="display-1"> {{ getRatio() }}% </li>
-				<li class="won"> 
-					{{ getGamesWon() }} 
-					{{ $t("messages.won") }}
-				</li>
-				<li> 
-					{{ getGamesLost() }} 
-					{{ $t("messages.lost") }}
-				</li>
-			</ul>
-		</v-progress-circular>
-	</v-card>
+	<v-row justify="center">
+		<v-col cols="10">
+			<v-card 
+				tile
+				min-height="450px"
+				min-width="290px"
+				class="card d-flex flex-column align-center"
+			>
+				<v-card-title class="text-uppercase">
+					Stats
+				</v-card-title>
+
+				<div class="card-content mt-10">
+					<v-progress-circular
+						size="256"
+						rotate="270"
+						width="32"
+						color="#3F5CD0"
+						:value="getRatio()"
+					>
+						<ul 
+							class="
+								pl-0 
+								d-flex 
+								flex-column 
+								justify-center 
+								align-center
+							"
+						>
+							<li class="display-1"> 
+								{{ getRatio() }}%
+							</li>
+
+							<li class="won"> 
+								{{ getGamesWon() }}
+								{{ $t("messages.won") }}
+							</li>
+							
+							<li> 
+								{{ getGamesLost() }}
+								{{ $t("messages.lost") }}
+							</li>
+						</ul>
+					</v-progress-circular>
+				</div>
+				
+			</v-card>
+		</v-col>
+	</v-row>
 </template>
 
 <script>
@@ -70,7 +95,7 @@
 <style scoped>
 	ul {
 		list-style-type: none;
-		color: #000;
+		color: #000000;
 		font-weight: bold;
 	}
 
