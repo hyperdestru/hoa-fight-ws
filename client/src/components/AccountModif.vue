@@ -1,6 +1,6 @@
 <template>
 	<v-row justify="center">
-		<v-col cols="10">
+		<v-col cols="12" sm="12" md="10" lg="10" xl="10">
 			<v-card 
 				tile
 				min-height="450px"
@@ -9,8 +9,17 @@
 					card
 					pa-10
 					d-flex 
-					flex-row
-					justify-space-between 
+					flex-column
+					flex-sm-column
+					flex-md-row
+					flex-lg-row
+					flex-xl-row
+					align-center
+					align-sm-center
+					align-md-start
+					align-lg-start
+					align-xl-start
+					justify-space-between
 				"
 			>
 				<v-avatar 

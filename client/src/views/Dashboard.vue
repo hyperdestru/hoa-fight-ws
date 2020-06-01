@@ -8,10 +8,11 @@
 			class="
 				d-flex
 				flex-column
-				flex-xl-row
-				flex-lg-row
-				flex-md-row
 				flex-sm-column
+				flex-md-row
+				flex-lg-row
+				flex-xl-row
+				align-start
 				justify-space-around
 			"
 		>

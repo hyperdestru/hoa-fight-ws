@@ -10,7 +10,11 @@
 					align-center
 				"
 			>
-				<li v-for="(page, index) in pages" :key="index">
+				<li 
+					v-for="(page, index) in pages" 
+					:key="index"
+					class="text-center caption"
+				>
 					<a v-on:click.prevent v-bind:href="page.link"> 
 						{{ $t(page.name) }}
 					</a>

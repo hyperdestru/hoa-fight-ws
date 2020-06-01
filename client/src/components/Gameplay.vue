@@ -17,9 +17,19 @@
 							align-center
 						"
 					>
-						<v-card-title class="text-uppercase">
+						<v-card-title 
+							v-if="$vuetify.breakpoint.mdAndUp" 
+							class="text-uppercase text-center"
+						>
 							{{ card.title }} !
 						</v-card-title>
+
+						<v-card-subtitle 
+							v-if="$vuetify.breakpoint.smAndDown"
+							class="text-uppercase text-center"
+						>
+							{{ card.title }} !
+						</v-card-subtitle>
 
 						<v-icon x-large> 
 							{{ card.icon }}

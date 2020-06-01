@@ -5,11 +5,13 @@
 		</h3>
 		<v-container 
 			class="
-				d-flex 
-				flex-xl-row
-				flex-lg-row
+				d-flex
+				flex-column
+				flex-sm-row
 				flex-md-row
-				flex-sm-column
+				flex-lg-row
+				flex-xl-row
+				align-start
 				justify-space-around
 			"
 		>

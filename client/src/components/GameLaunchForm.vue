@@ -5,7 +5,12 @@
 				tile
 				min-height="450px"
 				min-width="290px"
-				class='card d-flex flex-column align-center'
+				class='
+					card 
+					d-flex 
+					flex-column
+					align-center
+				'
 			>
 				<v-card-title class='text-uppercase'>
 					{{ $t('messages.tGameLaunching') }}
