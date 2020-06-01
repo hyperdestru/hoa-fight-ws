@@ -6,7 +6,8 @@
 		<v-container 
 			fluid 
 			class="
-				d-flex 
+				d-flex
+				flex-column
 				flex-xl-row
 				flex-lg-row
 				flex-md-row

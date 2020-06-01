@@ -6,9 +6,10 @@
 				d-flex
 				flex-row
 				justify-space-between
+				align-center
 			"
 		>
-			<v-icon x-large>
+			<v-icon :x-large="$vuetify.breakpoint.smAndUp">
 				mdi-alien
 			</v-icon>
 
