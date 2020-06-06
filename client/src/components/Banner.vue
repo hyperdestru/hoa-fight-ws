@@ -1,10 +1,23 @@
 <template>
-	<div class="banner d-flex flex-column justify-center align-center">
-		<h3 class="text-center display-2 text-uppercase">
-			{{ $t('messages.tProjectName') }}
-		</h3>
-
-		<p> {{ $t("messages.pCatchphrase") }} </p>
+	<div 
+		class="
+			banner 
+			d-flex 
+			flex-column 
+			justify-space-around 
+			align-center
+			accent
+			white--text
+		"
+	>
+		<div class="text-center">
+			<h2 class="display-4 text-uppercase">
+				{{ $t('messages.tProjectName') }}
+			</h2>
+			<p class="title"> 
+				{{ $t("messages.pCatchphrase") }} 
+			</p>
+		</div>
 
 		<v-btn class="text-uppercase">
 			{{ $t("messages.ctaPlayForFree") }}
@@ -21,7 +34,5 @@
 <style scoped>
 	.banner {
 		height: 600px;
-		background-color: #484747;
-		color: #ffffff;
 	}
 </style>

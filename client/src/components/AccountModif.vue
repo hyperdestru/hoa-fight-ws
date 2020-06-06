@@ -1,95 +1,114 @@
 <template>
-	<v-row justify="center">
-		<v-col cols="12" sm="12" md="10" lg="10" xl="10">
-			<v-card 
+	<v-card 
+		tile
+		class="
+			card
+			pa-4
+			d-flex
+
+			flex-column
+			justify-space-between
+			align-center
+
+			flex-sm-column
+			justify-sm-space-between
+			align-sm-center
+
+			flex-md-row
+			justify-md-space-between
+			align-md-start
+
+			flex-lg-row
+			justify-lg-space-between
+			align-lg-start
+
+			flex-xl-row
+			justify-xl-space-between
+			align-xl-start
+		"
+	>	
+		<div class="pa-4 d-flex flex-column">
+			<v-avatar
 				tile
-				min-height="450px"
-				min-width="290px"
-				class="
-					card
-					pa-10
-					d-flex 
-					flex-column
-					flex-sm-column
-					flex-md-row
-					flex-lg-row
-					flex-xl-row
-					align-center
-					align-sm-center
-					align-md-start
-					align-lg-start
-					align-xl-start
-					justify-space-between
-				"
+				class="mb-4"
+				min-width="128px"
+				min-height="128px"
+				color="primary"
 			>
-				<v-avatar 
-					tile 
-					min-width="132px" 
-					min-height="132px"
-					color="#3F5CD0"
-					class="mb-6"
+				<v-icon x-large>mdi-account</v-icon>
+				<v-btn tile absolute bottom x-small>
+					{{ $t('messages.lModify') }}
+				</v-btn>
+			</v-avatar>
+
+			<delete-account-btn>
+			</delete-account-btn>
+		</div>
+
+		<v-form
+			class="
+				form
+				pa-4
+				d-flex
+
+				flex-column
+				justify-space-between
+				align-center
+				
+				flex-sm-column
+				justify-sm-space-between
+				align-sm-center
+
+				flex-md-column
+				justify-md-space-between
+				align-md-center
+
+				flex-lg-row
+				flex-lg-wrap
+				justify-lg-space-between
+				align-lg-center
+
+				flex-xl-row
+				flex-xl-wrap
+				justify-xl-space-between
+				align-xl-center
+			"
+		>
+			<div v-for="(field, index) in form.fields" :key="index">
+				<v-text-field
+					clearable
+					outlined
+					:label="$t(field.label)"
 				>
-					<v-icon x-large>mdi-account</v-icon>
-					<v-btn absolute bottom x-small>
-						{{ $t('messages.lModify') }}
-					</v-btn>
-				</v-avatar>
+				</v-text-field>
+			</div>
 
-				<v-form 
-					class="
-						d-flex
-						flex-column 
-						justify-space-between 
-						align-center
-					"
-				>
-					<v-text-field
-						clearable
-						outlined
-						:label="$t('messages.lChangeUsername')"
-					>
-					</v-text-field>
-
-					<v-text-field
-						clearable
-						outlined
-						:label="$t('messages.lChangeEmail')"
-					>
-					</v-text-field>
-
-					<v-text-field
-						clearable
-						outlined
-						:label="$t('messages.lCurrentPwd')"
-					>
-					</v-text-field>
-
-					<v-text-field
-						clearable
-						outlined
-						:label="$t('messages.lNewPwd')"
-					>
-					</v-text-field>
-
-					<v-btn min-width="100%">
-						{{ $t('messages.ctaUpdate') }}
-					</v-btn>
-				</v-form>
-
-			</v-card>
-		</v-col>
-	</v-row>
+			<v-btn min-width="100%">
+				{{ $t('messages.ctaUpdate') }}
+			</v-btn>
+		</v-form>
+	</v-card>
 </template>
 
 <script>
+	import DeleteAccountBtn from '@/components/DeleteAccountBtn'
+
 	export default {
 		name: "AccountModif",
-		
+
+		components: {
+			'delete-account-btn': DeleteAccountBtn
+		},
+
 		data: () => ({
-
-		}),
-
-		methods: {
-		}
+			form: {
+				fields: [
+					{ label: 'messages.lChangeUsername' },
+					{ label: 'messages.lChangeEmail' },
+					{ label: 'messages.lCurrentPwd' },
+					{ label: 'messages.lNewPwd' }
+				]
+			}
+		})
 	}
 </script>

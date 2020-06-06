@@ -1,5 +1,5 @@
 <template>
-	<div class="footer">
+	<div class="footer secondary">
 		<v-container>
 			<ul 
 				class="
@@ -15,7 +15,11 @@
 					:key="index"
 					class="text-center caption"
 				>
-					<a v-on:click.prevent v-bind:href="page.link"> 
+					<a 	
+						class="primary--text"
+						v-on:click.prevent 
+						v-bind:href="page.link"
+					> 
 						{{ $t(page.name) }}
 					</a>
 				</li>
@@ -48,9 +52,6 @@
 </script>
 
 <style scoped>
-	.footer {
-		background-color: #eeeeee;
-	}
 	.footer ul {
 		list-style-type: none;
 	}

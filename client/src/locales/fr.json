@@ -32,13 +32,13 @@
 		"pWon": "Gagnée(s)",
 		"pLost": "Perdue(s)",	
 		"pCreatedAt": "Inscrit depuis le",
-		"pCatchphrase": "LE jeu de plateforme-combat 1v1 du Web !",
+		"pCatchphrase": "LE shooter 1v1 du Web !",
 
 		"ctaPlayForFree": "Joue gratuitement",
 		"ctaModifProfile": "Modifier profil",
 		"ctaConnect": "Connexion",
 		"ctaRegister": "Créer mon compte",
-		"ctaDeleteAccount": "Supprimer compte",
+		"ctaDeleteAccount": "Supprimer",
 		"ctaLaunchGame": "Lancer partie",
 
 		"lkConfidentialityPolicy": "Politique de confidentialité",

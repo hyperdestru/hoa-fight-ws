@@ -1,32 +1,49 @@
 <template>
-	<div class="gameplay-grid">
-		<v-container>
-			<v-row justify="center">
+	<div class="gameplay-grid primary">
+		<v-container fluid>
+			<v-row 
+				class="
+					d-flex 
+					flex-column
+					justify-space-between
+					align-center
+
+					flex-sm-column
+					justify-sm-space-between
+					align-sm-center
+
+					flex-md-row
+					justify-md-center
+					align-md-center
+
+					flex-lg-row
+					justify-lg-center
+					align-lg-center
+
+					flex-xl-row
+					justify-xl-center
+					align-xl-center
+				"
+			>
 				<v-col 
 					v-for="(card, index) in cards" :key="index"
-					cols="5"
+					cols="12" sm="10" md="5" lg="5" xl="5"
 				>
 
 					<v-card 
 						tile
+						dark
 						class="
 							card
 							d-flex
 							flex-column
 							justify-center
 							align-center
+							accent
 						"
 					>
-						<v-card-title 
-							v-if="$vuetify.breakpoint.mdAndUp" 
-							class="text-uppercase text-center"
-						>
-							{{ card.title }} !
-						</v-card-title>
-
 						<v-card-subtitle 
-							v-if="$vuetify.breakpoint.smAndDown"
-							class="text-uppercase text-center"
+							class="title text-uppercase text-center"
 						>
 							{{ card.title }} !
 						</v-card-subtitle>
@@ -73,11 +90,7 @@
 </script>
 
 <style scoped>
-	.gameplay-grid {
-		background-color: #4C6BCE;
-	}
 	.gameplay-grid .card {
 		min-height: 300px;
-		background-color: #eeeeee;
 	}
 </style>

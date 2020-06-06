@@ -1,5 +1,5 @@
 <template>
-	<div class="header">
+	<div class="header secondary">
 		<v-container 
 			fluid 
 			class="
@@ -68,9 +68,6 @@
 </script>
 
 <style scoped>
-	.header {
-		background-color: #eeeeee;
-	}
 	.header .menu-list {
 		background: none;
 	}
