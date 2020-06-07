@@ -30,17 +30,19 @@
 		<div class="pa-4 d-flex flex-column">
 			<v-avatar
 				tile
-				class="mb-4"
+				class="mb-4 d-flex flex-column"
 				min-width="128px"
 				min-height="128px"
 				color="primary"
 			>
-				<v-icon x-large>mdi-account</v-icon>
-				<v-btn tile absolute bottom x-small>
-					{{ $t('messages.lModify') }}
-				</v-btn>
+				<v-icon x-large>
+					mdi-account
+				</v-icon>
+				
+				<avatar-picker-btn>
+				</avatar-picker-btn>
 			</v-avatar>
-
+	
 			<delete-account-btn>
 			</delete-account-btn>
 		</div>
@@ -92,12 +94,14 @@
 
 <script>
 	import DeleteAccountBtn from '@/components/DeleteAccountBtn'
+	import AvatarPickerBtn from '@/components/AvatarPickerBtn'
 
 	export default {
 		name: "AccountModif",
 
 		components: {
-			'delete-account-btn': DeleteAccountBtn
+			'delete-account-btn': DeleteAccountBtn,
+			'avatar-picker-btn': AvatarPickerBtn
 		},
 
 		data: () => ({

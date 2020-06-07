@@ -15,7 +15,7 @@
 
 		<v-overlay 
 			:value="overlay" 
-			opacity="1"
+			opacity="0.95"
 			color="primary"
 			class="text-center"
 		>
@@ -44,11 +44,5 @@
 		data: () => ({
 			overlay: false
 		}),
-
-		methods: {
-			deleteAccount: function() {
-				console.log("Account delete - WIP");
-			}
-		}
 	}
 </script>

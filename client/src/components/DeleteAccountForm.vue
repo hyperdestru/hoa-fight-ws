@@ -17,7 +17,7 @@
 			</v-text-field>
 		</div>
 
-		<v-btn color="error" min-width="100%">
+		<v-btn @click="deleteAccount" color="error" min-width="100%">
 			{{ $t('messages.ctaDeleteAccountPlus') }}
 		</v-btn>
 	</v-form>
@@ -29,6 +29,12 @@
 
 		data: () => ({
 			label: 'messages.lEmail'
-		})
+		}),
+
+		methods: {
+			deleteAccount: function() {
+				console.log("Delete user account - WIP");
+			}
+		}
 	}
 </script>
