@@ -11,12 +11,12 @@
 		"
 	>
 		<div class="text-center">
-			<h2 class="display-4 text-uppercase">
+			<h1 class="display-4 text-uppercase">
 				{{ $t('messages.tProjectName') }}
-			</h2>
-			<p class="title"> 
+			</h1>
+			<h2 class="title"> 
 				{{ $t("messages.pCatchphrase") }} 
-			</p>
+			</h2>
 		</div>
 
 		<v-btn class="text-uppercase">
