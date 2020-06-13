@@ -51,7 +51,6 @@
 				</ul>
 			</v-progress-circular>
 		</div>
-		
 	</v-card>
 </template>
 

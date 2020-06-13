@@ -25,8 +25,8 @@
 </template>
 
 <script>
-	import DropdownMenu from '@/components/DropdownMenu'
-	import ClassicMenu from '@/components/ClassicMenu'
+	import DropdownMenu from '@/components/DropdownMenu';
+	import ClassicMenu from '@/components/ClassicMenu';
 
 	export default {
 		name: 'TheHeader',

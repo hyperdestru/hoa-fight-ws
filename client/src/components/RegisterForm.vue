@@ -6,7 +6,13 @@
 			</h3>
 			
 			<v-row justify="center">
-				<v-col cols="10" sm="10" md="5" lg="5" xl="5">
+				<v-col 
+					cols="10" 
+					sm="10"
+					md="5" 
+					lg="5" 
+					xl="5"
+				>
 					<v-form>
 						<v-text-field
 							clearable
@@ -55,7 +61,7 @@
 </template>
 
 <script>
-	import AuthenticationService from '@/services/AuthenticationService'
+	import AuthenticationService from '@/services/AuthenticationService';
 
 	export default {
 		name: "RegisterForm",

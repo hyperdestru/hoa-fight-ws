@@ -27,7 +27,13 @@
 			align-xl-start
 		"
 	>	
-		<div class="pa-4 d-flex flex-column">
+		<div 
+			class="
+				pa-4 
+				d-flex 
+				flex-column
+			"
+		>
 			<v-avatar
 				tile
 				class="mb-4 d-flex flex-column"
@@ -93,8 +99,8 @@
 </template>
 
 <script>
-	import DeleteAccountBtn from '@/components/DeleteAccountBtn'
-	import AvatarPickerBtn from '@/components/AvatarPickerBtn'
+	import DeleteAccountBtn from '@/components/DeleteAccountBtn';
+	import AvatarPickerBtn from '@/components/AvatarPickerBtn';
 
 	export default {
 		name: "AccountModif",

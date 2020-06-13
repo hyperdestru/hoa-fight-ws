@@ -32,9 +32,9 @@
 </template>
 
 <script>
-	import ProfileCard from '@/components/ProfileCard'
-	import StatsCard from '@/components/StatsCard'
-	import GameLaunchCard from '@/components/GameLaunchCard'
+	import ProfileCard from '@/components/ProfileCard';
+	import StatsCard from '@/components/StatsCard';
+	import GameLaunchCard from '@/components/GameLaunchCard';
 
 	export default {
 		name: "Dashboard",

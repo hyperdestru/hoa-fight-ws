@@ -5,7 +5,13 @@
 		</h3>
 		<v-container fluid>	
 			<v-row justify="center">
-				<v-col cols="11" sm="10" md="6" lg="6" xl="6">
+				<v-col 
+					cols="11" 
+					sm="10" 
+					md="6" 
+					lg="6" 
+					xl="6"
+				>
 					<account-modif></account-modif>
 				</v-col>
 			</v-row>

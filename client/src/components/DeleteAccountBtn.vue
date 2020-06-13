@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import DeleteAccountForm from '@/components/DeleteAccountForm'
+	import DeleteAccountForm from '@/components/DeleteAccountForm';
 
 	export default {
 		name: "DeleteAccountBtn",

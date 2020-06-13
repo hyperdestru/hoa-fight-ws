@@ -2,6 +2,7 @@
 	<div class="footer secondary">
 		<v-container>
 			<ul 
+				style="list-style-type: none"
 				class="
 					pa-0
 					d-flex
@@ -16,6 +17,7 @@
 					class="text-center caption"
 				>
 					<a 	
+						style="text-decoration: none"
 						class="primary--text"
 						v-on:click.prevent 
 						v-bind:href="page.link"
@@ -50,12 +52,3 @@
 		})
 	}
 </script>
-
-<style scoped>
-	.footer ul {
-		list-style-type: none;
-	}
-	.footer a {
-		text-decoration: none;
-	}
-</style>

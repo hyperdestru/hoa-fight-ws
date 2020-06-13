@@ -5,7 +5,7 @@
 </template>
 
 <script>
-	import RankingTable from '@/components/RankingTable'
+	import RankingTable from '@/components/RankingTable';
 
 	export default {
 		name: "Ranking",

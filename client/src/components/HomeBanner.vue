@@ -1,5 +1,6 @@
 <template>
 	<div 
+		style="height: 600px"
 		class="
 			home-banner 
 			d-flex 
@@ -30,9 +31,3 @@
 		name: 'HomeBanner'
 	}
 </script>
-
-<style scoped>
-	.home-banner {
-		height: 600px;
-	}
-</style>

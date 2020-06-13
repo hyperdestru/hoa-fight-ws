@@ -5,7 +5,13 @@
 				{{ $t('messages.tRanking') }}
 			</h3>
 			<v-row justify="center">
-				<v-col xs="10" sm="10" md="8" lg="8" xl="8">
+				<v-col 
+					cols="10" 
+					sm="10" 
+					md="8" 
+					lg="8" 
+					xl="8"
+				>
 					<v-data-table 
 						:headers="headers" 
 						:items="users" 
@@ -20,7 +26,6 @@
 </template>
 
 <script>
-
 	export default {
 		name: "RankingTable",
 		

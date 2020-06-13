@@ -4,7 +4,7 @@
 </template>
 
 <script>
-	import TheNav from '@/components/TheNav'
+	import TheNav from '@/components/TheNav';
 	
 	export default {
 		name: "ClassicMenu",

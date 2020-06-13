@@ -31,7 +31,7 @@
 </template>
 
 <script>
-	import AvatarPicker from '@/components/AvatarPicker'
+	import AvatarPicker from '@/components/AvatarPicker';
 
 	export default {
 		name: "AvatarPickerBtn",
