@@ -26,6 +26,9 @@
 		"tLogin": "Se connecter",
 		"tRegister": "S'inscrire",
 		"tRanking": "Classement",
+		"tRgpd": "Réglement général pour la protection des données",
+		"tCgu": "Conditions d'utilisation",
+		"tCookiesPolicy": "Utilisation des cookies",
 
 		"stSecondPlayer": "2eme joueur",
 		"stDeleteAccountWarning": "Attention, une fois supprimé c'est pour toujours, soyez sûr de vous",
@@ -50,5 +53,8 @@
 		"lkRegister": "Inscription",
 		"lkLogin": "Connexion",
 		"ctaUpdate": "Mettre à jour"
-	}
+	},
+	"rgpd": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, modi enim odit quia recusandae repudiandae sit consequatur dolor ratione nemo, non ea cumque dolorem necessitatibus. Iure numquam facilis delectus inventore.",
+	"cgu": "Officiis, modi enim odit quia recusandae repudiandae sit consequatur dolor ratione nemo, non ea cumque dolorem necessitatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure numquam facilis delectus inventore.",
+	"cookiesPolicy": "Iure numquam facilis delectus inventore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, modi enim odit quia recusandae repudiandae sit consequatur dolor ratione nemo, non ea cumque dolorem necessitatibus."
 }
