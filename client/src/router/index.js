@@ -31,17 +31,20 @@ const routes = [
 	{
 		path: '/ranking',
 		name: 'ranking',
-		component: Ranking
+		component: Ranking,
+		meta: { requiresAuth: true }
 	},
 	{
-		path: '/dashboard',
+		path: '/dashboard/:user',
 		name: 'dashboard',
-		component: Dashboard
+		component: Dashboard,
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/settings',
 		name: 'settings',
-		component: Settings
+		component: Settings,
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/rgpd',

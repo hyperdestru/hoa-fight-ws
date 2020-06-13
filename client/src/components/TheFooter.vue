@@ -16,14 +16,9 @@
 					:key="index"
 					class="text-center caption"
 				>
-					<a 	
-						style="text-decoration: none"
-						class="primary--text"
-						v-on:click.prevent 
-						v-bind:href="page.link"
-					> 
+					<router-link :to="{name: page.route}"> 
 						{{ $t(page.name) }}
-					</a>
+					</router-link>
 				</li>
 			</ul>
 		</v-container>
@@ -37,16 +32,16 @@
 		data: () => ({
 			pages: [
 				{
-					name: 'messages.lkConfidentialityPolicy', 
-					link: ""
+					name: 'messages.lkRgpd', 
+					route: "rgpd"
 				},
 				{
-					name: 'messages.lkTermsOfUse',
-					link: ""
+					name: 'messages.lkCgu',
+					route: "cgu"
 				},
 				{
 					name: 'messages.lkCookiesPolicy',
-					link: ""
+					route: "cookies"
 				}
 			]
 		})
