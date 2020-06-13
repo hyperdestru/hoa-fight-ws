@@ -1,20 +1,20 @@
 <template>
 	<div class="home">
-		<main-banner></main-banner>
-		<gameplay-grid></gameplay-grid>
+		<home-banner></home-banner>
+		<the-gameplay></the-gameplay>
 	</div>
 </template>
 
 <script>
-	import Banner from '@/components/Banner';
-	import Gameplay from '@/components/Gameplay';
+	import HomeBanner from '@/components/HomeBanner';
+	import TheGameplay from '@/components/TheGameplay';
 
 	export default {
 		name: 'Home',
 
 		components: {
-			'main-banner': Banner,
-			'gameplay-grid': Gameplay
+			'home-banner': HomeBanner,
+			'the-gameplay': TheGameplay
 		}
 	};
 </script>

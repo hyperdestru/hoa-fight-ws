@@ -1,5 +1,5 @@
 <template>
-	<div class="gameplay-grid primary">
+	<div class="gameplay primary">
 		<v-container fluid>
 			<v-row 
 				class="
@@ -33,6 +33,7 @@
 					<v-card 
 						tile
 						dark
+						min-height="300px"
 						class="
 							card
 							d-flex
@@ -60,7 +61,7 @@
 
 <script>
 	export default {
-		name: "Gameplay",
+		name: "TheGameplay",
 
 		data: () => ({
 			cards: [
@@ -88,9 +89,3 @@
 		})
 	}
 </script>
-
-<style scoped>
-	.gameplay-grid .card {
-		min-height: 300px;
-	}
-</style>

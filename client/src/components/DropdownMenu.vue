@@ -6,33 +6,19 @@
 			</v-icon>
 		</template>
 
-		<v-list>
-			<v-list-item
-				v-for="(item, index) in items"
-				:key="index"
-				@click="redirect"
-			>
-				<v-list-item-title>
-					{{ $t(item.name) }}
-				</v-list-item-title>
-			</v-list-item>
-		</v-list>
+		<the-nav :dropdown="true">
+		</the-nav>
 	</v-menu>
 </template>
 
 <script>
+	import TheNav from '@/components/TheNav'
+
 	export default {
-		name: "DropdownMenu",
+		name: 'DropdownMenu',
 
-		props: ['items'],
-		
-		data: () => ({
-		}),
-
-		methods: {
-			redirect: function() {
-				console.log("Redirection WIP");
-			}
+		components: {
+			'the-nav': TheNav
 		}
 	}
 </script>

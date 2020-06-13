@@ -30,7 +30,7 @@
 
 <script>
 	export default {
-		name: "Footer",
+		name: "TheFooter",
 
 		data: () => ({
 			pages: [

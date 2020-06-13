@@ -1,28 +1,28 @@
 <template>
 	<v-app>
-		<header-component>
-		</header-component>
+		<the-header>
+		</the-header>
 		
 		<v-content>
 			<router-view>
 			</router-view>
 		</v-content>
 
-		<footer-component>
-		</footer-component>
+		<the-footer>
+		</the-footer>
 	</v-app>
 </template>
 
 <script>
-	import Header from '@/components/Header';
-	import Footer from '@/components/Footer';
+	import TheHeader from '@/components/TheHeader';
+	import TheFooter from '@/components/TheFooter';
 
 	export default {
 		name: 'App',
 
 		components: {
-			'header-component': Header,
-			'footer-component': Footer
+			'the-header': TheHeader,
+			'the-footer': TheFooter
 		}
 	};
 </script>

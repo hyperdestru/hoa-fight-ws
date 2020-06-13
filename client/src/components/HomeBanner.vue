@@ -1,7 +1,7 @@
 <template>
 	<div 
 		class="
-			banner 
+			home-banner 
 			d-flex 
 			flex-column 
 			justify-space-around 
@@ -27,12 +27,12 @@
 
 <script>
 	export default {
-		name: 'Banner'
+		name: 'HomeBanner'
 	}
 </script>
 
 <style scoped>
-	.banner {
+	.home-banner {
 		height: 600px;
 	}
 </style>
