@@ -11,7 +11,9 @@
 			>
 				<v-list-item-content>
 					<v-list-item-title>
-						{{ $t(page.name) }}
+						<router-link tag="li" :to="{name: page.route}">
+							{{ $t(page.name) }}
+						</router-link>
 					</v-list-item-title>
 				</v-list-item-content>
 			</v-list-item>
@@ -34,15 +36,15 @@
 			pages: [
 				{
 					name: 'messages.lkHome',
-					link: ''
+					route: 'home'
 				},
 				{
 					name: 'messages.lkRegister',
-					link: ''
+					route: 'register'
 				},
 				{
 					name: 'messages.lkLogin', 
-					link: ''
+					route: 'login'
 				}
 			]
 		}),
