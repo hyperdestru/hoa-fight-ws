@@ -25,7 +25,7 @@
 						tile 
 						width="100px" 
 						height="100px" 
-						color="#3F5CD0"
+						color="primary"
 					>
 						<v-icon>mdi-account</v-icon>
 					</v-avatar>
