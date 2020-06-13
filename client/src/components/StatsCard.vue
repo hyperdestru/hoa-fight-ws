@@ -1,53 +1,58 @@
 <template>
-	<v-row justify="center">
-		<v-col cols="10">
-			<v-card 
-				tile
-				min-height="450px"
-				min-width="290px"
-				class="card d-flex flex-column align-center"
+	<v-card 
+		tile
+		min-height="450px"
+		min-width="290px"
+		class="
+			card 
+			d-flex 
+			flex-column 
+			align-center
+		"
+	>
+		<v-card-title class="title text-uppercase">
+			{{ $t('messages.tStats') }}
+		</v-card-title>
+
+		<div class="card-content mt-10">
+			
+			<v-progress-circular
+				size="256"
+				rotate="270"
+				width="32"
+				color="#3F5CD0"
+				:value="getRatio()"
 			>
-				<v-card-title class="text-uppercase">
-					{{ $t('messages.tStats') }}
-				</v-card-title>
+				<ul
+					style="list-style-type: none"
+					class="
+						pl-0 
+						d-flex 
+						flex-column 
+						justify-center 
+						align-center
+						font-weight-bold
+						black--text
+					"
+				>
+					<li class="display-1"> 
+						{{ getRatio() }}%
+					</li>
 
-				<div class="card-content mt-10">
-					<v-progress-circular
-						size="256"
-						rotate="270"
-						width="32"
-						color="#3F5CD0"
-						:value="getRatio()"
-					>
-						<ul 
-							class="
-								pl-0 
-								d-flex 
-								flex-column 
-								justify-center 
-								align-center
-							"
-						>
-							<li class="display-1"> 
-								{{ getRatio() }}%
-							</li>
-
-							<li class="won"> 
-								{{ getGamesWon() }}
-								{{ $t("messages.pWon") }}
-							</li>
-							
-							<li> 
-								{{ getGamesLost() }}
-								{{ $t("messages.pLost") }}
-							</li>
-						</ul>
-					</v-progress-circular>
-				</div>
-				
-			</v-card>
-		</v-col>
-	</v-row>
+					<li class="won primary--text"> 
+						{{ getGamesWon() }}
+						{{ $t("messages.pWon") }}
+					</li>
+					
+					<li> 
+						{{ getGamesLost() }}
+						{{ $t("messages.pLost") }}
+					</li>
+				</ul>
+			</v-progress-circular>
+		</div>
+		
+	</v-card>
 </template>
 
 <script>
@@ -91,15 +96,3 @@
 		}
 	}
 </script>
-
-<style scoped>
-	ul {
-		list-style-type: none;
-		color: #000000;
-		font-weight: bold;
-	}
-
-	ul .won {
-		color: "#3F5CD0";
-	}
-</style>

@@ -15,10 +15,18 @@
 				align-start
 				justify-space-around
 			"
-		>
-			<profile-card></profile-card>
-			<stats-card></stats-card>
-			<game-launch-form></game-launch-form>
+		>	
+			<v-row justify="center">
+				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
+					<profile-card></profile-card>
+				</v-col>
+				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
+					<stats-card></stats-card>
+				</v-col>
+				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
+					<game-launch-card></game-launch-card>
+				</v-col>
+			</v-row>
 		</v-container>
 	</div>
 </template>
@@ -26,7 +34,7 @@
 <script>
 	import ProfileCard from '@/components/ProfileCard'
 	import StatsCard from '@/components/StatsCard'
-	import GameLaunchForm from '../components/GameLaunchForm'
+	import GameLaunchCard from '@/components/GameLaunchCard'
 
 	export default {
 		name: "Dashboard",
@@ -34,11 +42,7 @@
 		components: {
 			"profile-card": ProfileCard,
 			"stats-card": StatsCard,
-			"game-launch-form": GameLaunchForm,
-		},
-
-		data: () => ({
-
-		}),
+			"game-launch-card": GameLaunchCard,
+		}
 	}
 </script>
