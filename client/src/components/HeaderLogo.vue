@@ -1,9 +1,7 @@
 <template>
-	<router-link :to="{name: 'home'}">
-		<v-icon :x-large="$vuetify.breakpoint.smAndUp">
-			mdi-boxing-glove
-		</v-icon>
-	</router-link>
+	<v-btn :to="{name: 'home'}" class="headline" text fab>
+		HF
+	</v-btn>
 </template>
 
 <script>

@@ -79,7 +79,7 @@
 					username: this.username,
 					email: this.email,
 					password: this.password
-				})
+				});
 			}
 		}
 	}

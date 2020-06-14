@@ -11,11 +11,18 @@
 			white--text
 		"
 	>
-		<div class="text-center">
+		<img 
+			src="https://media.giphy.com/media/l4FGxqS178R544oEM/giphy.gif" 
+			width="100%"
+			height="600px"
+			style="position: absolute; z-index:0; opacity:0.2"
+		>
+
+		<div class="text-center" style="z-index: 1">
 			<h1 class="display-4 text-uppercase">
 				{{ $t('messages.tProjectName') }}
 			</h1>
-			<h2 class="title"> 
+			<h2 class="headline"> 
 				{{ $t("messages.pCatchphrase") }} 
 			</h2>
 		</div>
