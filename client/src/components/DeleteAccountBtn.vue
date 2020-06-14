@@ -22,7 +22,12 @@
 			<delete-account-form>
 			</delete-account-form>
 
-			<v-btn @click="overlay = false" icon x-large class="mt-10">
+			<v-btn 
+				@click="overlay = false" 
+				icon 
+				x-large 
+				class="mt-10"
+			>
 				<v-icon>
 					mdi-close
 				</v-icon>

@@ -38,21 +38,24 @@
 		"pCreatedAt": "Inscrit depuis le",
 		"pCatchphrase": "Un shooter 1 contre 1 tranquille et fun !",
 
-		"ctaPlayForFree": "Joue gratuitement",
+		"ctaPlayForFree": "Jouer gratuitement",
 		"ctaModifProfile": "Modifier profil",
 		"ctaConnect": "Connexion",
 		"ctaRegister": "Créer mon compte",
 		"ctaDeleteAccount": "Supprimer",
 		"ctaDeleteAccountPlus": "Supprimer mon compte",
 		"ctaLaunchGame": "Lancer partie",
-
-		"lkRgpd": "Protection des données",
-		"lkCgu": "Conditions d'utilisation",
-		"lkCookiesPolicy": "Politique sur les cookies",
+		"ctaUpdate": "Mettre à jour",
+		
 		"lkHome": "Acceuil",
 		"lkRegister": "Inscription",
 		"lkLogin": "Connexion",
-		"ctaUpdate": "Mettre à jour"
+		"lkDashboard": "Tableau de bord",
+		"lkSignOut": "Deconnexion",
+		"lkRanking": "Classement",
+		"lkRgpd": "Protection des données",
+		"lkCgu": "Conditions d'utilisation",
+		"lkCookiesPolicy": "Politique sur les cookies"
 	},
 	"rgpd": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, modi enim odit quia recusandae repudiandae sit consequatur dolor ratione nemo, non ea cumque dolorem necessitatibus. Iure numquam facilis delectus inventore.",
 	"cgu": "Officiis, modi enim odit quia recusandae repudiandae sit consequatur dolor ratione nemo, non ea cumque dolorem necessitatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure numquam facilis delectus inventore.",

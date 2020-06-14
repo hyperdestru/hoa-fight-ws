@@ -49,7 +49,7 @@
 					v-model="guestMode"
 				></v-switch>
 
-				<v-btn min-width="100%">
+				<v-btn min-width="100%" tile>
 					{{ $t('messages.ctaLaunchGame') }}
 				</v-btn>
 			</v-form>

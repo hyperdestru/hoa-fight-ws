@@ -20,8 +20,8 @@
 			</h2>
 		</div>
 
-		<v-btn class="text-uppercase">
-			{{ $t("messages.ctaPlayForFree") }}
+		<v-btn to="login" tile>
+			{{ $t('messages.ctaPlayForFree') }}
 		</v-btn>
 	</div>
 </template>

@@ -1,21 +1,23 @@
 <template>
-	<v-list class="nav" color="secondary">
+	<v-list class="nav" color="secondary" flat>
 		<v-list-item-group 
 			class="text-uppercase" 
 			:class="{ 'd-flex': !dropdown }"
 		>
 			<v-list-item
-				@click="redirect"
-				v-for="(page, index) in pages" 
+				v-for="(page, index) in pages.logged" 
 				:key="index"
 			>
-				<v-list-item-content>
-					<v-list-item-title>
-						<router-link tag="li" :to="{name: page.route}">
+				<router-link 
+					:to="{name: page.route}"
+					style="text-decoration: none; color: #000;"
+				>
+					<v-list-item-content>
+						<v-list-item-title>
 							{{ $t(page.name) }}
-						</router-link>
-					</v-list-item-title>
-				</v-list-item-content>
+						</v-list-item-title>
+					</v-list-item-content>
+				</router-link>
 			</v-list-item>
 		</v-list-item-group>
 	</v-list>
@@ -33,26 +35,19 @@
 		},
 		
 		data: () => ({
-			pages: [
-				{
-					name: 'messages.lkHome',
-					route: 'home'
-				},
-				{
-					name: 'messages.lkRegister',
-					route: 'register'
-				},
-				{
-					name: 'messages.lkLogin', 
-					route: 'login'
-				}
-			]
-		}),
-
-		methods: {
-			redirect: function() {
-				console.log("Redirection WIP");
+			pages: {
+				public: [
+					{ name: 'messages.lkHome', route: 'home' },
+					{ name: 'messages.lkRegister', route: 'register' },
+					{ name: 'messages.lkLogin', route: 'login' }
+				],
+				logged: [
+					{ name: 'messages.lkHome', route: 'home' },
+					{ name: 'messages.lkRanking', route: 'ranking' },
+					{ name: 'messages.lkDashboard', route: 'dashboard' },
+					{ name: 'messages.lkSignOut', route: 'signout' }
+				]
 			}
-		}
+		})
 	}
 </script>

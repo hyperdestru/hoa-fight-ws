@@ -47,10 +47,10 @@
 						</v-text-field>
 
 						<v-btn
+							@click="register"
 							min-width="100%"
-							class="submit-btn"
 							tile
-							v-on:click="register">
+						>
 							{{ $t('messages.ctaRegister') }}
 						</v-btn>
 					</v-form>

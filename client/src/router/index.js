@@ -5,6 +5,7 @@ import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
 import Ranking from '@/views/Ranking.vue';
 import Dashboard from '@/views/Dashboard.vue';
+import SignOut from '@/views/SignOut.vue';
 import Settings from '@/views/Settings.vue';
 import Rgpd from '@/views/Rgpd.vue';
 import Cgu from '@/views/Cgu.vue';
@@ -35,9 +36,15 @@ const routes = [
 		meta: { requiresAuth: true }
 	},
 	{
-		path: '/dashboard/:user',
+		path: '/dashboard',
 		name: 'dashboard',
 		component: Dashboard,
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/signout',
+		name: 'signout',
+		component: SignOut,
 		meta: { requiresAuth: true }
 	},
 	{

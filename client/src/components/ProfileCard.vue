@@ -14,7 +14,8 @@
 			{{ $t('messages.tProfile') }}
 		</v-card-title>
 
-		<div 
+		<div
+			style="height: 300px"
 			class="
 				card-content 
 				mt-10 
@@ -33,7 +34,10 @@
 				<v-icon>mdi-account</v-icon>
 			</v-avatar>
 
-			<ul class="user-details">
+			<ul 
+				style="list-style-type: none" 
+				class="pa-0 user-details"
+			>
 				<li>
 					{{ $t("messages.lEmail") }} : {{ user.email }}
 				</li>
@@ -45,8 +49,8 @@
 				</li>
 			</ul>
 
-			<v-btn min-width="100%">
-				{{ $t("messages.ctaModifProfile") }}
+			<v-btn :to="{name: 'settings'}" min-width="100%" tile>
+				{{ $t('messages.ctaModifProfile') }}
 			</v-btn>
 		</div>
 	</v-card>
@@ -65,13 +69,3 @@
 		}),
 	}
 </script>
-
-<style scoped>
-	.card .user-details {
-		list-style-type: none;
-		padding: 0;
-	}
-	.card .card-content {
-		height: 300px;
-	}
-</style>

@@ -17,7 +17,12 @@
 			</v-text-field>
 		</div>
 
-		<v-btn @click="deleteAccount" color="error" min-width="100%">
+		<v-btn 
+			@click="deleteAccount"
+			tile
+			color="error" 
+			min-width="100%"
+		>
 			{{ $t('messages.ctaDeleteAccountPlus') }}
 		</v-btn>
 	</v-form>
