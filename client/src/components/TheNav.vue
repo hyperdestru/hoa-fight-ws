@@ -45,7 +45,11 @@
 					{ name: 'messages.lkHome', route: 'home' },
 					{ name: 'messages.lkRanking', route: 'ranking' },
 					{ name: 'messages.lkDashboard', route: 'dashboard' },
-					{ name: 'messages.lkSignOut', route: 'signout' }
+					{ 
+						name: 'messages.lkSignOut', 
+						route: 'home', 
+						params: { message: 'messages.tSignedOut' }
+					}
 				]
 			}
 		})
