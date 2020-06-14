@@ -29,6 +29,7 @@
 		"tRgpd": "Réglement général pour la protection des données",
 		"tCgu": "Conditions d'utilisation",
 		"tCookiesPolicy": "Utilisation des cookies",
+		"tSignedOut": "Tu es bien déconnecté-e, a bientôt !",
 
 		"stSecondPlayer": "2eme joueur",
 		"stDeleteAccountWarning": "Attention, une fois supprimé c'est pour toujours, soyez sûr de vous",
@@ -46,6 +47,7 @@
 		"ctaDeleteAccountPlus": "Supprimer mon compte",
 		"ctaLaunchGame": "Lancer partie",
 		"ctaUpdate": "Mettre à jour",
+		"ctaBackToHome": "Retour à l'acceuil",
 		
 		"lkHome": "Acceuil",
 		"lkRegister": "Inscription",
