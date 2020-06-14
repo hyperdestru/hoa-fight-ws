@@ -20,7 +20,7 @@
 			</h2>
 		</div>
 
-		<v-btn to="login" tile>
+		<v-btn :to="{name: 'login'}" tile>
 			{{ $t('messages.ctaPlayForFree') }}
 		</v-btn>
 	</div>
