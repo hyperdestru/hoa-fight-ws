@@ -9,7 +9,10 @@
 				:key="index"
 			>
 				<router-link 
-					:to="{name: page.route}"
+					:to="{
+						name: page.route,
+						params: { isSignedOut: page.isSignedOut }
+					}"
 					style="text-decoration: none; color: #000;"
 				>
 					<v-list-item-content>
@@ -37,18 +40,36 @@
 		data: () => ({
 			pages: {
 				public: [
-					{ name: 'messages.lkHome', route: 'home' },
-					{ name: 'messages.lkRegister', route: 'register' },
-					{ name: 'messages.lkLogin', route: 'login' }
+					{ 
+						name: 'messages.lkHome', 
+						route: 'home' 
+					},
+					{ 
+						name: 'messages.lkRegister', 
+						route: 'register' 
+					},
+					{ 
+						name: 'messages.lkLogin', 
+						route: 'login' 
+					}
 				],
 				logged: [
-					{ name: 'messages.lkHome', route: 'home' },
-					{ name: 'messages.lkRanking', route: 'ranking' },
-					{ name: 'messages.lkDashboard', route: 'dashboard' },
+					{ 
+						name: 'messages.lkHome', 
+						route: 'home' 
+					},
+					{ 
+						name: 'messages.lkRanking', 
+						route: 'ranking' 
+					},
+					{ 
+						name: 'messages.lkDashboard', 
+						route: 'dashboard' 
+					},
 					{ 
 						name: 'messages.lkSignOut', 
 						route: 'home', 
-						params: { message: 'messages.tSignedOut' }
+						isSignedOut: true
 					}
 				]
 			}
