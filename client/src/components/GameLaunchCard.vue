@@ -15,8 +15,10 @@
 		</v-card-title>
 
 		<div class="card-content mt-10">
-			
 			<p class="subtitle-2 text-center">
+				<v-icon>
+					mdi-account-multiple
+				</v-icon>
 				{{ $t('messages.stSecondPlayer') }}
 			</p>
 
