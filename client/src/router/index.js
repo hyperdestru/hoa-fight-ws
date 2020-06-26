@@ -60,7 +60,7 @@ const routes = [
 		path: '/cookies',
 		name: 'cookies',
 		component: CookiesPolicy
-	},
+	}
 ];
 
 const router = new VueRouter({
