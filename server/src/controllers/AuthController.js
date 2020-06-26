@@ -14,10 +14,11 @@ module.exports = {
 		try {
 			const user = await User.create(req.body);
 			const userJson = JSON.stringify(user);
-			res.send({
-				user: userJson,
-				token: jwtSignUser(userJson)
-			});
+			// res.send({
+			// 	user: userJson,
+			// 	token: jwtSignUser(userJson)
+			// });
+			res.send(userJson);
 		} catch(err) {
 			res.status(400).send({
 				error: "Error creating User"

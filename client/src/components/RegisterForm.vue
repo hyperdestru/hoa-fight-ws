@@ -42,7 +42,7 @@
 							clearable
 							outlined
 							:label="$t('messages.lConfirmPwd')"
-							v-model="passwordConfirm"
+							v-model="repeatPassword"
 							required>
 						</v-text-field>
 
@@ -70,7 +70,7 @@
 			username: '',
 			email: '',
 			password: '',
-			passwordConfirm: '',
+			repeatPassword: '',
 			error: null
 		}),
 
@@ -80,7 +80,8 @@
 					await AuthService.register({
 						username: this.username,
 						email: this.email,
-						password: this.password
+						password: this.password,
+						repeatPassword: this.repeatPassword,
 					});
 
 					this.$router.push({
@@ -88,6 +89,7 @@
 					});
 
 				} catch(err) {
+					// Error from Axios
 					console.log(err);
 				}
 			}

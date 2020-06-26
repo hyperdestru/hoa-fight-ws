@@ -1,5 +1,3 @@
-// const fs = require('fs');
-// const path = require('path');
 const mysql = require('mysql');
 const config = require('../config/config');
 

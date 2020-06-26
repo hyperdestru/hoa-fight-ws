@@ -5,6 +5,6 @@ module.exports = (app) => {
 	app.post(
 		'/register', 
 		AuthControllerRules.register,
-		AuthController.register,
+		AuthController.register
 	);
 }

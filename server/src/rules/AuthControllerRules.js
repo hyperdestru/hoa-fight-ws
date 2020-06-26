@@ -5,32 +5,32 @@ module.exports = {
 		const schema = Joi.object({
 			username: Joi.string().alphanum().min(5).max(20).required(),
 			password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-			repeat_password: Joi.ref('password'),
+			repeatPassword: Joi.ref('password'),
 			email: Joi.string().email({ 
-				minDomainSegments: 3, 
+				minDomainSegments: 2, 
 				tlds: { allow: ['com', 'fr'] }
 			})
-		}).with('password', 'repeat_password');
+		}).with('password', 'repeatPassword');
 
-		const { error, value } = schema.validate(req);
+		const { value, error } = schema.validate(req.body);
 		
 		if (error) {
 			const errorNature = error.details[0].context.key;
+
 			if (errorNature === 'email') {
 				res.status(400).send({
-					error: 'You must provide a valid email address'
+					error: 'Veuillez entrer une addresse e-mail valide'
 				});
 			} else if (errorNature === 'password') {
 				res.status(400).send({
-					error: 'You must provide a valid password'
+					error: 'Veuillez entrer un mot de passe valide'
 				});
 			} else {
 				res.status(400).send({
-					error: 'Invalid sign in information'
+					error: 'Informations non valides'
 				});
 			}
 		} else {
-			console.log(value);
 			next();
 		}
 	}
