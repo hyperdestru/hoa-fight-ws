@@ -16,15 +16,5 @@ module.exports = {
 				}
 			)
 		});
-	},
-
-	async login(params) {
-		bcrypt.compare(params.password, params.hash, function(err, result) {
-			if (result) {
-
-			} else {
-				
-			}
-		});
 	}
 }

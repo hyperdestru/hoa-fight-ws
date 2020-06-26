@@ -83,7 +83,9 @@
 						password: this.password
 					});
 
-					this.$router.push({name: 'dashboard'});
+					this.$router.push({
+						name: 'dashboard'
+					});
 
 				} catch(err) {
 					console.log(err);

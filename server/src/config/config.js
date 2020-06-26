@@ -7,5 +7,9 @@ module.exports = {
 		host: process.env.HOST || 'localhost',
 		dialect: process.env.DIALECT || 'mariadb',
 		storage: './hoafight.sql'
+	},
+
+	authentication: {
+		jwtSecret: process.env.JWT_SECRET || 'secret'
 	}
 }
