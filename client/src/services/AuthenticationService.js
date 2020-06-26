@@ -1,4 +1,9 @@
-import Api from '@/services/Api';
+import Api from './Api';
+import jwt from 'jsonwebtoken';
+
+function jwtSignUser() {
+	
+}
 
 export default {
 	register(credentials) {

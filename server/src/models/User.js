@@ -10,9 +10,21 @@ module.exports = {
 				'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
 				[params.email, params.username, hash],
 				function(error, rows, fields) {
-					if (error) throw error;
+					if (error) {
+						throw error;
+					}
 				}
 			)
+		});
+	},
+
+	async login(params) {
+		bcrypt.compare(params.password, params.hash, function(err, result) {
+			if (result) {
+
+			} else {
+				
+			}
 		});
 	}
 }

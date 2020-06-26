@@ -70,16 +70,24 @@
 			username: '',
 			email: '',
 			password: '',
-			passwordConfirm: ''
+			passwordConfirm: '',
+			error: null
 		}),
 
 		methods: {
 			async register() {
-				await AuthenticationService.register({
-					username: this.username,
-					email: this.email,
-					password: this.password
-				});
+				try {
+					await AuthenticationService.register({
+						username: this.username,
+						email: this.email,
+						password: this.password
+					});
+
+					this.$router.push({name: 'dashboard'});
+
+				} catch(err) {
+					console.log(err);
+				}
 			}
 		}
 	}
