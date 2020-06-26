@@ -1,13 +1,18 @@
 const db = require('./index');
+const bcrypt = require('bcrypt');
+
+const SALT_ROUNDS = 10;
 
 module.exports = {
 	async create(params) {
-		db.connection.query(
-			'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
-			[params.email, params.username, params.password],
-			function(error, rows, fields) {
-				if (error) throw error;
-			}
-		)
+		bcrypt.hash(params.password, SALT_ROUNDS, function(err, hash) {
+			db.connection.query(
+				'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
+				[params.email, params.username, hash],
+				function(error, rows, fields) {
+					if (error) throw error;
+				}
+			)
+		});
 	}
 }
