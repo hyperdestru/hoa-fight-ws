@@ -61,7 +61,7 @@
 </template>
 
 <script>
-	import AuthenticationService from '@/services/AuthenticationService';
+	import AuthService from '@/services/AuthService';
 
 	export default {
 		name: "RegisterForm",
@@ -77,7 +77,7 @@
 		methods: {
 			async register() {
 				try {
-					await AuthenticationService.register({
+					await AuthService.register({
 						username: this.username,
 						email: this.email,
 						password: this.password

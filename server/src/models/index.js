@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const mysql = require('mysql');
 const config = require('../config/config');
 
@@ -13,7 +13,9 @@ const connection = mysql.createConnection({
 });
 
 connection.connect(error => {
-	if (error) throw error;
+	if (error) {
+		throw error;
+	}
 	console.log(`Successfully connected to database ${config.db.database}`);
 });
 
