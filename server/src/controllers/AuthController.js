@@ -24,8 +24,10 @@ module.exports = {
 			// });
 			res.send(userJson);
 		} catch(err) {
+			// Ce catch ne fonctionne pas, le serveur crash à l'erreur SQL
+			// dans User.create si par exemple l'email existe dejà
 			res.status(400).send({
-				error: "Addresse email déjà existante"
+				error: "Un compte existe déjà avec cette addresse email"
 			});
 		}
 	},
