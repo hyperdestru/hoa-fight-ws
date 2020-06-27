@@ -12,7 +12,11 @@ function jwtSignUser(user) {
 module.exports = {
 	async register(req, res) {
 		try {
+			// C'est dans la methode User.create que l'INSERT SQL est realisé
+			// L'objet user est peuplé des proprietés username, email, password
+			// et repeatPassword
 			const user = await User.create(req.body);
+			// On transforme l'objet user en JSON. 
 			const userJson = JSON.stringify(user);
 			// res.send({
 			// 	user: userJson,
@@ -21,7 +25,7 @@ module.exports = {
 			res.send(userJson);
 		} catch(err) {
 			res.status(400).send({
-				error: "Error creating User"
+				error: "Addresse email déjà existante"
 			});
 		}
 	},
