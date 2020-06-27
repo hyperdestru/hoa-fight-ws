@@ -7,7 +7,8 @@
 			v-model="username"
 			:hint="$t('messages.lMinCharRule', {n: 5})"
 			:error-messages="errorType === 'username' ? error : ''"
-			required>
+			required
+		>
 		</v-text-field>
 
 		<v-text-field
@@ -16,7 +17,8 @@
 			:label="$t('messages.lEmail')"
 			v-model="email"
 			:error-messages="errorType === 'email' ? error : ''"
-			required>
+			required
+		>
 		</v-text-field>
 
 		<v-text-field
@@ -26,7 +28,8 @@
 			v-model="password"
 			:hint="$t('messages.lMinCharRule', {n: 8})"
 			:error-messages="errorType === 'password' ? error : ''"
-			required>
+			required
+		>
 		</v-text-field>
 
 		<v-text-field
@@ -35,7 +38,8 @@
 			:label="$t('messages.lConfirmPwd')"
 			v-model="repeatPassword"
 			:error-messages="errorType === 'repeatPassword' ? error : ''"
-			required>
+			required
+		>
 		</v-text-field>
 
 		<v-btn
