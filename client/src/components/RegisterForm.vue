@@ -3,40 +3,42 @@
 		<v-text-field
 			outlined
 			v-model="username"
+			:error-messages="errorMessageHandler('username')"
 			:label="$t('messages.lUsername')"
 			:hint="$t('messages.lMinCharRule', {n: 5})"
-			:error-messages="errorType === 'username' ? error : ''"
 		>
 		</v-text-field>
 
 		<v-text-field
 			outlined
 			v-model="email"
+			:error-messages="errorMessageHandler('email')"
 			:label="$t('messages.lEmail')"
-			:error-messages="errorType === 'email' ? error : ''"
 		>
 		</v-text-field>
 
 		<v-text-field
 			outlined
 			v-model="password"
+			:error-messages="errorMessageHandler('password')"
+			:label="$t('messages.lPassword')"
+			:hint="$t('messages.lMinCharRule', {n: 8})"
+
 			:type="showPassword ? 'text' : 'password'"
 			:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
 			@click:append="showPassword = !showPassword"
-			:label="$t('messages.lPassword')"
-			:hint="$t('messages.lMinCharRule', {n: 8})"
-			:error-messages="errorType === 'password' ? error : ''"
 		>
 		</v-text-field>
 
 		<v-text-field
 			outlined
 			v-model="repeatPassword"
+			:error-messages="errorMessageHandler('repeatPassword')"
+			:label="$t('messages.lConfirmPwd')"
+			
 			:type="showPassword ? 'text' : 'password'"
 			:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
 			@click:append="showPassword = !showPassword"
-			:label="$t('messages.lConfirmPwd')"
-			:error-messages="errorType === 'repeatPassword' ? error : ''"
 		>
 		</v-text-field>
 
@@ -67,6 +69,12 @@
 		}),
 
 		methods: {
+			errorMessageHandler: function(v) {
+				if (this.errorType === v) {
+					return this.error;
+				}
+			},
+
 			async register() {
 				try {
 					await AuthService.register({
