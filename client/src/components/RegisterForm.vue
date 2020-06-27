@@ -1,63 +1,51 @@
 <template>
-	<div class="register-form">
-		<v-container>
-			<h3 class="text-center pa-8 display-1">
-				{{ $t('messages.tRegister') }}
-			</h3>
-			
-			<v-row justify="center">
-				<v-col 
-					cols="10" 
-					sm="10"
-					md="5" 
-					lg="5" 
-					xl="5"
-				>
-					<v-form>
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lUsername')"
-							v-model="username"
-							required>
-						</v-text-field>
+	<v-form>
+		<v-text-field
+			clearable
+			outlined
+			:label="$t('messages.lUsername')"
+			v-model="username"
+			:hint="$t('messages.lMinCharRule', {n: 5})"
+			:error-messages="errorType === 'username' ? error : ''"
+			required>
+		</v-text-field>
 
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lEmail')"
-							v-model="email"
-							required>
-						</v-text-field>
+		<v-text-field
+			clearable
+			outlined
+			:label="$t('messages.lEmail')"
+			v-model="email"
+			:error-messages="errorType === 'email' ? error : ''"
+			required>
+		</v-text-field>
 
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lPassword')"
-							v-model="password"
-							required>
-						</v-text-field>
+		<v-text-field
+			clearable
+			outlined
+			:label="$t('messages.lPassword')"
+			v-model="password"
+			:hint="$t('messages.lMinCharRule', {n: 8})"
+			:error-messages="errorType === 'password' ? error : ''"
+			required>
+		</v-text-field>
 
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lConfirmPwd')"
-							v-model="repeatPassword"
-							required>
-						</v-text-field>
+		<v-text-field
+			clearable
+			outlined
+			:label="$t('messages.lConfirmPwd')"
+			v-model="repeatPassword"
+			:error-messages="errorType === 'repeatPassword' ? error : ''"
+			required>
+		</v-text-field>
 
-						<v-btn
-							@click="register"
-							min-width="100%"
-							tile
-						>
-							{{ $t('messages.ctaRegister') }}
-						</v-btn>
-					</v-form>
-				</v-col>
-			</v-row>
-		</v-container>
-	</div>
+		<v-btn
+			@click="register"
+			min-width="100%"
+			tile
+		>
+			{{ $t('messages.ctaRegister') }}
+		</v-btn>
+	</v-form>
 </template>
 
 <script>
@@ -71,7 +59,8 @@
 			email: '',
 			password: '',
 			repeatPassword: '',
-			error: null
+			error: null,
+			errorType: null
 		}),
 
 		methods: {
@@ -90,7 +79,8 @@
 
 				} catch(err) {
 					// Error from Axios
-					console.log(err);
+					this.error = err.response.data.error;
+					this.errorType = err.response.data.errorType;
 				}
 			}
 		}
