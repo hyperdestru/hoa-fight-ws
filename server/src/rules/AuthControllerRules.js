@@ -24,7 +24,6 @@ module.exports = {
 		
 		if (error) {
 			let errorNature = error.details[0].context.key;
-			console.log(error);
 			
 			switch(errorNature) {
 				case 'username':
