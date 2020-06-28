@@ -41,19 +41,20 @@ module.exports = {
 		db.connection.query(
 			'SELECT DISTINCT * FROM users WHERE email = ?',
 			[params.email],
-			function(error, result) {
+			function(error, queryResult) {
 				if (error) {
 					throw error;
 				} else {
 					bcrypt.compare(
 						params.password, 
-						result.password, 
+						queryResult.password, 
 						function(error, result) {
 							if (error) {
 								throw error;
 							} else {
 								if (result === true) {
 									// User authentifié c'est le bon mdp
+									return queryResult;
 								} else {
 									// Mauvais mdp
 								}
