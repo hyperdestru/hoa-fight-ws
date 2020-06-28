@@ -1,52 +1,68 @@
 <template>
-	<div class="login-form">
-		<v-container>
-			<h3 class="text-center pa-8 display-1">
-				{{ $t('messages.tLogin') }}
-			</h3>
+	<v-form>
+		<v-text-field
+			outlined
+			v-model="email"
+			:label="$t('messages.lEmail')"
+			:error-messages="(errorType === 'email') ? error : ''"
+		>
+		</v-text-field>
 
-			<v-row justify="center">
-				<v-col 
-					cols="10" 
-					sm="10" 
-					md="5" 
-					lg="5" 
-					xl="5"
-				>
-					<v-form>
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lUsername')"
-							v-model="username"
-							required>
-						</v-text-field>
+		<v-text-field
+			outlined
+			v-model="password"
+			:label="$t('messages.lPassword')"
+			:error-messages="(errorType === 'password') ? error : ''"
 
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lPassword')"
-							v-model="password"
-							required>
-						</v-text-field>
+			:type="showPassword ? 'text' : 'password'"
+			:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+			@click:append="showPassword = !showPassword"
+		>
+		</v-text-field>
 
-						<v-btn tile min-width="100%">
-							{{ $t('messages.ctaConnect') }}
-						</v-btn>
-					</v-form>
-				</v-col>
-			</v-row>
-		</v-container>
-	</div>
+		<v-btn
+			@click="login"
+			min-width="100%"
+			tile
+		>
+			{{ $t('messages.ctaConnect') }}
+		</v-btn>
+	</v-form>
 </template>
 
 <script>
+	import AuthService from '@/services/AuthService';
+
 	export default {
 		name: "LoginForm",
 		
 		data: () => ({
-			username: '',
+			email: '',
 			password: '',
-		})
+
+			error: null,
+			errorType: null,
+			showPassword: false
+		}),
+
+		methods: {
+			async login() {
+				try {
+					await AuthService.login({
+						email: this.email,
+						password: this.password
+					});
+
+					this.$router.push({
+						name: 'dashboard'
+					});
+
+				} catch(err) {
+					// Error from Axios
+					this.error = err.response.data.error;
+					this.errorType = err.response.data.errorType;
+				}
+			}
+		}
 	}
 </script>

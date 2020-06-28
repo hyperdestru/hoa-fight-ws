@@ -3,7 +3,7 @@
 		<v-text-field
 			outlined
 			v-model="username"
-			:error-messages="errorMessageHandler('username')"
+			:error-messages="(errorType === 'username') ? error : ''"
 			:label="$t('messages.lUsername')"
 			:hint="$t('messages.lMinCharRule', {n: 5})"
 		>
@@ -12,7 +12,7 @@
 		<v-text-field
 			outlined
 			v-model="email"
-			:error-messages="errorMessageHandler('email')"
+			:error-messages="(errorType === 'email') ? error : ''"
 			:label="$t('messages.lEmail')"
 		>
 		</v-text-field>
@@ -20,7 +20,7 @@
 		<v-text-field
 			outlined
 			v-model="password"
-			:error-messages="errorMessageHandler('password')"
+			:error-messages="(errorType === 'password') ? error : ''"
 			:label="$t('messages.lPassword')"
 			:hint="$t('messages.lMinCharRule', {n: 8})"
 
@@ -33,7 +33,7 @@
 		<v-text-field
 			outlined
 			v-model="repeatPassword"
-			:error-messages="errorMessageHandler('repeatPassword')"
+			:error-messages="(errorType === 'repeatPassword') ? error : ''"
 			:label="$t('messages.lConfirmPwd')"
 			
 			:type="showPassword ? 'text' : 'password'"
@@ -63,18 +63,13 @@
 			email: '',
 			password: '',
 			repeatPassword: '',
+			
 			error: null,
 			errorType: null,
 			showPassword: false
 		}),
 
 		methods: {
-			errorMessageHandler: function(v) {
-				if (this.errorType === v) {
-					return this.error;
-				}
-			},
-
 			async register() {
 				try {
 					await AuthService.register({
