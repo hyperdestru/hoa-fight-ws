@@ -1,6 +1,5 @@
 const mysql = require('mysql');
 const config = require('../config/config');
-
 const db = {};
 
 const connection = mysql.createConnection({
@@ -11,9 +10,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect(error => {
-	if (error) {
-		throw error;
-	}
+	if (error) throw error;
 	console.log(`Successfully connected to database ${config.db.database}`);
 });
 

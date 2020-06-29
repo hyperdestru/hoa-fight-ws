@@ -9,7 +9,45 @@ let errorMessages = {
 }
 
 module.exports = {
+	login (req, res, next) {
+		
+		const schema = Joi.object({
+			email: Joi.string().email(),
+			password: Joi.string()
+		});
+
+		const { value, error } = schema.validate(req.body);
+		
+		if (error) {
+			let errorNature = error.details[0].context.key;
+
+			switch (errorNature) {
+				case 'email':
+					res.status(400).send({
+						error: errorMessages.email,
+						errorType: errorNature
+					});
+					break;
+
+				case 'password':
+					res.status(400).send({
+						error: errorMessages.password,
+						errorType: errorNature
+					});
+					break;
+
+				default:
+					res.status(400).send({
+						error: errorMessages.other,
+					});
+			}
+		} else {
+			next();
+		}
+	},
+
 	register(req, res, next) {
+
 		const schema = Joi.object({
 			username: Joi.string().alphanum().min(5).max(20).required(),
 			email: Joi.string().email({ 
@@ -24,7 +62,7 @@ module.exports = {
 		
 		if (error) {
 			let errorNature = error.details[0].context.key;
-			
+
 			switch (errorNature) {
 				case 'username':
 					res.status(400).send({
@@ -32,27 +70,31 @@ module.exports = {
 						errorType: errorNature
 					});
 					break;
+
 				case 'email':
 					res.status(400).send({
 						error: errorMessages.email,
 						errorType: errorNature
 					});
 					break;
+
 				case 'password':
 					res.status(400).send({
 						error: errorMessages.password,
 						errorType: errorNature
 					});
 					break;
+
 				case 'repeatPassword':
 					res.status(400).send({
 						error: errorMessages.repeatPassword,
 						errorType: errorNature
 					});
 					break;
+
 				default:
 					res.status(400).send({
-						error: errorMessage.other,
+						error: errorMessages.other,
 					});
 			}
 		} else {

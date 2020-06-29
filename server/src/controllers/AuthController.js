@@ -12,23 +12,32 @@ function jwtSignUser(user) {
 module.exports = {
 	async register(req, res) {
 		try {
-			// Undefined
 			const user = await User.create(req.body);
-			// Undefined
 			const userJson = JSON.stringify(user);
 			res.send({
 				user: userJson,
 				token: jwtSignUser(userJson)
 			});
 		} catch(error) {
+			// BUG_28-06 : Ca tombe toujours dans ce catch quoiqu'il arrive
 			res.status(400).send({
-				error: "Un compte existe déjà avec cette addresse email",
-				errorType: "alreadyExist"
+				error: "ERREUR LORS DU REGISTER",
 			});
 		}
 	},
 
-	async login(params) {
-		
+	async login(req, res) {
+		try {
+			const user = await User.findOne(req.body);
+			const userJson = JSON.stringify(user);
+			res.send({
+				user: userJson,
+				token: jwtSignUser(userJson)
+			});
+		} catch (error) {
+			res.status(400).send({
+				error: "ERREUR LORS DU LOGIN",
+			});	
+		}
 	}
 }
