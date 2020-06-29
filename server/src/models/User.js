@@ -1,42 +1,20 @@
-const db = require('./index');
 const bcrypt = require('bcrypt');
 
-const SALT_ROUNDS = 10;
-
 module.exports = {
-	async create(params) {	
-		try {
-			bcrypt.hash(params.password, SALT_ROUNDS, function(error, hash) {
+	async create(params) {
+		const connection = await require('./index');
+		const SALT_ROUNDS = 10;
+		const hash = await bcrypt.hash(params.password, SALT_ROUNDS);
+		const [ insertResult ] = await connection.execute(
+			'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
+			[params.email, params.username, hash]
+		);
+		const [ newUser ] = await connection.execute(
+			'SELECT id, username, email FROM users WHERE id = ?',
+			[insertResult.insertId]
+		);
 
-				if (error) throw error;
-				
-				// Le serveur crash si on insere un email qui existe deja en base
-				db.connection.query(
-					'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
-					[params.email, params.username, hash],
-					function(error, result) {
-
-						if (error) throw error;
-	
-						db.connection.query(
-							'SELECT * FROM users WHERE id = ?',
-							[result.insertId],
-							function(error, result) {
-
-								if (error) throw error;
-
-								//*****Debug*****//
-								console.log(result);
-
-								return result;
-							}
-						);
-					}
-				);
-			});
-		} catch (error ) {
-			throw error;
-		}
+		return newUser[0];
 	},
 
 	async findOne(params) {
@@ -46,6 +24,7 @@ module.exports = {
 				[params.email],
 				function(error, result) {
 					if (error) throw error;
+
 					const user = result[0];
 
 					bcrypt.compare(
