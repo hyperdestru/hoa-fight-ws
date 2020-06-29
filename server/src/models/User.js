@@ -38,16 +38,21 @@ module.exports = {
 			[params.email]
 		);
 
+		// On verifie que le hash de la base correspond avec le mdp du login
 		const hash = result[0].password;
 		const passwordMatch = await bcrypt.compare(params.password, hash);
 
 		if (passwordMatch === true) {
+			// Si le mdp est OK alors je retourne les infos du user
+			// J'aurai bien fait un return result[0] mais je ne veux pas 
+			// retourner le password.
 			return { 
 				id: result[0].id, 
 				email: result[0].email, 
 				username: result[0].username 
 			}
 		} else {
+			// Faudrait traiter ce genre d'erreur jusqu'au front
 			throw new Error("Wrong password");
 		}
 	}
