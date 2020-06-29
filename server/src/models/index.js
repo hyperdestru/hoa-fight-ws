@@ -12,6 +12,7 @@ module.exports =
 
 	}).then(connection => {
 
+		console.log(`Successfully connected to database ${config.db.database}`);
 		return connection;
 
 	}).catch(error => {
