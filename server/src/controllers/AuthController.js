@@ -31,7 +31,7 @@ module.exports = {
 
 	async login(req, res) {
 		try {
-			
+
 			const user = await User.findOne(req.body);
 			const userJson = JSON.stringify(user);
 			res.send({
