@@ -52,5 +52,12 @@ module.exports = {
 			// Faudrait traiter ce genre d'erreur jusqu'au front
 			throw new Error("Wrong password");
 		}
+	},
+
+	async getRatio() {
+		const connection = await require('./index');
+		// query number of matchs played in total
+		// query number of matchs won
+		// ratio en % = (total matchs / matchs won) * 100
 	}
 }
