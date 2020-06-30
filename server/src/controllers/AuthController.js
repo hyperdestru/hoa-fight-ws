@@ -16,9 +16,9 @@ function jwtSignUser(user) {
 module.exports = {
 	async register(req, res) {
 		try {
-
 			const user = await User.create(req.body);
 			const userJson = JSON.stringify(user);
+
 			res.send({
 				user: userJson,
 				token: jwtSignUser(userJson)
@@ -31,16 +31,19 @@ module.exports = {
 
 	async login(req, res) {
 		try {
-
 			const user = await User.findOne(req.body);
 			const userJson = JSON.stringify(user);
+			
 			res.send({
 				user: userJson,
 				token: jwtSignUser(userJson)
 			});
 
 		} catch (error) {
-			throw error;
+			res.status(403).send({
+				error: "Mot de passe erroné",
+				errorType: "password"
+			});
 		}
 	}
 }

@@ -2,21 +2,20 @@
 const mysql = require('mysql2/promise');
 const config = require('../config/config');
 
-module.exports = 
-	mysql.createConnection({
-		
-		host: config.db.host,
-		user: config.db.user,
-		password: config.db.password,
-		database: config.db.database
+module.exports = mysql.createConnection({
+	
+	host: config.db.host,
+	user: config.db.user,
+	password: config.db.password,
+	database: config.db.database
 
-	}).then(connection => {
+}).then(connection => {
 
-		console.log(`Successfully connected to database ${config.db.database}`);
-		return connection;
+	console.log(`Successfully connected to database ${config.db.database}`);
+	return connection;
 
-	}).catch(error => {
+}).catch(error => {
 
-		throw error;
+	throw error;
 
-	});
+});

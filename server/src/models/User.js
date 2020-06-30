@@ -2,7 +2,6 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
 	async create(params) {
-
 		// La connection est exportée de maniere asynchrone alors on l'importe
 		// aussi de maniere asynchrone.
 		const connection = await require('./index');
@@ -19,18 +18,16 @@ module.exports = {
 			'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
 			[params.email, params.username, hash]
 		);
-		// User qui vient d'être ajouté dans la base.
+		// User qui vient d'être ajouté dans la base (cf. insertId).
 		const [ newUser ] = await connection.execute(
 			'SELECT id, username, email FROM users WHERE id = ?',
 			[insertResult.insertId]
 		);
 
 		return newUser[0];
-
 	},
 
 	async findOne(params) {
-
 		const connection = await require('./index');
 
 		const [ result ] = await connection.execute(
@@ -38,8 +35,8 @@ module.exports = {
 			[params.email]
 		);
 
-		// On verifie que le hash de la base correspond avec le mdp du login
 		const hash = result[0].password;
+		// On verifie que le hash de la base correspond avec le mdp du login
 		const passwordMatch = await bcrypt.compare(params.password, hash);
 
 		if (passwordMatch === true) {
