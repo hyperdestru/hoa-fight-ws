@@ -4,11 +4,9 @@ const config = require('../config/config');
 
 function jwtSignUser(user) {
 	const ONE_WEEK = 60 * 60 * 24 * 7;
+
 	return jwt.sign(
-		{
-			exp: ONE_WEEK, 
-			data: user
-		}, 
+		{ exp: ONE_WEEK, data: user }, 
 		config.authentication.jwtSecret
 	);
 }
@@ -16,11 +14,11 @@ function jwtSignUser(user) {
 module.exports = {
 	async register(req, res) {
 		try {
+
 			const user = await User.create(req.body);
 			const userJson = JSON.stringify(user);
 
 			res.send({
-				user: userJson,
 				token: jwtSignUser(userJson)
 			});
 
@@ -31,11 +29,11 @@ module.exports = {
 
 	async login(req, res) {
 		try {
+
 			const user = await User.findOne(req.body);
 			const userJson = JSON.stringify(user);
 			
 			res.send({
-				user: userJson,
 				token: jwtSignUser(userJson)
 			});
 

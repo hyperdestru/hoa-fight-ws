@@ -45,7 +45,7 @@
 					{{ $t("messages.lUsername") }} : {{ user.username }}
 				</li>
 				<li>
-					{{ $t("messages.pCreatedAt") }} : {{ user.createdAt }}
+					{{ $t("messages.pCreatedAt") }} : {{ user.creationDate }}
 				</li>
 			</ul>
 
@@ -64,7 +64,7 @@
 			user: {
 				email: "emy@mail.com",
 				username: "Emy87",
-				createdAt: "19/06/2020"
+				creationDate: "19/06/2020"
 			}
 		}),
 	}

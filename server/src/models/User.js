@@ -20,10 +20,10 @@ module.exports = {
 		);
 		// User qui vient d'être ajouté dans la base (cf. insertId).
 		const [ newUser ] = await connection.execute(
-			'SELECT id, username, email FROM users WHERE id = ?',
+			'SELECT id, username, email, creation_date FROM users WHERE id = ?',
 			[insertResult.insertId]
 		);
-
+		// Retourne qqchose comme { id: , username: , email: , creation_date: }
 		return newUser[0];
 	},
 
