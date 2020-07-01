@@ -54,10 +54,21 @@ module.exports = {
 		}
 	},
 
-	async getRatio() {
+	async getRatio(pId) {
 		const connection = await require('./index');
-		// query number of matchs played in total
-		// query number of matchs won
-		// ratio en % = (total matchs / matchs won) * 100
+		const [ totalGames ] = await connection.execute(
+			`SELECT user_id, COUNT(*) as total_games 
+			FROM users_matchs WHERE users_matchs.user_id = ?`,
+			[ pId ]
+		);
+		const [ wonGames ] = await connection.execute(
+			`SELECT users_matchs.user_id , COUNT(users_matchs.win) 
+			AS won_games FROM users_matchs 
+			WHERE users_matchs.win = true AND users_matchs.user_id = ?`,
+			[ pId ]
+		);
+		const ratio = (totalGames[0] / wonGames[0]) * 100;
+		
+		return ratio;
 	}
 }
