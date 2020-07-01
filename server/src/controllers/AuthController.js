@@ -11,6 +11,13 @@ function jwtSignUser(user) {
 	);
 }
 
+function jwtDecode(token) {
+	jwt.verify(token, config.authentication.jwtSecret, function(error, decoded) {
+		if (error) throw error;
+		console.log(decoded);
+	});
+}
+
 module.exports = {
 	async register(req, res) {
 		try {
@@ -42,12 +49,14 @@ module.exports = {
 				res.send({
 					token: jwtSignUser(userJson)
 				});
+
 			} else {
 				res.status(403).send({
 					error: "Mot de passe erroné",
 					errorType: "password"
 				});
 			}
+
 
 		} catch (error) {
 			throw error;
