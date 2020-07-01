@@ -31,17 +31,26 @@ module.exports = {
 		try {
 
 			const user = await User.findOne(req.body);
-			const userJson = JSON.stringify(user);
-			
-			res.send({
-				token: jwtSignUser(userJson)
-			});
+			const passwordMatch = await User.comparePassword(
+				req.body.password,
+				user.password
+			);
+
+			if (passwordMatch === true) {
+				const userJson = JSON.stringify(user);
+
+				res.send({
+					token: jwtSignUser(userJson)
+				});
+			} else {
+				res.status(403).send({
+					error: "Mot de passe erroné",
+					errorType: "password"
+				});
+			}
 
 		} catch (error) {
-			res.status(403).send({
-				error: "Mot de passe erroné",
-				errorType: "password"
-			});
+			throw error;
 		}
 	}
 }

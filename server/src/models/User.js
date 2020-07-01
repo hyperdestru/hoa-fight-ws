@@ -1,74 +1,93 @@
 const bcrypt = require('bcrypt');
 
 module.exports = {
+	/**
+	 * Crée un utilisateur dans la base - hash le mdp - et retourne cet 
+	 * utilisateur nouvellement créé.
+	 */
 	async create(params) {
-		// La connection est exportée de maniere asynchrone alors on l'importe
-		// aussi de maniere asynchrone.
 		const connection = await require('./index');
 
-		const SALT_ROUNDS = 10;
-		// On hash le mdp reçu via req.body (cf. vue RegisterForm)
-		const hash = await bcrypt.hash(params.password, SALT_ROUNDS);
+		const hash = await this.hashPassword(params.password);
 
-		// Le resultat de l'insert du user dans la db.
-		// Je m'en sers pour avoir accés à l'insertId et ainsi faire une query
-		// en suivant pour chopper les infos du user qui vient juste de 
-		// s'inscrire.
 		const [ insertResult ] = await connection.execute(
 			'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
 			[params.email, params.username, hash]
 		);
-		// User qui vient d'être ajouté dans la base (cf. insertId).
+
 		const [ newUser ] = await connection.execute(
 			'SELECT id, username, email, creation_date FROM users WHERE id = ?',
 			[insertResult.insertId]
 		);
-		// Retourne qqchose comme { id: , username: , email: , creation_date: }
+
 		return newUser[0];
+	},
+
+	/**
+	 * Retourne le hash d'un mot de passe
+	 */
+	async hashPassword(pPassword) {
+		const SALT_ROUNDS = 10;
+		const hash = await bcrypt.hash(pPassword, SALT_ROUNDS);
+		return hash;
+	},
+
+	/**
+	 * Verifie qu'un mot de passe en clair et un hash correspondent.
+	 */
+	async comparePassword(pPassword, pHash) {
+		const match = await bcrypt.compare(pPassword, pHash);
+		return match;
+	},
+
+	/**
+	 * Renvoie le nombre de parties gagnées par un utilisateur (id). 
+	 */
+	async getWonGames(pId) {
+		const connection = await require('./index');
+
+		const [ result ] = await connection.execute(
+			`SELECT COUNT(users_matchs.win) as wonGames
+			FROM users_matchs 
+			WHERE users_matchs.win = true 
+			AND users_matchs.user_id = ?`,
+			[ pId ]
+		);
+
+		return result[0].wonGames;
+	},
+
+	/**
+	 * Retourne le nombre de parties totales jouées par utilisateur (id). 
+	 */
+	async getAllGames(pId) {
+		const connection = await require('./index');
+
+		const [ result ] = await connection.execute(
+			`SELECT COUNT(*) as totalGames 
+			FROM users_matchs 
+			WHERE users_matchs.user_id = ?`,
+			[ pId ]
+		);
+
+		return result[0].totalGames;
 	},
 
 	async findOne(params) {
 		const connection = await require('./index');
 
 		const [ result ] = await connection.execute(
-			'SELECT DISTINCT id, email, password, username FROM users WHERE email = ?',
+			`SELECT DISTINCT id, email, username, password
+			FROM users WHERE email = ?`,
 			[params.email]
 		);
 
-		const hash = result[0].password;
-		// On verifie que le hash de la base correspond avec le mdp du login
-		const passwordMatch = await bcrypt.compare(params.password, hash);
-
-		if (passwordMatch === true) {
-			// Si le mdp est OK alors je retourne les infos du user
-			// J'aurai bien fait un return result[0] mais je ne veux pas 
-			// retourner le password.
-			return { 
-				id: result[0].id, 
-				email: result[0].email, 
-				username: result[0].username 
-			}
-		} else {
-			// Faudrait traiter ce genre d'erreur jusqu'au front
-			throw new Error("Wrong password");
-		}
+		return result[0];
 	},
 
 	async getRatio(pId) {
-		const connection = await require('./index');
-		const [ totalGames ] = await connection.execute(
-			`SELECT user_id, COUNT(*) as total_games 
-			FROM users_matchs WHERE users_matchs.user_id = ?`,
-			[ pId ]
-		);
-		const [ wonGames ] = await connection.execute(
-			`SELECT users_matchs.user_id , COUNT(users_matchs.win) 
-			AS won_games FROM users_matchs 
-			WHERE users_matchs.win = true AND users_matchs.user_id = ?`,
-			[ pId ]
-		);
-		const ratio = (totalGames[0] / wonGames[0]) * 100;
-		
-		return ratio;
+		const win = await this.getWonGames(pId);
+		const all = await this.getAllGames(pId);
+		return (win / all) * 100;
 	}
 }
