@@ -73,6 +73,10 @@ module.exports = {
 		return result[0].totalGames;
 	},
 
+	/**
+	 * A partir de son email, retourne l'id, l'email, le pseudo et hash mdp
+	 * d'un utilisateur.
+	 */
 	async findOne(params) {
 		const connection = await require('./index');
 
