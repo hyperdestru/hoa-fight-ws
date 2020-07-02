@@ -21,7 +21,7 @@
 				rotate="270"
 				width="32"
 				color="#3F5CD0"
-				:value="getRatio()"
+				:value="userStats.ratio"
 			>
 				<ul
 					style="list-style-type: none"
@@ -36,16 +36,16 @@
 					"
 				>
 					<li class="display-1"> 
-						{{ getRatio() }}%
+						{{ userStats.ratio }}%
 					</li>
 
 					<li class="won primary--text"> 
-						{{ getGamesWon() }}
+						{{userStats.wonGames }}
 						{{ $t("messages.pWon") }}
 					</li>
 					
 					<li> 
-						{{ getGamesLost() }}
+						{{ userStats.lostGames }}
 						{{ $t("messages.pLost") }}
 					</li>
 				</ul>
@@ -58,39 +58,12 @@
 	export default {
 		name: "StatsCard",
 		
-		data: () => ({
-			user: {
-				ratio: null,
-				games: {
-					total: 10,
-					won: 9,
-				}
-			}
-		}),
-
-		methods: {
-			getRatio: function() {
-				if (this.user.games.won <= this.user.games.total) {
-					return (this.user.games.won * 100) / this.user.games.total;
-				} else {
-					return "--";
-				}
-			},
-
-			getGamesWon: function() {
-				if (this.user.games.won <= this.user.games.total) {
-					return this.user.games.won;
-				} else {
-					return "--";
-				}
-			},
-
-			getGamesLost: function() {
-				if (this.user.games.won <= this.user.games.total) {
-					return  this.user.games.total - this.user.games.won;
-				} else {
-					return "--";
-				}
+		props: {
+			userStats: {
+				ratio: Number,
+				wonGames: Number,
+				lostGames: Number,
+				totalGames: Number
 			}
 		}
 	}

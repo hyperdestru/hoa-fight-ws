@@ -21,7 +21,7 @@
 					<profile-card></profile-card>
 				</v-col>
 				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
-					<stats-card></stats-card>
+					<stats-card :userStats="userStats"></stats-card>
 				</v-col>
 				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
 					<game-launch-card></game-launch-card>
@@ -43,6 +43,15 @@
 			"profile-card": ProfileCard,
 			"stats-card": StatsCard,
 			"game-launch-card": GameLaunchCard,
-		}
+		},
+
+		data: () => ({
+			userStats: {
+				ratio: 90,
+				wonGames: 9,
+				lostGames: 1,
+				totalGames: 10
+			}
+		})
 	}
 </script>
