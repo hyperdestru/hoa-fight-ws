@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 
 function jwtSignUser(user) {
-	const ONE_WEEK = 60 * 60 * 24 * 7;
+	const ONE_DAY = 60 * 60 * 24;
 
 	return jwt.sign(
-		{ exp: ONE_WEEK, data: user }, 
+		{ exp: ONE_DAY, data: user }, 
 		config.authentication.jwtSecret
 	);
 }
