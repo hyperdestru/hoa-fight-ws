@@ -46,6 +46,7 @@ module.exports = {
 			);
 
 			if (passwordMatch === true) {
+				
 				const userJson = JSON.stringify({
 					id: user.id,
 					username: user.username,
