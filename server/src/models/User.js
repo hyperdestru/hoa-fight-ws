@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 module.exports = {
 	/**
 	 * Crée un utilisateur dans la base - hash le mdp - et retourne cet 
-	 * utilisateur nouvellement créé.
+	 * utilisateur nouvellement créé : id, pseudo, email et date de création.
 	 */
 	async create(params) {
 		const connection = await require('./index');
@@ -11,12 +11,14 @@ module.exports = {
 		const hash = await this.hashPassword(params.password);
 
 		const [ insertResult ] = await connection.execute(
-			'INSERT INTO users (email, username, password) VALUES (?, ?, ?)',
+			`INSERT INTO users (email, username, password) 
+			VALUES (?, ?, ?)`,
 			[params.email, params.username, hash]
 		);
 
 		const [ newUser ] = await connection.execute(
-			'SELECT id, username, email, creation_date FROM users WHERE id = ?',
+			`SELECT id, username, email, creation_date AS creationDate 
+			FROM users WHERE id = ?`,
 			[insertResult.insertId]
 		);
 
@@ -47,7 +49,7 @@ module.exports = {
 		const connection = await require('./index');
 
 		const [ result ] = await connection.execute(
-			`SELECT COUNT(users_matchs.win) as wonGames
+			`SELECT COUNT(users_matchs.win) AS wonGames
 			FROM users_matchs 
 			WHERE users_matchs.win = true 
 			AND users_matchs.user_id = ?`,
@@ -64,7 +66,7 @@ module.exports = {
 		const connection = await require('./index');
 
 		const [ result ] = await connection.execute(
-			`SELECT COUNT(*) as totalGames 
+			`SELECT COUNT(*) AS totalGames 
 			FROM users_matchs 
 			WHERE users_matchs.user_id = ?`,
 			[ pId ]
@@ -74,14 +76,14 @@ module.exports = {
 	},
 
 	/**
-	 * A partir de son email, retourne l'id, l'email, le pseudo et hash mdp
-	 * d'un utilisateur.
+	 * A partir de son email, retourne l'id, l'email, le pseudo, date de 
+	 * de création et hash mdp d'un utilisateur.
 	 */
 	async findOne(params) {
 		const connection = await require('./index');
 
 		const [ result ] = await connection.execute(
-			`SELECT DISTINCT id, email, username, password
+			`SELECT DISTINCT id, email, username, password, creation_date AS creationDate
 			FROM users WHERE email = ?`,
 			[params.email]
 		);

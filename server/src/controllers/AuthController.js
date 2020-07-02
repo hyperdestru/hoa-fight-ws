@@ -23,6 +23,7 @@ module.exports = {
 		try {
 
 			const user = await User.create(req.body);
+			
 			const userJson = JSON.stringify(user);
 
 			res.send({
@@ -38,13 +39,19 @@ module.exports = {
 		try {
 
 			const user = await User.findOne(req.body);
+
 			const passwordMatch = await User.comparePassword(
 				req.body.password,
 				user.password
 			);
 
 			if (passwordMatch === true) {
-				const userJson = JSON.stringify(user);
+				const userJson = JSON.stringify({
+					id: user.id,
+					username: user.username,
+					email: user.email,
+					creationDate: user.creationDate
+				});
 
 				res.send({
 					token: jwtSignUser(userJson)
