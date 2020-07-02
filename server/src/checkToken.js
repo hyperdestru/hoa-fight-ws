@@ -10,15 +10,19 @@ module.exports = (req, res, next) => {
 	}
 
 	if (token) {
-		jwt.verify(token, config.authentication.jwtSecret, function(error, decoded) {
+		jwt.verify(token, config.authentication.jwtSecret, 
+			function(error, decoded) {
+
 			if (error) {
 				res.status(401).send({
-					error: "Le token n'est pas valide"
+					error: "Token invalide"
 				});
+				throw error;
 			} else {
 				req.decodedToken = decoded;
 				next();
 			}
+
 		});
 	} else {
 		res.status(401).send({
