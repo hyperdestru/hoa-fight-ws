@@ -57,11 +57,16 @@
 
 		async mounted() {
 			try {
-				this.userStats = await DashboardService.getStats();
+
+				this.userStats = await DashboardService.getStats({
+					userId: this.$store.getters.userId
+				});
+
 			} catch(err) {
+
 				this.$store.commit('auth', false);
-				this.$store.commit('userId', null);
 				this.$router.push({ name: 'login' });
+
 			}
 		}
 	}

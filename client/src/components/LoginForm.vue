@@ -48,13 +48,15 @@
 		methods: {
 			async login() {
 				try {
-					const { auth, userId } = await AuthService.login({
+					const res = await AuthService.login({
 						email: this.email,
 						password: this.password
 					});
-					
-					this.$store.commit('auth', auth);
-					this.$store.commit('userId', userId);
+
+					// Donnée en dur pour test
+					this.$store.commit('auth', res.data.auth);
+					// Donnée en dur pour test
+					this.$store.commit('userId', res.data.userId);
 					this.$router.push({ name: 'dashboard' });
 
 				} catch(err) {
