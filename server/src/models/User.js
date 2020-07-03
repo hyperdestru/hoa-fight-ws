@@ -16,17 +16,18 @@ module.exports = {
 	async create(params) {
 		const connection = await require('./index');
 		const hash = await this.hashPassword(params.password);
-		await connection.execute(
+		const [ insertResult ] = await connection.execute(
 			`INSERT INTO users (email, username, password) 
 			VALUES (?, ?, ?)`,
 			[params.email, params.username, hash]
 		);
+		return insertResult.insertId;
 	},
 
 	async find(params) {
 		const connection = await require('./index');
 		const [ result ] = await connection.execute(
-			`SELECT DISTINCT email, password
+			`SELECT DISTINCT id, email, password
 			FROM users WHERE email = ?`,
 			[params.email]
 		);

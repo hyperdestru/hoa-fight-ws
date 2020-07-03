@@ -72,19 +72,21 @@
 		methods: {
 			async register() {
 				try {
-					await AuthService.register({
+					const { auth, userId } = await AuthService.register({
 						username: this.username,
 						email: this.email,
 						password: this.password,
 						repeatPassword: this.repeatPassword,
 					});
+					
+					this.$store.commit('auth', auth);
+					this.$store.commit('userId', userId);
 
 					this.$router.push({
 						name: 'dashboard'
 					});
 
 				} catch(err) {
-					// Error from Axios
 					this.error = err.response.data.error;
 					this.errorType = err.response.data.errorType;
 				}

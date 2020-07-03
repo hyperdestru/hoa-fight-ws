@@ -5,7 +5,12 @@
 			:class="{ 'd-flex': !dropdown }"
 		>
 			<v-list-item
-				v-for="(page, index) in pages.logged" 
+				v-for="
+					(page, index) in 
+					this.$store.getters.auth === true  ? 
+					pages.logged : 
+					pages.public
+				" 
 				:key="index"
 			>
 				<router-link 

@@ -60,10 +60,8 @@
 		
 		props: {
 			userStats: {
-				ratio: Number,
-				wonGames: Number,
-				lostGames: Number,
-				totalGames: Number
+				type: Object,
+				required: true
 			}
 		}
 	}

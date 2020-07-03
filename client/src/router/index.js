@@ -32,16 +32,25 @@ const routes = [
 		path: '/ranking',
 		name: 'ranking',
 		component: Ranking,
+		meta: {
+			requiresAuth: true
+		}
 	},
 	{
 		path: '/dashboard',
 		name: 'dashboard',
 		component: Dashboard,
+		meta: {
+			requiresAuth: true
+		}
 	},
 	{
 		path: '/settings',
 		name: 'settings',
 		component: Settings,
+		meta: {
+			requiresAuth: true
+		}
 	},
 	{
 		path: '/rgpd',

@@ -48,17 +48,19 @@
 		methods: {
 			async login() {
 				try {
-					await AuthService.login({
+					const { auth, userId } = await AuthService.login({
 						email: this.email,
 						password: this.password
 					});
+					
+					this.$store.commit('auth', auth);
+					this.$store.commit('userId', userId);
 
 					this.$router.push({
 						name: 'dashboard'
 					});
 
 				} catch(err) {
-					// Error from Axios
 					this.error = err.response.data.error;
 					this.errorType = err.response.data.errorType;
 				}

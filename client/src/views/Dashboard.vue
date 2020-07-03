@@ -18,13 +18,18 @@
 		>	
 			<v-row justify="center">
 				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
-					<profile-card></profile-card>
+					<profile-card>
+					</profile-card>
 				</v-col>
+
 				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
-					<stats-card :userStats="userStats"></stats-card>
+					<stats-card :userStats="userStats">
+					</stats-card>
 				</v-col>
+				
 				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
-					<game-launch-card></game-launch-card>
+					<game-launch-card>
+					</game-launch-card>
 				</v-col>
 			</v-row>
 		</v-container>
@@ -35,6 +40,7 @@
 	import ProfileCard from '@/components/ProfileCard';
 	import StatsCard from '@/components/StatsCard';
 	import GameLaunchCard from '@/components/GameLaunchCard';
+	import DashboardService from '@/services/DashboardService';
 
 	export default {
 		name: "Dashboard",
@@ -46,12 +52,15 @@
 		},
 
 		data: () => ({
-			userStats: {
-				ratio: 90,
-				wonGames: 9,
-				lostGames: 1,
-				totalGames: 10
+			userStats: {},
+		}),
+
+		async mounted() {
+			try {
+				this.userStats = await DashboardService.getStats();
+			} catch(err) {
+				this.$router.push({ name: 'login' });
 			}
-		})
+		}
 	}
 </script>

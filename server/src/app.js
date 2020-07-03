@@ -14,6 +14,7 @@ app.use(cors());
 app.use(session({
 	secret: config.authentication.sessionSecret,
 	resave: false,
+	httpOnly: true,
 	saveUninitialized: true,
 	cookie: { secure: true, sameSite: 'strict' }
 }));

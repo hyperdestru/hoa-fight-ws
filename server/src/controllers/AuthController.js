@@ -1,26 +1,36 @@
 const User = require('../models/User');
-const config = require('../config/config');
 
 module.exports = {
 	async register(req, res) {
 		try {
-			await User.create(req.body);
-			req.session.isLogged = true;
+			const newUserId = await User.create(req.body);
+
+			req.session.auth = true;
+			req.session.userId = newUserId;
+
 			res.send({
-				isLogged: req.session.isLogged
+				auth: req.session.auth,
+				userId: req.session.userId
 			});
+
 		} catch (error) {
+
 			if (error.code === 'ER_DUP_ENTRY') {
+
 				if (error.sqlMessage === `Duplicate entry '${req.body.username}' for key 'username'`) {
+
 					res.status(400).send({
 						error: 'Ce pseudo est déjà pris',
 						errorType: 'username'
 					});
+
 				} else {
+
 					res.status(400).send({
 						error: 'Un compte est déjà associé à cet e-mail',
 						errorType: 'email'
 					});
+
 				}
 			}
 		}
@@ -29,27 +39,38 @@ module.exports = {
 	async login(req, res) {
 		try {
 			const user = await User.find(req.body);
+
 			const passwordMatch = await User.comparePassword(
 				req.body.password,
 				user.password
 			);
+
 			if (passwordMatch === true) {
-				req.session.isLogged = true;
+
+				req.session.auth = true;
+				req.session.userId = user.id;
+
 				res.send({
-					isLogged: req.session.isLogged
+					auth: req.session.auth,
+					userId: req.session.userId
 				});
+
 			} else {
+
 				res.status(403).send({
 					error: "Mot de passe erroné",
 					errorType: "password"
 				});
+
 			}
 		} catch (error) {
+
 			// Email introuvable dans la base
 			res.status(400).send({
 				error: 'Email non valide',
 				errorType: 'email'
 			});
+
 		}
 	}
 }
