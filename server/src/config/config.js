@@ -8,8 +8,8 @@ module.exports = {
 		dialect: process.env.DIALECT || 'mariadb',
 		storage: './hoafight.sql'
 	},
-
 	authentication: {
-		jwtSecret: process.env.JWT_SECRET || 'secret'
+		jwtSecret: process.env.JWT_SECRET || 'secret',
+		sessionSecret: '1f6323eea9e74e91f6d40ecd9730746c657ffe8c5441858'
 	}
 }

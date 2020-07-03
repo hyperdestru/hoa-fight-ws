@@ -1,6 +1,24 @@
 const bcrypt = require('bcrypt');
 
 module.exports = {
+
+	/**
+	 * Retourne le hash d'un mot de passe
+	 */
+	async hashPassword(pPassword) {
+		const SALT_ROUNDS = 10;
+		const hash = await bcrypt.hash(pPassword, SALT_ROUNDS);
+		return hash;
+	},
+
+	/**
+	 * Verifie qu'un mot de passe en clair et un hash correspondent.
+	 */
+	async comparePassword(pPassword, pHash) {
+		const match = await bcrypt.compare(pPassword, pHash);
+		return match;
+	},
+
 	/**
 	 * Crée un utilisateur dans la base - hash le mdp - et retourne cet 
 	 * utilisateur nouvellement créé : id, pseudo, email et date de création.
@@ -26,20 +44,19 @@ module.exports = {
 	},
 
 	/**
-	 * Retourne le hash d'un mot de passe
+	 * A partir de son email, retourne l'id, l'email, le pseudo, date de 
+	 * de création et hash mdp d'un utilisateur.
 	 */
-	async hashPassword(pPassword) {
-		const SALT_ROUNDS = 10;
-		const hash = await bcrypt.hash(pPassword, SALT_ROUNDS);
-		return hash;
-	},
+	async findOne(params) {
+		const connection = await require('./index');
 
-	/**
-	 * Verifie qu'un mot de passe en clair et un hash correspondent.
-	 */
-	async comparePassword(pPassword, pHash) {
-		const match = await bcrypt.compare(pPassword, pHash);
-		return match;
+		const [ result ] = await connection.execute(
+			`SELECT DISTINCT id, email, username, password, creation_date AS creationDate
+			FROM users WHERE email = ?`,
+			[params.email]
+		);
+
+		return result[0];
 	},
 
 	/**
@@ -73,22 +90,6 @@ module.exports = {
 		);
 
 		return result[0].totalGames;
-	},
-
-	/**
-	 * A partir de son email, retourne l'id, l'email, le pseudo, date de 
-	 * de création et hash mdp d'un utilisateur.
-	 */
-	async findOne(params) {
-		const connection = await require('./index');
-
-		const [ result ] = await connection.execute(
-			`SELECT DISTINCT id, email, username, password, creation_date AS creationDate
-			FROM users WHERE email = ?`,
-			[params.email]
-		);
-
-		return result[0];
 	},
 
 	async getRatio(pId) {
