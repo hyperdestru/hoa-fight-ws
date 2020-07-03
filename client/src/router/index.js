@@ -74,4 +74,12 @@ const router = new VueRouter({
 	routes
 });
 
+router.beforeEach((to, from, next) => {
+	if (to.meta.requiresAuth === true && this.$store.getters.auth === false) {
+		next({ name: 'login' });
+	} else {
+		next();
+	}
+});
+
 export default router;
