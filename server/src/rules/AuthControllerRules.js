@@ -1,22 +1,24 @@
 const Joi = require('@hapi/joi');
 
 let errorMessages = {
-	username: 'Veuillez entrer un pseudo valide',
-	email: 'Veuillez entrer un email valide',
-	password: 'Veuillez entrer un mot de passe valide',
-	repeatPassword: 'Veuillez entrer un mot de passe identique',
-	other: 'Veuillez entrer des informations valides'
+	username: 'Pseudo non valide',
+	email: 'Email non valide',
+	password: 'Mot de passe non valide',
+	repeatPassword: 'Mot de passe non identique',
+	other: 'Informations non valides'
 }
 
 module.exports = {
 	login (req, res, next) {
 		
 		const schema = Joi.object({
+
 			email: Joi.string().email(),
 			password: Joi.string()
+
 		});
 
-		const { value, error } = schema.validate(req.body);
+		const { error } = schema.validate(req.body);
 		
 		if (error) {
 			let errorNature = error.details[0].context.key;
@@ -39,6 +41,7 @@ module.exports = {
 				default:
 					res.status(400).send({
 						error: errorMessages.other,
+						errorType: errorNature
 					});
 			}
 		} else {
@@ -49,6 +52,7 @@ module.exports = {
 	register(req, res, next) {
 
 		const schema = Joi.object({
+
 			username: Joi.string().alphanum().min(3).max(20).required(),
 			email: Joi.string().email({ 
 				minDomainSegments: 2, 
@@ -56,9 +60,10 @@ module.exports = {
 			}),
 			password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{8,30}$')),
 			repeatPassword: Joi.ref('password')
+
 		}).with('password', 'repeatPassword');
 
-		const { value, error } = schema.validate(req.body);
+		const { error } = schema.validate(req.body);
 		
 		if (error) {
 			let errorNature = error.details[0].context.key;
@@ -95,6 +100,7 @@ module.exports = {
 				default:
 					res.status(400).send({
 						error: errorMessages.other,
+						errorType: errorNature
 					});
 			}
 		} else {

@@ -18,14 +18,6 @@ app.use(session({
 	cookie: { secure: true, sameSite: 'strict' }
 }));
 
-app.get('/', function(req, res, next) {
-	if (req.session.id) {
-		console.log("SESSION ID EXISTS ==> ", req.sessionID)
-	} else {
-		console.log("SESSION ID DOES NOT EXISTS");
-	}
-})
-
 // Passing our backend app as argument of the module exported in routes.js
 require('./routes')(app);
 
