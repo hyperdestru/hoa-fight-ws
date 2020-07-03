@@ -81,10 +81,7 @@
 					
 					this.$store.commit('auth', auth);
 					this.$store.commit('userId', userId);
-
-					this.$router.push({
-						name: 'dashboard'
-					});
+					this.$router.push({ name: 'dashboard' });
 
 				} catch(err) {
 					this.error = err.response.data.error;

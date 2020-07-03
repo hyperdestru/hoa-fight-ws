@@ -59,6 +59,8 @@
 			try {
 				this.userStats = await DashboardService.getStats();
 			} catch(err) {
+				this.$store.commit('auth', false);
+				this.$store.commit('userId', null);
 				this.$router.push({ name: 'login' });
 			}
 		}
