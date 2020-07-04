@@ -1,5 +1,5 @@
 <template>
-	<v-card tile>
+	<v-card tile class="mt-8">
 		<h3 class="pa-4 text-center">
 			{{ title }}
 		</h3>
