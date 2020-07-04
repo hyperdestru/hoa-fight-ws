@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<the-header>
+		<the-header v-if="this.$route.name !== 'game'">
 		</the-header>
 		
 		<v-content>
@@ -8,7 +8,7 @@
 			</router-view>
 		</v-content>
 
-		<the-footer>
+		<the-footer v-if="this.$route.name !== 'game'">
 		</the-footer>
 	</v-app>
 </template>
@@ -22,7 +22,7 @@
 
 		components: {
 			'the-header': TheHeader,
-			'the-footer': TheFooter
+			'the-footer': TheFooter,
 		}
 	};
 </script>

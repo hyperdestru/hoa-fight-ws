@@ -51,7 +51,12 @@
 					v-model="guestMode"
 				></v-switch>
 
-				<v-btn min-width="100%" tile>
+				<v-btn
+					:to="(guestMode === true) ? {name: 'game'} : ''"
+					:disabled="guestMode === false"
+					min-width="100%" 
+					tile
+				>
 					{{ $t('messages.ctaLaunchGame') }}
 				</v-btn>
 			</v-form>

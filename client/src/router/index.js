@@ -11,6 +11,7 @@ import Rgpd from '@/views/Rgpd.vue';
 import Cgu from '@/views/Cgu.vue';
 import CookiesPolicy from '@/views/CookiesPolicy.vue';
 import The404 from '@/views/404.vue';
+import TheGame from '@/views/TheGame.vue';
 
 Vue.use(VueRouter);
 
@@ -42,6 +43,14 @@ const routes = [
 		path: '/dashboard',
 		name: 'dashboard',
 		component: Dashboard,
+		meta: {
+			requiresAuth: true
+		}
+	},
+	{
+		path: '/game',
+		name: 'game',
+		component: TheGame,
 		meta: {
 			requiresAuth: true
 		}
