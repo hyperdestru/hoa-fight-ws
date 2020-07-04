@@ -57,6 +57,7 @@ module.exports = {
 		return result[0].totalGames;
 	},
 
+	// Plutôt faire le calcul dans le controller non ?
 	async getRatio(pId) {
 		const win = await this.getWonGames(pId);
 		const all = await this.getAllGames(pId);
