@@ -3,19 +3,9 @@ const User = require('../models/User');
 module.exports = {
 	async register(req, res) {
 		try {
-			const newUserId = await User.create(req.body);
 
-			// BUG_03072020 : le cookie de session n'est pas persistant
-			// Un nouveau est crée à chaque nouvelle requete
-			// Donc par exemple session.auth sera undefined lors du GET sur
-			// la vue dashboard.
-			req.session.auth = true;
-			req.session.userId = newUserId;
-
-			res.send({
-				auth: req.session.auth,
-				userId: req.session.userId
-			});
+			await User.create(req.body);
+			res.end();
 
 		} catch (error) {
 
@@ -51,13 +41,7 @@ module.exports = {
 
 			if (passwordMatch === true) {
 
-				req.session.auth = true;
-				req.session.userId = user.id;
-
-				res.send({
-					auth: req.session.auth,
-					userId: req.session.userId
-				});
+				res.end();
 
 			} else {
 

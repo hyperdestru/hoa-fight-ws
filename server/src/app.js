@@ -7,17 +7,21 @@ const session = require('express-session');
 
 const app = express();
 
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(session({
+const sessionConfig = {
 	secret: config.authentication.sessionSecret,
 	resave: false,
 	httpOnly: true,
 	saveUninitialized: true,
-	cookie: { secure: true, sameSite: 'strict' }
-}));
+	cookie: { secure: false, maxAge: 60*60*60*24*7 }
+}
+
+app.use(session(sessionConfig));
+
+app.locals.session = {};
 
 // Passing our backend app as argument of the module exported in routes.js
 require('./routes')(app);

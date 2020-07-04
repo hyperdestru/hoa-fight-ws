@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '@/store/vuex';
 import Home from '@/views/Home.vue';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
@@ -76,9 +75,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach(function(to, from, next) {
-	if (to.meta.requiresAuth === true && 
-		store.getters.auth !== true) 
-	{
+	if (to.meta.requiresAuth === true && to.params.auth !== true) {
 		next({ name: 'login' });
 	} else {
 		next();

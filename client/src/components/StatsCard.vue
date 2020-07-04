@@ -36,11 +36,11 @@
 					"
 				>
 					<li class="display-1"> 
-						{{ userStats.ratio }}%
+						{{ userStats.ratio !== null ? userStats.ratio : '--' }}%
 					</li>
 
 					<li class="won primary--text"> 
-						{{userStats.wonGames }}
+						{{ userStats.wonGames }}
 						{{ $t("messages.pWon") }}
 					</li>
 					

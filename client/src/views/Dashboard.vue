@@ -40,7 +40,6 @@
 	import ProfileCard from '@/components/ProfileCard';
 	import StatsCard from '@/components/StatsCard';
 	import GameLaunchCard from '@/components/GameLaunchCard';
-	import DashboardService from '@/services/DashboardService';
 
 	export default {
 		name: "Dashboard",
@@ -52,22 +51,12 @@
 		},
 
 		data: () => ({
-			userStats: {},
-		}),
-
-		async mounted() {
-			try {
-
-				this.userStats = await DashboardService.getStats({
-					userId: this.$store.getters.userId
-				});
-
-			} catch(err) {
-
-				this.$store.commit('auth', false);
-				this.$router.push({ name: 'login' });
-
-			}
-		}
+			userStats: {
+				ratio: null,
+				wonGames: null,
+				lostGames: null,
+				totalGames: null
+			},
+		})
 	}
 </script>

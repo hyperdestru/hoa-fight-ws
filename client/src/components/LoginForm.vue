@@ -53,11 +53,13 @@
 						password: this.password
 					});
 
-					// Donnée en dur pour test
-					this.$store.commit('auth', res.data.auth);
-					// Donnée en dur pour test
-					this.$store.commit('userId', res.data.userId);
-					this.$router.push({ name: 'dashboard' });
+					this.$router.push({ 
+						name: 'dashboard', 
+						params: { 
+							auth: res.data.auth, 
+							userId: res.data.userId 
+						}
+					});
 
 				} catch(err) {
 					this.error = err.response.data.error;
