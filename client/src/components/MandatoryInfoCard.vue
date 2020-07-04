@@ -5,11 +5,6 @@
 		</h3>
 		<v-card-text class="text-justify">
 			{{ text }}
-			{{ text }}
-			{{ text }}
-			{{ text }}
-			{{ text }}
-			{{ text }}
 		</v-card-text>
 	</v-card>
 </template>

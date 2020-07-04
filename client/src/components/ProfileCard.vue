@@ -14,11 +14,12 @@
 			{{ $t('messages.tProfile') }}
 		</v-card-title>
 
-		<div
-			style="height: 300px"
+		<ul 
+			style="list-style-type: none; height: 315px;"
 			class="
-				card-content 
-				mt-10 
+				card-content
+				mt-10
+				pl-0
 				d-flex 
 				flex-column
 				justify-space-between
@@ -34,25 +35,25 @@
 				<v-icon>mdi-account</v-icon>
 			</v-avatar>
 
-			<ul 
-				style="list-style-type: none" 
-				class="pa-0 user-details"
-			>
+			<ul style="list-style-type: none;" class="pl-0">
 				<li>
-					{{ $t("messages.lEmail") }} : {{ user.email }}
+					{{ $t("messages.lEmail") }} : 
+					{{ userProfile.email }}
 				</li>
 				<li>
-					{{ $t("messages.lUsername") }} : {{ user.username }}
+					{{ $t("messages.lUsername") }} : 
+					{{ userProfile.username }}
 				</li>
 				<li>
-					{{ $t("messages.pCreatedAt") }} : {{ user.creationDate }}
+					{{ $t("messages.pCreatedAt") }} : 
+					{{ userProfile.creationDate }}
 				</li>
 			</ul>
-
+			
 			<v-btn :to="{name: 'settings'}" min-width="100%" tile>
 				{{ $t('messages.ctaModifProfile') }}
 			</v-btn>
-		</div>
+		</ul>
 	</v-card>
 </template>
 
@@ -60,12 +61,11 @@
 	export default {
 		name: "ProfileCard",
 		
-		data: () => ({
-			user: {
-				email: "emy@mail.com",
-				username: "Emy87",
-				creationDate: "19/06/2020"
+		props: {
+			userProfile: {
+				type: Object,
+				required: true
 			}
-		}),
+		}
 	}
 </script>

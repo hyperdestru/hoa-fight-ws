@@ -7,7 +7,7 @@ export default new Vuex.Store({
 	strict: true,
 
 	state: {
-		auth: false,
+		auth: null,
 		userId: null
 	},
 

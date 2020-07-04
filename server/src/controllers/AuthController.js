@@ -5,6 +5,7 @@ module.exports = {
 		try {
 
 			const newUserId = await User.create(req.body);
+			
 			res.send({
 				auth: true,
 				userId: newUserId

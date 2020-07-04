@@ -34,6 +34,16 @@ module.exports = {
 		return result[0];
 	},
 
+	async findProfile(pId) {
+		const connection = await require('./index');
+		const [ result ] = await connection.execute(
+			`SELECT DISTINCT email, username, creation_date AS creationDate
+			FROM users WHERE id = ?`,
+			[pId]
+		);
+		return result[0];
+	},
+
 	async getWonGames(pId) {
 		const connection = await require('./index');
 		const [ result ] = await connection.execute(
@@ -55,12 +65,5 @@ module.exports = {
 			[ pId ]
 		);
 		return result[0].totalGames;
-	},
-
-	// Plutôt faire le calcul dans le controller non ?
-	async getRatio(pId) {
-		const win = await this.getWonGames(pId);
-		const all = await this.getAllGames(pId);
-		return (win / all) * 100;
 	}
 }

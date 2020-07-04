@@ -18,7 +18,7 @@
 		>	
 			<v-row justify="center">
 				<v-col cols="10" sm="10" md="4" lg="4" xl="4">
-					<profile-card>
+					<profile-card :userProfile="userProfile">
 					</profile-card>
 				</v-col>
 
@@ -41,6 +41,7 @@
 	import StatsCard from '@/components/StatsCard';
 	import GameLaunchCard from '@/components/GameLaunchCard';
 	import DashboardService from '@/services/DashboardService';
+	import { formatDate } from '@/utils';
 
 	export default {
 		name: "Dashboard",
@@ -58,17 +59,41 @@
 				lostGames: null,
 				totalGames: null
 			},
+			userProfile: {
+				username: null,
+				email: null,
+				creationDate: null
+			}
 		}),
 
 		async mounted() {
-			const res = await DashboardService.getStats({ 
-				userId: this.$store.getters.userId 
-			});
+			//await this.setStatsData();
+			await this.setProfileData();
+		},
 
-			this.userStats.ratio = res.data.userStats.ratio;
-			this.userStats.wonGames = res.data.userStats.wonGames;
-			this.userStats.totalGames = res.data.userStats.totalGames;
-			this.userStats.lostGames = this.userStats.totalGames - this.userStats.wonGames;
+		methods: {
+			setStatsData: async function() {
+				const res = await DashboardService.getStats({ 
+					userId: this.$store.getters.userId 
+				});
+
+				this.userStats.ratio = res.data.userStats.ratio;
+				this.userStats.wonGames = res.data.userStats.wonGames;
+				this.userStats.totalGames = res.data.userStats.totalGames;
+				this.userStats.lostGames = res.data.userStats.lostGames;
+			},
+
+			setProfileData: async function() {
+				const res = await DashboardService.getProfile({
+					userId: this.$store.getters.userId
+				});
+
+				const date = new Date(res.data.userProfile.creationDate);
+
+				this.userProfile.username = res.data.userProfile.username;
+				this.userProfile.email = res.data.userProfile.email;
+				this.userProfile.creationDate = formatDate(date);
+			}
 		}
 	}
 </script>
