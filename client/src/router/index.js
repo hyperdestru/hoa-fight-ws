@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store/vuex';
 import Home from '@/views/Home.vue';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
@@ -9,6 +10,7 @@ import Settings from '@/views/Settings.vue';
 import Rgpd from '@/views/Rgpd.vue';
 import Cgu from '@/views/Cgu.vue';
 import CookiesPolicy from '@/views/CookiesPolicy.vue';
+import The404 from '@/views/404.vue';
 
 Vue.use(VueRouter);
 
@@ -66,6 +68,11 @@ const routes = [
 		path: '/cookies',
 		name: 'cookies',
 		component: CookiesPolicy
+	},
+	{
+		path: '*',
+		name: '404',
+		component: The404
 	}
 ];
 
@@ -75,7 +82,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach(function(to, from, next) {
-	if (to.meta.requiresAuth === true && to.params.auth !== true) {
+	if (to.meta.requiresAuth === true && store.getters.auth !== true) {
 		next({ name: 'login' });
 	} else {
 		next();

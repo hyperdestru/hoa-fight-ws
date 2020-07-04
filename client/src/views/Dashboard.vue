@@ -40,6 +40,7 @@
 	import ProfileCard from '@/components/ProfileCard';
 	import StatsCard from '@/components/StatsCard';
 	import GameLaunchCard from '@/components/GameLaunchCard';
+	import DashboardService from '@/services/DashboardService';
 
 	export default {
 		name: "Dashboard",
@@ -57,6 +58,17 @@
 				lostGames: null,
 				totalGames: null
 			},
-		})
+		}),
+
+		async mounted() {
+			const res = await DashboardService.getStats({ 
+				userId: this.$store.getters.userId 
+			});
+
+			this.userStats.ratio = res.data.userStats.ratio;
+			this.userStats.wonGames = res.data.userStats.wonGames;
+			this.userStats.totalGames = res.data.userStats.totalGames;
+			this.userStats.lostGames = this.userStats.totalGames - this.userStats.wonGames;
+		}
 	}
 </script>

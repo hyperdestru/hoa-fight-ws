@@ -7,7 +7,7 @@
 			<v-list-item
 				v-for="
 					(page, index) in 
-					this.$route.params.auth === true ? 
+					this.$store.getters.auth === true ? 
 					pages.logged : pages.public
 				" 
 				:key="index"

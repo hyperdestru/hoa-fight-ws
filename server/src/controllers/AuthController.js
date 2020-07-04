@@ -4,8 +4,11 @@ module.exports = {
 	async register(req, res) {
 		try {
 
-			await User.create(req.body);
-			res.end();
+			const newUserId = await User.create(req.body);
+			res.send({
+				auth: true,
+				userId: newUserId
+			});
 
 		} catch (error) {
 
@@ -41,7 +44,10 @@ module.exports = {
 
 			if (passwordMatch === true) {
 
-				res.end();
+				res.send({
+					auth: true,
+					userId: user.id
+				});
 
 			} else {
 
