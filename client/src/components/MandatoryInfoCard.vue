@@ -3,7 +3,7 @@
 		<h3 class="pa-4 text-center">
 			{{ title }}
 		</h3>
-		<v-card-text class="text-justify">
+		<v-card-text class="text-center">
 			{{ text }}
 		</v-card-text>
 	</v-card>

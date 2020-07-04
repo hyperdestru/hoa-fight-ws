@@ -67,8 +67,8 @@
 		}),
 
 		async mounted() {
-			//await this.setStatsData();
-			await this.setProfileData();
+			await this.setStatsData();
+			//await this.setProfileData();
 		},
 
 		methods: {

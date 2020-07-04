@@ -1,5 +1,6 @@
 <template>
 	<v-container
+		style="min-height: 100%"
 		class="
 			d-flex 
 			flex-column 
@@ -11,7 +12,7 @@
 			{{ $t('messages.p404Error') }}
 		</p>
 
-		<v-btn :to="{name: 'home'}" tile>
+		<v-btn :to="{name: 'home'}" tile class="mt-4">
 			{{ $t('messages.ctaBackToHome') }}
 		</v-btn>
 	</v-container>
