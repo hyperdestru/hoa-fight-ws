@@ -3,6 +3,12 @@
 		<h3 class="text-center pa-8 display-1">
 			{{ $t('messages.tDashboard') }}
 		</h3>
+
+		<welcome-indication
+			v-if="this.$route.params.welcome === true"
+		>
+		</welcome-indication>
+
 		<v-container 
 			fluid 
 			class="
@@ -40,6 +46,7 @@
 	import ProfileCard from '@/components/ProfileCard';
 	import StatsCard from '@/components/StatsCard';
 	import GameLaunchCard from '@/components/GameLaunchCard';
+	import WelcomeIndication from '@/components/WelcomeIndication';
 	import DashboardService from '@/services/DashboardService';
 	import { formatDate } from '@/utils';
 
@@ -50,6 +57,7 @@
 			"profile-card": ProfileCard,
 			"stats-card": StatsCard,
 			"game-launch-card": GameLaunchCard,
+			"welcome-indication": WelcomeIndication,
 		},
 
 		data: () => ({
