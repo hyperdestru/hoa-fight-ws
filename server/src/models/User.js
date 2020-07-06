@@ -39,10 +39,19 @@ module.exports = {
 		const [ result ] = await connection.execute(
 			`SELECT DISTINCT id, email, username, password, creation_date AS creationDate
 			FROM users WHERE email = ?`,
-			[params.email]
+			[ params.email ]
 		);
 
 		return result[0];
+	},
+
+	async delete(params) {
+		const connection = await require('./index');
+
+		await connection.execute(
+			`DELETE FROM users WHERE id = ? AND email = ?`,
+			[ params.id, params.email ]
+		);
 	},
 
 	async getWonGames(pId) {
