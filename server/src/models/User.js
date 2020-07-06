@@ -45,7 +45,7 @@ module.exports = {
 		return result[0];
 	},
 
-	async delete(params) {
+	async deleteOne(params) {
 		const connection = await require('./index');
 
 		await connection.execute(

@@ -50,7 +50,10 @@
 				</li>
 			</ul>
 			
-			<v-btn :to="{name: 'settings'}" min-width="100%" tile>
+			<v-btn 
+				@click="goToSettings" 
+				min-width="100%" tile
+			>
 				{{ $t('messages.ctaModifProfile') }}
 			</v-btn>
 		</ul>
@@ -65,6 +68,17 @@
 			userProfile: {
 				type: Object,
 				required: true
+			}
+		},
+
+		methods: {
+			goToSettings: function() {
+				this.$router.push({
+					name: 'settings',
+					params: {
+						userId: this.$store.getters.user.id
+					}
+				});
 			}
 		}
 	}

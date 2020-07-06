@@ -56,7 +56,7 @@ const routes = [
 		}
 	},
 	{
-		path: '/settings',
+		path: '/settings/:userId',
 		name: 'settings',
 		component: Settings,
 		meta: {
