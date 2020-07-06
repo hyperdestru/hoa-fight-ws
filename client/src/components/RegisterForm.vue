@@ -84,6 +84,7 @@
 					this.$router.push({ 
 						name: 'dashboard',
 						params: {
+							userId: this.$store.getters.user.id,
 							welcome: true
 						} 
 					});

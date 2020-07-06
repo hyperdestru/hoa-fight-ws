@@ -40,7 +40,7 @@ const routes = [
 		}
 	},
 	{
-		path: '/dashboard',
+		path: '/dashboard/:userId',
 		name: 'dashboard',
 		component: Dashboard,
 		meta: {

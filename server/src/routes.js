@@ -5,5 +5,5 @@ const StatsController = require('./controllers/StatsController');
 module.exports = (app) => {
 	app.post('/register', AuthControllerRules.register, AuthController.register);
 	app.post('/login', AuthControllerRules.login, AuthController.login);
-	app.get('/dashboard', StatsController.getStats);
+	app.get('/dashboard/:userId', StatsController.getStats);
 }

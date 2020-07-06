@@ -56,7 +56,10 @@
 					this.$store.commit('auth', res.data.auth);
 					this.$store.commit('user', res.data.user);
 					this.$router.push({ 
-						name: 'dashboard'
+						name: 'dashboard',
+						params: {
+							userId: this.$store.getters.user.id,
+						}
 					});
 
 				} catch(err) {
