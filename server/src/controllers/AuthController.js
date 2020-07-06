@@ -4,11 +4,16 @@ module.exports = {
 	async register(req, res) {
 		try {
 
-			const newUserId = await User.create(req.body);
+			const newUser = await User.create(req.body);
 			
 			res.send({
 				auth: true,
-				userId: newUserId
+				user: {
+					id: newUser.id,
+					username: newUser.username,
+					email: newUser.email,
+					creationDate: newUser.creationDate,
+				}
 			});
 
 		} catch (error) {
@@ -47,7 +52,12 @@ module.exports = {
 
 				res.send({
 					auth: true,
-					userId: user.id
+					user: {
+						id: user.id,
+						username: user.username,
+						email: user.email,
+						creationDate: user.creationDate,
+					}
 				});
 
 			} else {

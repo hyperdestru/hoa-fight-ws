@@ -80,7 +80,7 @@
 					});
 					
 					this.$store.commit('auth', res.data.auth);
-					this.$store.commit('userId', res.data.userId);
+					this.$store.commit('user', res.data.user);
 					this.$router.push({ 
 						name: 'dashboard',
 						params: {

@@ -54,8 +54,10 @@
 					});
 
 					this.$store.commit('auth', res.data.auth);
-					this.$store.commit('userId', res.data.userId);
-					this.$router.push({ name: 'dashboard' });
+					this.$store.commit('user', res.data.user);
+					this.$router.push({ 
+						name: 'dashboard'
+					});
 
 				} catch(err) {
 					this.error = err.response.data.error;

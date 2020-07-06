@@ -8,15 +8,20 @@ export default new Vuex.Store({
 
 	state: {
 		auth: null,
-		userId: null
+		user: {
+			id: null,
+			username: null,
+			email: null,
+			creationDate: null
+		}
 	},
 
 	getters: {
 		auth: state => {
 			return state.auth;
 		},
-		userId: state => {
-			return state.userId;
+		user: state => {
+			return state.user;
 		}
 	},
 
@@ -24,8 +29,8 @@ export default new Vuex.Store({
 		auth: (state, v) => {
 			state.auth = v;
 		},
-		userId: (state, v) => {
-			state.userId = v;
+		user: (state, v) => {
+			state.user = v;
 		}
 	}
 });

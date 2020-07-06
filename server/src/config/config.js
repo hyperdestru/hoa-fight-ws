@@ -9,7 +9,7 @@ module.exports = {
 		storage: './hoafight.sql'
 	},
 	authentication: {
-		jwtSecret: process.env.JWT_SECRET || 'secret',
-		sessionSecret: '1f6323eea9e74e91f6d40ecd9730746c657ffe8c5441858'
+		jwtSecret: process.env.JWT_SECRET || '0c4d9339b5dd1840d95dee',
+		sessionSecret: process.env.SESSION_SECRET || '53c7696f2210d7b29ae99ed'
 	}
 }
