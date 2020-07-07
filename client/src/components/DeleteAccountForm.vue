@@ -24,6 +24,7 @@
 		<v-btn 
 			@click="deleteAccount"
 			tile
+			:disabled="this.email !== this.$store.getters.user.email"
 			color="error" 
 			min-width="100%"
 		>
@@ -39,8 +40,8 @@
 		name: 'DeleteAccountForm',
 
 		data: () => ({
-			email: '',
-			error: ''
+			email: null,
+			error: null
 		}),
 
 		methods: {
@@ -51,12 +52,14 @@
 						email: this.email
 					});
 
+					this.$store.dispatch('flush');
+
 					this.$router.replace({
 						name: 'home',
 						params: {
 							accountDeleted: true
 						}
-					})
+					});
 
 				} catch (err) {
 					this.error = err.response.data.error;

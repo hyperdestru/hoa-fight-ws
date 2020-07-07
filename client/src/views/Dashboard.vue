@@ -4,10 +4,12 @@
 			{{ $t('messages.tDashboard') }}
 		</h3>
 
-		<welcome-indication
+		<temporary-message
 			v-if="this.$route.params.welcome === true"
+			:message="$t('messages.tWelcome')"
+			:color="'primary'"
 		>
-		</welcome-indication>
+		</temporary-message>
 
 		<v-container 
 			fluid 
@@ -46,7 +48,7 @@
 	import ProfileCard from '@/components/ProfileCard';
 	import StatsCard from '@/components/StatsCard';
 	import GameLaunchCard from '@/components/GameLaunchCard';
-	import WelcomeIndication from '@/components/WelcomeIndication';
+	import TemporaryMessage from '@/components/TemporaryMessage';
 	import StatsService from '@/services/StatsService';
 	import { formatDate } from '@/utils';
 
@@ -57,7 +59,7 @@
 			"profile-card": ProfileCard,
 			"stats-card": StatsCard,
 			"game-launch-card": GameLaunchCard,
-			"welcome-indication": WelcomeIndication,
+			"temporary-message": TemporaryMessage,
 		},
 
 		data: () => ({
@@ -92,9 +94,10 @@
 			},
 
 			setProfileData: async function() {
+				const date = new Date(this.$store.getters.user.creationDate);
+
 				this.userProfile.username = this.$store.getters.user.username;
 				this.userProfile.email = this.$store.getters.user.email;
-				const date = new Date(this.$store.getters.user.creationDate);
 				this.userProfile.creationDate = formatDate(date);
 			}
 		}

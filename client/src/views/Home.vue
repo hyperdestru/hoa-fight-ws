@@ -1,9 +1,17 @@
 <template>
 	<div class="home">
-		<signed-out-indication
+		<temporary-message
 			v-if="this.$route.params.signOut === true"
+			:message="$t('messages.tSignedOut')"
+			:color="'primary'"
 		>
-		</signed-out-indication>
+		</temporary-message>
+		<temporary-message
+			v-if="this.$route.params.accountDeleted === true"
+			:message="$t('messages.tFairwell')"
+			:color="'primary'"
+		>
+		</temporary-message>
 		
 		<home-banner></home-banner>
 		<the-gameplay></the-gameplay>
@@ -13,7 +21,7 @@
 <script>
 	import HomeBanner from '@/components/HomeBanner';
 	import TheGameplay from '@/components/TheGameplay';
-	import SignedOutIndication from '@/components/SignedOutIndication';
+	import TemporaryMessage from '@/components/TemporaryMessage';
 
 	export default {
 		name: 'Home',
@@ -21,7 +29,7 @@
 		components: {
 			'home-banner': HomeBanner,
 			'the-gameplay': TheGameplay,
-			'signed-out-indication': SignedOutIndication
+			'temporary-message': TemporaryMessage
 		}
 	};
 </script>

@@ -3,10 +3,10 @@
 		v-model="snackbar"
 		absolute
 		top
-		color="primary"
+		:color="color"
 		class="title"
 	>
-		{{ $t('messages.tWelcome') }}
+		{{ message }}
 		<v-btn 
 			@click="snackbar = false"
 			icon
@@ -20,7 +20,19 @@
 
 <script>
 	export default {
-		name: 'WelcomeIndication',
+		name: 'TemporaryMessage',
+
+		props: {
+			color: {
+				type: String,
+				required: true
+			},
+			
+			message: {
+				type: String,
+				required: true
+			}
+		},
 
 		data: () => ({
 			snackbar: true

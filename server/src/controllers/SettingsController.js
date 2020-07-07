@@ -8,7 +8,6 @@ module.exports = {
 
 			res.send({
 				success: true,
-				message: "Compte supprimé. A trés bientôt nous l'espérons !"
 			});
 
 		} catch (error) {
