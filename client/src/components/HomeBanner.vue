@@ -27,7 +27,7 @@
 			</h2>
 		</div>
 
-		<v-btn :to="{name: 'login'}" tile>
+		<v-btn :to="{name: 'register'}" tile>
 			{{ $t('messages.ctaPlayForFree') }}
 		</v-btn>
 	</div>
