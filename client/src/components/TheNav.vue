@@ -4,27 +4,16 @@
 			class="text-uppercase" 
 			:class="{ 'd-flex': !dropdown }"
 		>
-			<v-list-item
-				v-for="
-					(page, index) in 
-					this.$store.getters.auth === true ? 
-					pages.logged : pages.public
-				" 
+			<v-list-item 
+				v-for="(page, index) in (this.$store.getters.auth === true) ? nav.logged : nav.public"
 				:key="index"
+				@click="navRedirect(page)"
 			>
-				<router-link 
-					:to="{
-						name: page.route,
-						params: { isSignedOut: page.isSignedOut }
-					}"
-					style="text-decoration: none; color: #000;"
-				>
-					<v-list-item-content>
-						<v-list-item-title>
-							{{ $t(page.name) }}
-						</v-list-item-title>
-					</v-list-item-content>
-				</router-link>
+				<v-list-item-content>
+					<v-list-item-title>
+						{{ $t(page.name) }}
+					</v-list-item-title>
+				</v-list-item-content>
 			</v-list-item>
 		</v-list-item-group>
 	</v-list>
@@ -40,43 +29,46 @@
 				required: false
 			}
 		},
-		
+
 		data: () => ({
-			pages: {
-				public: [
-					{ 
-						name: 'messages.lkHome', 
-						route: 'home' 
-					},
-					{ 
-						name: 'messages.lkRegister', 
-						route: 'register' 
-					},
-					{ 
-						name: 'messages.lkLogin', 
-						route: 'login' 
-					}
-				],
+			nav: {
 				logged: [
-					{ 
-						name: 'messages.lkHome', 
-						route: 'home' 
-					},
-					{ 
-						name: 'messages.lkRanking', 
-						route: 'ranking' 
-					},
-					{ 
-						name: 'messages.lkDashboard', 
-						route: 'dashboard' 
-					},
-					{ 
-						name: 'messages.lkSignOut', 
-						route: 'home', 
-						isSignedOut: true
-					}
+					{ name: 'messages.lkHome', route: 'home' },
+					{ name: 'messages.lkRanking', route: 'ranking' },
+					{ name: 'messages.lkDashboard', route: 'dashboard' },
+					{ name: 'messages.lkSignOut', route: 'home', signOut: true }
+				],
+				public: [
+					{ name: 'messages.lkHome', route: 'home' },
+					{ name: 'messages.lkRegister', route: 'register' },
+					{ name: 'messages.lkLogin', route: 'login' }
 				]
 			}
-		})
+		}),
+
+		methods: {
+			navRedirect: function(page) {
+				if (page.signOut === true) {
+					this.$store.dispatch('flush');
+					this.$router.replace({
+						name: page.route,
+						params: {
+							signOut: page.signOut
+						}
+					});
+				} else {
+					this.$router.push({
+						name: page.route
+					});
+				}
+			}
+		}
 	}
 </script>
+
+<style scoped>
+	.routerLink {
+		text-decoration: none; 
+		color: #000;
+	}
+</style>

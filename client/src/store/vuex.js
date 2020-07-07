@@ -32,5 +32,12 @@ export default new Vuex.Store({
 		user: (state, v) => {
 			state.user = v;
 		}
+	},
+
+	actions: {
+		flush(context) {
+			context.commit('auth', null);
+			context.commit('user', null);
+		}
 	}
 });

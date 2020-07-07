@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
 		<signed-out-indication
-			v-if="this.$route.params.isSignedOut === true"
+			v-if="this.$route.params.signOut === true"
 		>
 		</signed-out-indication>
 		
