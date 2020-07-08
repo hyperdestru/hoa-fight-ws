@@ -52,7 +52,7 @@
 				></v-switch>
 
 				<v-btn
-					:to="(guestMode === true) ? {name: 'game'} : ''"
+					:to="(guestMode === true) ? 'http://localhost:8081' : ''"
 					:disabled="guestMode === false"
 					min-width="100%" 
 					tile

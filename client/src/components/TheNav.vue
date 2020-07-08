@@ -5,7 +5,7 @@
 			:class="{ 'd-flex': !dropdown }"
 		>
 			<v-list-item 
-				v-for="(page, index) in (this.$store.getters.auth === true) ? nav.logged : nav.public"
+				v-for="(page, index) in currentNav()"
 				:key="index"
 				@click="navRedirect(page)"
 			>
@@ -30,7 +30,7 @@
 			}
 		},
 
-		data: () => ({
+		data: () => ({			
 			nav: {
 				logged: [
 					{ name: 'messages.lkHome', route: 'home' },
@@ -47,19 +47,33 @@
 		}),
 
 		methods: {
+			currentNav: function() {
+				if (this.$store.getters.auth === true) {
+					return this.nav.logged;
+				} else {
+					return this.nav.public;
+				}
+			},
 			navRedirect: function(page) {
 				if (page.signOut === true) {
+
 					this.$store.dispatch('flush');
+
 					this.$router.replace({
 						name: page.route,
 						params: {
 							signOut: page.signOut
 						}
 					});
+
 				} else {
-					this.$router.push({
-						name: page.route
-					});
+
+					if (this.$route.name !== page.route) {
+						this.$router.push({
+							name: page.route
+						});
+					}
+
 				}
 			}
 		}
