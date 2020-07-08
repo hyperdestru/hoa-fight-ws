@@ -11,6 +11,8 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(express.static('public'));
+
 const sessionConfig = {
 	secret: config.authentication.sessionSecret,
 	resave: false,
@@ -20,7 +22,6 @@ const sessionConfig = {
 }
 
 app.use(session(sessionConfig));
-
 app.locals.session = {};
 
 // Passing our backend app as argument of the module exported in routes.js
