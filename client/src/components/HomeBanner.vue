@@ -27,14 +27,33 @@
 			</h2>
 		</div>
 
-		<v-btn :to="{name: 'register'}" tile class="title">
-			{{ $t('messages.ctaPlayForFree') }}
+		<v-btn 
+			:to="{name: btnRedirect}" 
+			tile 
+			class="title"
+		>
+			{{ $t(btnText) }}
 		</v-btn>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'HomeBanner'
+		name: 'HomeBanner',
+
+		data: () => ({
+			btnText: '',
+			btnRedirect: ''
+		}),
+
+		mounted() {
+			if (this.$store.getters.auth === true) {
+				this.btnText = 'messages.ctaLaunchGame2';
+				this.btnRedirect = 'dashboard'
+			} else {
+				this.btnText = 'messages.ctaPlayForFree',
+				this.btnRedirect = 'register';
+			}
+		}
 	}
 </script>
