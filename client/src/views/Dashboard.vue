@@ -80,6 +80,12 @@
 			await this.setProfileData();
 			await this.setStatsData();
 			await this.setGameData();
+
+			console.log(sessionStorage.getItem('hoafight'))
+
+			window.addEventListener('storage', () => {
+				console.log("Session storage has changed !!");
+			});
 		},
 
 		methods: {
