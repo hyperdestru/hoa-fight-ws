@@ -70,23 +70,19 @@
 		data: () => ({
 			cards: [
 				{
-					title: "Un ennemi",
-					src: "",
+					title: "Elimine l'autre joueur en tirant",
 					icon: "mdi-boxing-glove"
 				},
 				{
-					title: "Des bombes",
-					src: "",
+					title: "Evite les bombes qui tombent",
 					icon: "mdi-bomb"
 				},
 				{ 
-					title: "Des sauts",
-					src: "",
+					title: "Saute partout",
 					icon: "mdi-mushroom"
 				},
 				{ 
-					title: "Un score à battre",
-					src: "",
+					title: "Améliore ton ratio",
 					icon: "mdi-medal"
 				}
 			]

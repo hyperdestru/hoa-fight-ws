@@ -19,9 +19,10 @@
 		>
 
 		<div class="text-center" style="z-index: 1">
-			<h1 class="display-4 text-uppercase">
-				{{ $t('messages.tProjectName') }}
-			</h1>
+			<img 
+				src="http://localhost:3000/logo/logo-white-@2-5x.png"
+				alt="Hoa Fight"
+			>
 			<h2 class="headline"> 
 				{{ $t("messages.pCatchphrase") }} 
 			</h2>
