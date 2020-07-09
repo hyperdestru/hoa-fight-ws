@@ -79,6 +79,7 @@
 		async mounted() {
 			await this.setProfileData();
 			await this.setStatsData();
+			await this.setGameData();
 		},
 
 		methods: {
@@ -99,7 +100,27 @@
 				this.userProfile.username = this.$store.getters.user.username;
 				this.userProfile.email = this.$store.getters.user.email;
 				this.userProfile.creationDate = formatDate(date);
+			},
+
+			setGameData: async function() {
+				const hoafight = {
+					mainUser: {
+						id: this.$store.getters.user.id,
+						username: this.userProfile.username,
+						ratio: this.userStats.ratio,
+						sessionWins: 0
+					},
+					secondaryUser: {
+						id: 0,
+						username: "Guest01",
+						ratio: 0,
+						sessionWins: 0
+					}
+				}
+
+				sessionStorage.setItem('hoafight', JSON.stringify(hoafight));
 			}
+
 		}
 	}
 </script>
