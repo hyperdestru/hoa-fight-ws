@@ -52,7 +52,7 @@
 				></v-switch>
 
 				<v-btn
-					:href="(guestMode === true) ? 'http://localhost:3000/game/index.html' : ''"
+					href='http://localhost:8080/game/index.html'
 					:disabled="guestMode === false"
 					min-width="100%" 
 					tile
