@@ -80,12 +80,6 @@
 			await this.setProfileData();
 			await this.setStatsData();
 			await this.setGameData();
-
-			console.log(sessionStorage.getItem('hoafight'))
-
-			window.addEventListener('storage', () => {
-				console.log("Session storage has changed !!");
-			});
 		},
 
 		methods: {
@@ -114,17 +108,19 @@
 						id: this.$store.getters.user.id,
 						username: this.userProfile.username,
 						ratio: this.userStats.ratio,
-						sessionWins: 0
+						matchs: []
 					},
 					secondaryUser: {
 						id: 0,
 						username: "Guest01",
 						ratio: 0,
-						sessionWins: 0
+						matchs: []
 					}
 				}
 
-				sessionStorage.setItem('hoafight', JSON.stringify(hoafight));
+				if (!localStorage.getItem('hoafight')) {
+					localStorage.setItem('hoafight', JSON.stringify(hoafight));
+				}
 			}
 
 		}
