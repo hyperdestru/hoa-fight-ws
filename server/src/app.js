@@ -18,7 +18,7 @@ const sessionConfig = {
 	resave: false,
 	httpOnly: true,
 	saveUninitialized: true,
-	cookie: { secure: false, maxAge: 60*60*60*24*7 }
+	cookie: { secure: false, maxAge: 60*60*60*24*7, sameSite: 'lax' }
 }
 
 app.use(session(sessionConfig));
