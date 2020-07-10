@@ -41,7 +41,7 @@ module.exports = {
 	
 	async login(req, res) {
 		try {
-			const user = await User.find(req.body);
+			const user = await User.findOne(req.body);
 
 			const passwordMatch = await User.comparePassword(
 				req.body.password,

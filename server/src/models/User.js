@@ -33,7 +33,7 @@ module.exports = {
 		return newUser[0];
 	},
 
-	async find(params) {
+	async findOne(params) {
 		const connection = await require('./index');
 
 		const [ result ] = await connection.execute(
@@ -79,5 +79,17 @@ module.exports = {
 		);
 		
 		return result[0].totalGames;
+	},
+
+	async findAllPlayers() {
+		const connection = await require('./index');
+
+		const [ result ] = await connection.execute(
+			`SELECT DISTINCT users.id, users.username, avatar_id as avatarId 
+			FROM users 
+			JOIN users_matchs ON users.id = users_matchs.user_id`
+		);
+
+		return result;
 	}
 }
