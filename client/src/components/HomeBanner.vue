@@ -22,6 +22,7 @@
 			<img 
 				src="http://localhost:3000/logo/logo-white-@2-5x.png"
 				alt="Hoa Fight"
+				style="width: 100%; height: auto"
 			>
 			<h2 class="headline"> 
 				{{ $t("messages.pCatchphrase") }} 
