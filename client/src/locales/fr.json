@@ -43,6 +43,10 @@
 		"pCreatedAt": "Inscrit depuis le",
 		"pCatchphrase": "Welcome to the fight",
 		"p404Error": "Oups, on dirait bien que cette page n'existe pas !",
+		"pGp1": "Elimine l'autre joueur en tirant",
+		"pGp2": "Evite les bombes qui tombent",
+		"pGp3": "N'hésites pas à sauter",
+		"pGp4": "Améliore ton ratio",
 
 		"ctaPlayForFree": "Jouer gratuitement",
 		"ctaModifProfile": "Modifier profil",

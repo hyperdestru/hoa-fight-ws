@@ -48,9 +48,9 @@
 						"
 					>
 						<v-card-subtitle 
-							class="title text-uppercase text-center"
+							class="title text-uppercase text-center white--text"
 						>
-							{{ card.title }} !
+							{{ $t(card.title) }} !
 						</v-card-subtitle>
 
 						<v-icon x-large> 
@@ -70,19 +70,19 @@
 		data: () => ({
 			cards: [
 				{
-					title: "Elimine l'autre joueur en tirant",
+					title: "messages.pGp1",
 					icon: "mdi-boxing-glove"
 				},
 				{
-					title: "Evite les bombes qui tombent",
+					title: "messages.pGp2",
 					icon: "mdi-bomb"
 				},
 				{ 
-					title: "Saute partout",
+					title: "messages.pGp3",
 					icon: "mdi-mushroom"
 				},
 				{ 
-					title: "Améliore ton ratio",
+					title: "messages.pGp4",
 					icon: "mdi-medal"
 				}
 			]
