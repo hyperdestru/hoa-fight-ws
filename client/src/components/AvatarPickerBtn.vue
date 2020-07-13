@@ -2,9 +2,16 @@
 	<div>
 		<v-btn 
 			@click="overlay = !overlay"
-			x-small
+			min-width="100%" 
+			small 
+			tile 
+			color="primary"
+			class="mt-2"
 		>
-			{{ $t('messages.lModify') }}
+			<v-icon small>
+				mdi-pencil
+			</v-icon>
+			modifier
 		</v-btn>
 
 		<v-overlay 

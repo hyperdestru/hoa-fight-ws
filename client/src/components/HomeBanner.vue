@@ -7,20 +7,20 @@
 			flex-column 
 			justify-space-around 
 			align-center
-			accent
+			black
 			white--text
 		"
 	>
 		<img 
-			src="https://media.giphy.com/media/l4FGxqS178R544oEM/giphy.gif" 
+			src="http://localhost:3000/images/hoafight-gameplay.gif" 
 			width="100%"
 			height="600px"
-			style="position: absolute; z-index:0; opacity:0.2"
+			style="position: absolute; z-index:0; opacity:0.5"
 		>
 
 		<div class="text-center" style="z-index: 1">
 			<img 
-				src="http://localhost:3000/logo/logo-white-@2-5x.png"
+				src="http://localhost:3000/images/logo/logo-white-@2-5x.png"
 				alt="Hoa Fight"
 				style="width: 100%; height: auto"
 			>

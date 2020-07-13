@@ -6,6 +6,7 @@
 			small 
 			tile 
 			color="error"
+			class="mt-2"
 		>
 			<v-icon small>
 				mdi-delete

@@ -32,7 +32,11 @@
 				height="100px" 
 				color="primary"
 			>
-				<v-icon>mdi-account</v-icon>
+				<img 
+					src="http://localhost:3000/images/avatars/avatar1.jpg"
+					alt="Ton avatar Hoa Fight"
+				>
+
 			</v-avatar>
 
 			<ul style="list-style-type: none;" class="pl-0">

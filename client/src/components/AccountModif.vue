@@ -27,28 +27,22 @@
 			align-xl-start
 		"
 	>	
-		<div 
-			class="
-				pa-4 
-				d-flex 
-				flex-column
-			"
-		>
+		<div class="pa-4 d-flex flex-column">
 			<v-avatar
 				tile
-				class="mb-4 d-flex flex-column"
-				min-width="128px"
-				min-height="128px"
+				width="128px"
+				height="128px"
 				color="primary"
 			>
-				<v-icon x-large>
-					mdi-account
-				</v-icon>
-				
-				<avatar-picker-btn>
-				</avatar-picker-btn>
+				<img 
+					src="http://localhost:3000/images/avatars/avatar1.jpg"
+					alt="Ton avatar Hoa Fight"
+				>
 			</v-avatar>
-	
+
+			<avatar-picker-btn>
+			</avatar-picker-btn>
+
 			<delete-account-btn>
 			</delete-account-btn>
 		</div>
