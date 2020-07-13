@@ -59,12 +59,14 @@
 
 					this.$store.dispatch('flush');
 
-					this.$router.replace({
-						name: page.route,
-						params: {
-							signOut: page.signOut
-						}
-					});
+					if (this.$route.name !== page.route) {
+						this.$router.replace({
+							name: page.route,
+							params: {
+								signOut: page.signOut
+							}
+						});
+					}
 
 				} else {
 
