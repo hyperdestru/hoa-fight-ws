@@ -6,6 +6,10 @@ module.exports = {
 
 			const newUser = await User.create(req.body);
 			
+			//*******************************
+			// INIT EXPRESS SESSION DATA HERE
+			//*******************************
+			
 			res.send({
 				auth: true,
 				user: {
@@ -50,6 +54,10 @@ module.exports = {
 
 			if (passwordMatch === true) {
 
+				//*******************************
+				// INIT EXPRESS SESSION DATA HERE
+				//*******************************
+
 				res.send({
 					auth: true,
 					user: {
@@ -68,6 +76,7 @@ module.exports = {
 				});
 
 			}
+
 		} catch (error) {
 
 			// Email introuvable dans la base

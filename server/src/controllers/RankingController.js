@@ -2,9 +2,11 @@ const User = require('../models/User');
 
 module.exports = {
 	async getRanking(req, res) {
-		// Checks de SESSION a rajouter (lire l'id même si on s'en sert pas)
 
-		try {
+		// If mySession.sessionId is equal to req.sessionID
+		// If mySession.userId is equal to req.query.userId
+		// Then proceed : 
+
 			const allPlayers = await User.findAllPlayers();
 
 			// Adding ratio field to each object
@@ -22,19 +24,17 @@ module.exports = {
 				return b.ratio - a.ratio;
 			});
 
-			// Setting ranks based on descending sorting above
+			// Setting rank fields based on descending sorting above
 			for (let i = 0; i < allPlayers.length; i++) {
 				// Adding one because here we are zero-based but the ranking
-				// table is not. --> WARNING : view<-->controller short binding
-				// is this ok ?
+				// table is not --> WARNING : view<-->controller short binding
 				allPlayers[i].rank = i + 1;
 			}
 
 			// Returning the fresh and populated result
 			res.send(allPlayers);
 
-		} catch (err) {
-			throw err;
-		}
+		// Else : unauthorized --> res.status(401).end()
+
 	}
 }

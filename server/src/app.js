@@ -7,25 +7,22 @@ const session = require('express-session');
 
 const app = express();
 
+app.use(
+	session({
+		secret: config.authentication.sessionSecret,
+		resave: false,
+		httpOnly: true,
+		saveUninitialized: true,
+		cookie: { secure: false, maxAge: 60*60*60*24*7, sameSite: 'lax' }
+	})
+);
+
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cors());
-
 app.use(express.static('public'));
-
-const sessionConfig = {
-	secret: config.authentication.sessionSecret,
-	resave: false,
-	httpOnly: true,
-	saveUninitialized: true,
-	cookie: { secure: false, maxAge: 60*60*60*24*7, sameSite: 'lax' }
-}
-
-app.use(session(sessionConfig));
-app.locals.session = {};
-
-// Passing our backend app as argument of the module exported in routes.js
-require('./routes')(app);
 
 app.listen(config.port);
 console.log(`Server started on port ${config.port}`);
+
+require('./routes')(app);
