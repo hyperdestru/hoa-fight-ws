@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<the-header v-if="this.$route.name !== 'game'">
+		<the-header>
 		</the-header>
 		
 		<v-content>
@@ -8,7 +8,7 @@
 			</router-view>
 		</v-content>
 
-		<the-footer v-if="this.$route.name !== 'game'">
+		<the-footer>
 		</the-footer>
 	</v-app>
 </template>
