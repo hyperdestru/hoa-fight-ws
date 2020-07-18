@@ -26,8 +26,8 @@ module.exports = {
 
 			// Setting rank fields based on descending sorting above
 			for (let i = 0; i < allPlayers.length; i++) {
-				// Adding one because here we are zero-based but the ranking
-				// table is not --> WARNING : view<-->controller short binding
+				// Adding one because here we are zero-based 
+				// but the ranking system is not
 				allPlayers[i].rank = i + 1;
 			}
 
