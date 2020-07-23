@@ -5,7 +5,7 @@
 			v-model="username"
 			:error-messages="(errorType === 'username') ? error : ''"
 			:label="$t('messages.lUsername')"
-			:hint="$t('messages.lMinCharRule', {n: 5})"
+			:hint="$t('messages.lMinCharRule', {n: 3})"
 		>
 		</v-text-field>
 
