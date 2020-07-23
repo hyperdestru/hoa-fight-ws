@@ -12,7 +12,7 @@
 		"
 	>
 		<img 
-			src="http://localhost:3000/images/hoafight-gameplay.gif" 
+			:src="gifPath"
 			width="100%"
 			height="600px"
 			style="position: absolute; z-index:0; opacity:0.5"
@@ -20,7 +20,7 @@
 
 		<div class="text-center" style="z-index: 1">
 			<img 
-				src="http://localhost:3000/images/logo/logo-white-@2-5x.png"
+				:src="logoPath"
 				alt="Hoa Fight"
 				style="width: 100%; height: auto"
 			>
@@ -45,7 +45,9 @@
 
 		data: () => ({
 			btnText: '',
-			btnRedirect: ''
+			btnRedirect: '',
+			gifPath: "http://localhost:3000/images/hoafight-gameplay.gif",
+			logoPath: "http://localhost:3000/images/logo/logo-white-@2-5x.png"
 		}),
 
 		mounted() {

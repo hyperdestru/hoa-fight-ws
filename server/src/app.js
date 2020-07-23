@@ -19,7 +19,7 @@ app.use(
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 app.use(express.static('public'));
 
 app.listen(config.port);

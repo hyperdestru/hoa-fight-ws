@@ -35,7 +35,7 @@
 				color="primary"
 			>
 				<img 
-					src="http://localhost:3000/images/avatars/avatar1.jpg"
+					:src="avatarPath"
 					alt="Ton avatar Hoa Fight"
 				>
 			</v-avatar>
@@ -64,6 +64,10 @@
 			'delete-account-btn': DeleteAccountBtn,
 			'avatar-picker-btn': AvatarPickerBtn,
 			'account-modif-form': AccountModifForm
-		}
+		},
+
+		data: () => ({
+			avatarPath: "http://localhost:3000/images/avatars/avatar1.jpg"
+		})
 	}
 </script>

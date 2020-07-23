@@ -33,7 +33,7 @@
 				color="primary"
 			>
 				<img 
-					src="http://localhost:3000/images/avatars/avatar1.jpg"
+					:src="avatarPath"
 					alt="Ton avatar Hoa Fight"
 				>
 
@@ -74,6 +74,10 @@
 				required: true
 			}
 		},
+
+		data: () => ({
+			avatarPath: "http://localhost:3000/images/avatars/avatar1.jpg"
+		}),
 
 		methods: {
 			goToSettings: function() {
