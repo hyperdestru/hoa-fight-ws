@@ -52,7 +52,7 @@
 				></v-switch>
 
 				<v-btn
-					href='http://localhost:8080/game/index.html'
+					:href="gamePath"
 					:disabled="guestMode === false"
 					min-width="100%" 
 					tile
@@ -71,9 +71,10 @@
 		data: () => ({
 			secondPlayer: {
 				username: '',
-				password: ''
+				password: '',
 			},
-			guestMode: false
+			guestMode: false,
+			gamePath: 'http://localhost:8080/game/index.html'
 		}),
 	}
 </script>
