@@ -3,9 +3,7 @@ const User = require('../models/User');
 module.exports = {
 	async delete(req, res) {
 
-		// If mySession.sessionId is equal to req.sessionID
-		// If mySession.userId is equal to req.body.id and req.body.email
-		// Then proceed :
+		// if (req.session.auth === true && req.session.user.id === req.body.id) {
 
 			try {
 				await User.deleteOne(req.body);
@@ -22,6 +20,8 @@ module.exports = {
 
 			}
 
-		// Else : unauthorized --> res.status(401).end()
+		// else {
+		// 	res.status(401).end();
+		// }
 	}
 }

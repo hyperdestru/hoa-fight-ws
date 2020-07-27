@@ -3,9 +3,7 @@ const User = require('../models/User');
 module.exports = {
 	async getRanking(req, res) {
 
-		// If mySession.sessionId is equal to req.sessionID
-		// If mySession.userId is equal to req.query.userId
-		// Then proceed : 
+		// if (req.session.auth === true) {
 
 			const allPlayers = await User.findAllPlayers();
 
@@ -34,7 +32,8 @@ module.exports = {
 			// Returning the fresh and populated result
 			res.send(allPlayers);
 
-		// Else : unauthorized --> res.status(401).end()
-
+		// else {
+		// 	res.status(401).end();
+		// }
 	}
 }

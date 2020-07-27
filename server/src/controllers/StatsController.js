@@ -3,9 +3,7 @@ const User = require('../models/User');
 module.exports = {
 	async getStats(req, res) {
 
-		// If mySession.sessionId is equal to req.sessionID
-		// If mySession.userId is equal to req.query.userId
-		// Then proceed : 
+		// if (req.session.auth === true && req.session.user.id === req.query.userId) {
 
 			const totalGames = await User.getAllGames(req.query.userId);
 			const wonGames = await User.getWonGames(req.query.userId);
@@ -21,6 +19,8 @@ module.exports = {
 				}
 			});
 
-		// Else : unauthorized --> res.status(401).end()
+		// } else {
+		// 	res.status(401).end();
+		// }
 	}
 }

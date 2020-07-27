@@ -6,18 +6,18 @@ module.exports = {
 
 			const newUser = await User.create(req.body);
 			
-			//*******************************
-			// INIT EXPRESS SESSION DATA HERE
-			//*******************************
-			
+			req.session.auth = true;
+
+			req.session.user = {
+				id: newUser.id,
+				username: newUser.username,
+				email: newUser.email,
+				creationDate: newUser.creationDate,
+			}
+
 			res.send({
-				auth: true,
-				user: {
-					id: newUser.id,
-					username: newUser.username,
-					email: newUser.email,
-					creationDate: newUser.creationDate,
-				}
+				auth: req.session.auth,
+				user: req.session.user
 			});
 
 		} catch (error) {
@@ -54,18 +54,18 @@ module.exports = {
 
 			if (passwordMatch === true) {
 
-				//*******************************
-				// INIT EXPRESS SESSION DATA HERE
-				//*******************************
+				req.session.auth = true;
+
+				req.session.user = {
+					id: user.id,
+					username: user.username,
+					email: user.email,
+					creationDate: user.creationDate,
+				};
 
 				res.send({
-					auth: true,
-					user: {
-						id: user.id,
-						username: user.username,
-						email: user.email,
-						creationDate: user.creationDate,
-					}
+					auth: req.session.auth,
+					user: req.session.user
 				});
 
 			} else {
