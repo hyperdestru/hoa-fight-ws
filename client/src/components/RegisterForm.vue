@@ -1,67 +1,59 @@
 <template>
-	<div class="register-form">
-		<v-container>
-			<h3 class="text-center pa-8 display-1">
-				{{ $t('messages.tRegister') }}
-			</h3>
+	<v-form>
+		<v-text-field
+			outlined
+			v-model="username"
+			:error-messages="(errorType === 'username') ? error : ''"
+			:label="$t('messages.lUsername')"
+			:hint="$t('messages.lMinCharRule', {n: 3})"
+		>
+		</v-text-field>
+
+		<v-text-field
+			outlined
+			v-model="email"
+			:error-messages="(errorType === 'email') ? error : ''"
+			:label="$t('messages.lEmail')"
+		>
+		</v-text-field>
+
+		<v-text-field
+			outlined
+			v-model="password"
+			:error-messages="(errorType === 'password') ? error : ''"
+			:label="$t('messages.lPassword')"
+			:hint="$t('messages.lMinCharRule', {n: 8})"
+
+			:type="showPassword ? 'text' : 'password'"
+			:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+			@click:append="showPassword = !showPassword"
+		>
+		</v-text-field>
+
+		<v-text-field
+			outlined
+			v-model="repeatPassword"
+			:error-messages="(errorType === 'repeatPassword') ? error : ''"
+			:label="$t('messages.lConfirmPwd')"
 			
-			<v-row justify="center">
-				<v-col 
-					cols="10" 
-					sm="10"
-					md="5" 
-					lg="5" 
-					xl="5"
-				>
-					<v-form>
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lUsername')"
-							v-model="username"
-							required>
-						</v-text-field>
+			:type="showPassword ? 'text' : 'password'"
+			:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+			@click:append="showPassword = !showPassword"
+		>
+		</v-text-field>
 
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lEmail')"
-							v-model="email"
-							required>
-						</v-text-field>
-
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lPassword')"
-							v-model="password"
-							required>
-						</v-text-field>
-
-						<v-text-field
-							clearable
-							outlined
-							:label="$t('messages.lConfirmPwd')"
-							v-model="passwordConfirm"
-							required>
-						</v-text-field>
-
-						<v-btn
-							min-width="100%"
-							class="submit-btn"
-							tile
-							v-on:click="register">
-							{{ $t('messages.ctaRegister') }}
-						</v-btn>
-					</v-form>
-				</v-col>
-			</v-row>
-		</v-container>
-	</div>
+		<v-btn
+			@click="register"
+			min-width="100%"
+			tile
+		>
+			{{ $t('messages.ctaRegister') }}
+		</v-btn>
+	</v-form>
 </template>
 
 <script>
-	import AuthenticationService from '@/services/AuthenticationService';
+	import AuthService from '@/services/AuthService';
 
 	export default {
 		name: "RegisterForm",
@@ -70,16 +62,37 @@
 			username: '',
 			email: '',
 			password: '',
-			passwordConfirm: ''
+			repeatPassword: '',
+			
+			error: null,
+			errorType: null,
+			showPassword: false
 		}),
 
 		methods: {
 			async register() {
-				await AuthenticationService.register({
-					username: this.username,
-					email: this.email,
-					password: this.password
-				})
+				try {
+					const res = await AuthService.register({
+						username: this.username,
+						email: this.email,
+						password: this.password,
+						repeatPassword: this.repeatPassword,
+					});
+					
+					this.$store.commit('auth', res.data.auth);
+					this.$store.commit('user', res.data.user);
+					this.$router.push({ 
+						name: 'dashboard',
+						params: {
+							userId: this.$store.getters.user.id,
+							welcome: true
+						} 
+					});
+
+				} catch(err) {
+					this.error = err.response.data.error;
+					this.errorType = err.response.data.errorType;
+				}
 			}
 		}
 	}

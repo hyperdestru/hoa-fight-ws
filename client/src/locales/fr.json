@@ -14,6 +14,8 @@
 		"lRank": "Rang",
 		"lPlayer": "Joueur",
 		"lRatio": "Ratio",
+		"lMinCharRule": "Au moins {n} caractères",
+		"lQuit": "Quitter",
 
 		"tProjectName": "Hoa fight",
 		"tDashboard": "Tableau de bord",
@@ -26,6 +28,12 @@
 		"tLogin": "Se connecter",
 		"tRegister": "S'inscrire",
 		"tRanking": "Classement",
+		"tRgpd": "Réglement général pour la protection des données",
+		"tCgu": "Conditions d'utilisation",
+		"tCookiesPolicy": "Utilisation des cookies",
+		"tSignedOut": "Tu es bien déconnecté-e, a bientôt !",
+		"tWelcome": "Bienvenue sur Hoa Fight ! Prêt pour une partie ?",
+		"tFairwell": "Compte bien supprimé. Nous espérons te revoir bientôt",
 
 		"stSecondPlayer": "2eme joueur",
 		"stDeleteAccountWarning": "Attention, une fois supprimé c'est pour toujours, soyez sûr de vous",
@@ -33,22 +41,35 @@
 		"pWon": "Gagnée(s)",
 		"pLost": "Perdue(s)",	
 		"pCreatedAt": "Inscrit depuis le",
-		"pCatchphrase": "Un shooter 1 contre 1 tranquille et fun !",
+		"pCatchphrase": "Welcome to the fight",
+		"p404Error": "Oups, on dirait bien que cette page n'existe pas !",
+		"pGp1": "Elimine l'autre joueur en tirant",
+		"pGp2": "Evite les bombes qui tombent",
+		"pGp3": "N'hésites pas à sauter",
+		"pGp4": "Améliore ton ratio",
 
-		"ctaPlayForFree": "Joue gratuitement",
+		"ctaPlayForFree": "Jouer gratuitement",
 		"ctaModifProfile": "Modifier profil",
 		"ctaConnect": "Connexion",
 		"ctaRegister": "Créer mon compte",
 		"ctaDeleteAccount": "Supprimer",
 		"ctaDeleteAccountPlus": "Supprimer mon compte",
 		"ctaLaunchGame": "Lancer partie",
-
-		"lkConfidentialityPolicy": "Politique de confidentialité",
-		"lkTermsOfUse": "Conditions d'utilisation",
-		"lkCookiesPolicy": "Politique sur les cookies",
-		"lkHome": "Acceuil",
+		"ctaLaunchGame2": "Lance une partie",
+		"ctaUpdate": "Mettre à jour",
+		"ctaBackToHome": "Retour à l'accueil",
+		
+		"lkHome": "Accueil",
 		"lkRegister": "Inscription",
 		"lkLogin": "Connexion",
-		"ctaUpdate": "Mettre à jour"
-	}
+		"lkDashboard": "Tableau de bord",
+		"lkSignOut": "Deconnexion",
+		"lkRanking": "Classement",
+		"lkRgpd": "Protection des données",
+		"lkCgu": "Conditions d'utilisation",
+		"lkCookiesPolicy": "Politique sur les cookies"
+	},
+	"rgpd": "Nous ne collectons aucune données personnelles autres que celles necessaires à l'inscription. Celles ci sont détruites à la suppression du compte.",
+	"cgu": "Vous vous engagez à ne pas nuire au site, et de ne pas porter préjudice à Hoa studio Inc.\nCrédit font Grobold : Guy Buhry (https://www.dafont.com/fr/grobold.font).\nCopyright 2020 Hoa Studio Inc. Gaël Dumon - FR.",
+	"cookiesPolicy": "Nous utilisons seulement des cookies temporaires necessaires au bon fonctionnement du site."
 }

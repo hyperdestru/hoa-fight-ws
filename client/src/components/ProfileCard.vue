@@ -14,10 +14,12 @@
 			{{ $t('messages.tProfile') }}
 		</v-card-title>
 
-		<div 
+		<ul 
+			style="list-style-type: none; height: 315px;"
 			class="
-				card-content 
-				mt-10 
+				card-content
+				mt-10
+				pl-0
 				d-flex 
 				flex-column
 				justify-space-between
@@ -30,25 +32,35 @@
 				height="100px" 
 				color="primary"
 			>
-				<v-icon>mdi-account</v-icon>
+				<img 
+					:src="avatarPath"
+					alt="Ton avatar Hoa Fight"
+				>
+
 			</v-avatar>
 
-			<ul class="user-details">
+			<ul style="list-style-type: none;" class="pl-0">
 				<li>
-					{{ $t("messages.lEmail") }} : {{ user.email }}
+					{{ $t("messages.lEmail") }} : 
+					{{ userProfile.email }}
 				</li>
 				<li>
-					{{ $t("messages.lUsername") }} : {{ user.username }}
+					{{ $t("messages.lUsername") }} : 
+					{{ userProfile.username }}
 				</li>
 				<li>
-					{{ $t("messages.pCreatedAt") }} : {{ user.createdAt }}
+					{{ $t("messages.pCreatedAt") }} : 
+					{{ userProfile.creationDate }}
 				</li>
 			</ul>
-
-			<v-btn min-width="100%">
-				{{ $t("messages.ctaModifProfile") }}
+			
+			<v-btn 
+				@click="goToSettings" 
+				min-width="100%" tile
+			>
+				{{ $t('messages.ctaModifProfile') }}
 			</v-btn>
-		</div>
+		</ul>
 	</v-card>
 </template>
 
@@ -56,22 +68,26 @@
 	export default {
 		name: "ProfileCard",
 		
-		data: () => ({
-			user: {
-				email: "emy@mail.com",
-				username: "Emy87",
-				createdAt: "19/06/2020"
+		props: {
+			userProfile: {
+				type: Object,
+				required: true
 			}
+		},
+
+		data: () => ({
+			avatarPath: "http://localhost:3000/images/avatars/avatar1.jpg"
 		}),
+
+		methods: {
+			goToSettings: function() {
+				this.$router.push({
+					name: 'settings',
+					params: {
+						userId: this.$store.getters.user.id
+					}
+				});
+			}
+		}
 	}
 </script>
-
-<style scoped>
-	.card .user-details {
-		list-style-type: none;
-		padding: 0;
-	}
-	.card .card-content {
-		height: 300px;
-	}
-</style>

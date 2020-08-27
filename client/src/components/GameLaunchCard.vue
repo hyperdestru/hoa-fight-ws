@@ -15,8 +15,10 @@
 		</v-card-title>
 
 		<div class="card-content mt-10">
-			
 			<p class="subtitle-2 text-center">
+				<v-icon>
+					mdi-account-multiple
+				</v-icon>
 				{{ $t('messages.stSecondPlayer') }}
 			</p>
 
@@ -49,7 +51,12 @@
 					v-model="guestMode"
 				></v-switch>
 
-				<v-btn min-width="100%">
+				<v-btn
+					:href="gamePath"
+					:disabled="guestMode === false"
+					min-width="100%" 
+					tile
+				>
 					{{ $t('messages.ctaLaunchGame') }}
 				</v-btn>
 			</v-form>
@@ -64,9 +71,10 @@
 		data: () => ({
 			secondPlayer: {
 				username: '',
-				password: ''
+				password: '',
 			},
-			guestMode: false
+			guestMode: false,
+			gamePath: 'http://localhost:8080/game/index.html'
 		}),
 	}
 </script>

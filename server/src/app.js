@@ -1,16 +1,28 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const morgan = require('morgan')
-const config = require('./config/config')
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
+const config = require('./config/config');
+const session = require('express-session');
 
-const app = express()
-app.use(morgan('combined'))
-app.use(bodyParser.json())
-app.use(cors())
+const app = express();
 
-// Passing our backend app as argument of the module exported in routes.js
-require('./routes')(app)
+app.use(
+	session({
+		secret: config.authentication.sessionSecret,
+		resave: false,
+		httpOnly: true,
+		saveUninitialized: true,
+		cookie: { secure: false, maxAge: 60*60*60*24*7, sameSite: 'lax' }
+	})
+);
 
-app.listen(config.port)
-console.log(`Server started on port ${config.port}`)
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+app.use(express.static('public'));
+
+app.listen(config.port);
+console.log(`Server started on port ${config.port}`);
+
+require('./routes')(app);

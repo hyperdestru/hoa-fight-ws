@@ -1,22 +1,21 @@
-const fs = require('fs')
-const path = require('path')
-const mysql = require('mysql')
-const config = require('../config/config')
+// Import de la "version promesse" du module mysql2
+const mysql = require('mysql2/promise');
+const config = require('../config/config');
 
-const db = {}
-
-const connection = mysql.createConnection({
+module.exports = mysql.createConnection({
+	
 	host: config.db.host,
 	user: config.db.user,
 	password: config.db.password,
 	database: config.db.database
-})
 
-connection.connect(error => {
-	if (error) throw error
-	console.log(`Successfully connected to database ${config.db.database}`)
-})
+}).then(connection => {
 
-db.connection = connection
+	console.log(`Successfully connected to database ${config.db.database}`);
+	return connection;
 
-module.exports = db
+}).catch(error => {
+
+	throw error;
+
+});

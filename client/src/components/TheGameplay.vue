@@ -48,9 +48,9 @@
 						"
 					>
 						<v-card-subtitle 
-							class="title text-uppercase text-center"
+							class="title text-uppercase text-center white--text"
 						>
-							{{ card.title }} !
+							{{ $t(card.title) }} !
 						</v-card-subtitle>
 
 						<v-icon x-large> 
@@ -70,23 +70,19 @@
 		data: () => ({
 			cards: [
 				{
-					title: "Un ennemi",
-					src: "",
+					title: "messages.pGp1",
 					icon: "mdi-boxing-glove"
 				},
 				{
-					title: "Des bombes",
-					src: "",
+					title: "messages.pGp2",
 					icon: "mdi-bomb"
 				},
 				{ 
-					title: "Des sauts",
-					src: "",
+					title: "messages.pGp3",
 					icon: "mdi-mushroom"
 				},
 				{ 
-					title: "Un score à battre",
-					src: "",
+					title: "messages.pGp4",
 					icon: "mdi-medal"
 				}
 			]

@@ -9,11 +9,8 @@
 				align-center
 			"
 		>
-			<v-btn icon>
-				<v-icon :x-large="$vuetify.breakpoint.smAndUp">
-					mdi-boxing-glove
-				</v-icon>
-			</v-btn>
+			<header-logo>
+			</header-logo>
 
 			<classic-menu v-if="$vuetify.breakpoint.mdAndUp">
 			</classic-menu>
@@ -27,13 +24,15 @@
 <script>
 	import DropdownMenu from '@/components/DropdownMenu';
 	import ClassicMenu from '@/components/ClassicMenu';
+	import HeaderLogo from '@/components/HeaderLogo';
 
 	export default {
 		name: 'TheHeader',
 
 		components: {
 			'dropdown-menu': DropdownMenu,
-			'classic-menu': ClassicMenu
+			'classic-menu': ClassicMenu,
+			'header-logo': HeaderLogo
 		}
 	}
 </script>

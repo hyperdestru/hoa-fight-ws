@@ -15,8 +15,9 @@
 					<v-data-table 
 						:headers="headers" 
 						:items="users" 
-						:items-per-page="5"
+						:items-per-page="15"
 						fixed-header
+						class="title primary--text"
 					>
 					</v-data-table>
 				</v-col>
@@ -26,6 +27,8 @@
 </template>
 
 <script>
+	import RankingService from '../services/RankingService';
+
 	export default {
 		name: "RankingTable",
 		
@@ -49,17 +52,9 @@
 			]
 		}),
 
-		created: function() {
-			for (let i = 1; i <= 100; i++) {
-				this.users.push(
-					{ 
-						rank: i,
-						avatar: "", 
-						username: "SomePseudo", 
-						ratio: 101 - i
-					}
-				)
-			}
+		async mounted() {
+			const res = await RankingService.getRanking();
+			this.users = res.data;
 		}
 	}
 </script>

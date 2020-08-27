@@ -22,7 +22,7 @@
 
 		components: {
 			'the-header': TheHeader,
-			'the-footer': TheFooter
+			'the-footer': TheFooter,
 		}
 	};
 </script>

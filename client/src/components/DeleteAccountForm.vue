@@ -13,27 +13,57 @@
 			<p class="caption mb-0">
 				{{ $t('messages.lEnterEmail') }}
 			</p>
-			<v-text-field :label="$t(label)">
+			<v-text-field 
+				:label="$t('messages.lEmail')"
+				v-model="email"
+				:error-messages="error"
+			>
 			</v-text-field>
 		</div>
 
-		<v-btn @click="deleteAccount" color="error" min-width="100%">
+		<v-btn 
+			@click="deleteAccount"
+			tile
+			:disabled="this.email !== this.$store.getters.user.email"
+			color="error" 
+			min-width="100%"
+		>
 			{{ $t('messages.ctaDeleteAccountPlus') }}
 		</v-btn>
 	</v-form>
 </template>
 
 <script>
+	import SettingsService from '../services/SettingsService';
+
 	export default {
 		name: 'DeleteAccountForm',
 
 		data: () => ({
-			label: 'messages.lEmail'
+			email: null,
+			error: null
 		}),
 
 		methods: {
-			deleteAccount: function() {
-				console.log("Delete user account - WIP");
+			deleteAccount: async function() {
+				try {
+					await SettingsService.delete({
+						id: this.$store.getters.user.id,
+						email: this.email
+					});
+
+					this.$store.dispatch('flush');
+
+					this.$router.replace({
+						name: 'home',
+						params: {
+							accountDeleted: true
+						}
+					});
+
+				} catch (err) {
+					this.error = err.response.data.error;
+				}
 			}
 		}
 	}
