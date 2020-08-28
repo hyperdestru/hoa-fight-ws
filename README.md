@@ -13,6 +13,8 @@ However I'll make a version of the game that doesn't require access to the websi
 <br>
 I know that sources of projects made with Vue.js + Express + SQL (I did not use any ORM for the queries) are not that common out there (NoSQL everywhere) so maybe it will be useful to someone looking for examples with this stack.<br>
 
+English comments and screenshots are on their way.
+
 ![Screenshot](screenshots/hoa-ws-1.png)<br>
 ![Screenshot](screenshots/hoa-ws-2.png)<br>
 ![Screenshot](screenshots/hoa-ws-3.png)<br>
