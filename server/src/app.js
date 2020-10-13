@@ -17,9 +17,15 @@ app.use(
 	})
 );
 
+// Console logs formating
 app.use(morgan('dev'));
+
 app.use(bodyParser.json());
+
+// Accepting requests from the client dev server (same origin)
 app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+
+// Serving static files (avatars, git...)
 app.use(express.static('public'));
 
 app.listen(config.port);
