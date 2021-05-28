@@ -13,7 +13,7 @@ app.use(
 		resave: false,
 		httpOnly: true,
 		saveUninitialized: true,
-		cookie: { secure: false, maxAge: 60*60*60*24*7, sameSite: 'lax' }
+		cookie: { secure: false, maxAge: 60 * 60 * 60 * 24 * 7, sameSite: 'lax' }
 	})
 );
 
@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 // Accepting requests from the client dev server (same origin)
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+app.use(cors({ origin: config.origin, credentials: true }));
 
 // Serving static files (avatars, git...)
 app.use(express.static('public'));

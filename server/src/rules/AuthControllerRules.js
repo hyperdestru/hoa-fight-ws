@@ -9,8 +9,8 @@ let errorMessages = {
 }
 
 module.exports = {
-	login (req, res, next) {
-		
+	login(req, res, next) {
+
 		const schema = Joi.object({
 
 			email: Joi.string().email(),
@@ -19,7 +19,7 @@ module.exports = {
 		});
 
 		const { error } = schema.validate(req.body);
-		
+
 		if (error) {
 			let errorNature = error.details[0].context.key;
 
@@ -54,8 +54,8 @@ module.exports = {
 		const schema = Joi.object({
 
 			username: Joi.string().alphanum().min(3).max(20).required(),
-			email: Joi.string().email({ 
-				minDomainSegments: 2, 
+			email: Joi.string().email({
+				minDomainSegments: 2,
 				tlds: { allow: ['com', 'fr'] }
 			}),
 			password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{8,30}$')),
@@ -64,7 +64,7 @@ module.exports = {
 		}).with('password', 'repeatPassword');
 
 		const { error } = schema.validate(req.body);
-		
+
 		if (error) {
 			let errorNature = error.details[0].context.key;
 

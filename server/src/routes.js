@@ -20,6 +20,6 @@ module.exports = (app) => {
 
 	// Should use app.delete for this one
 	app.post('/settings', SettingsController.delete);
-	
+
 	app.get('/ranking', RankingController.getRanking);
 }

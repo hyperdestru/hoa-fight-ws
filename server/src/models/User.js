@@ -18,16 +18,16 @@ module.exports = {
 
 		const hash = await this.hashPassword(params.password);
 
-		const [ insertResult ] = await connection.execute(
+		const [insertResult] = await connection.execute(
 			`INSERT INTO users (email, username, password) 
 			VALUES (?, ?, ?)`,
 			[params.email, params.username, hash]
 		);
 
-		const [ newUser ] = await connection.execute(
+		const [newUser] = await connection.execute(
 			`SELECT id, email, username, creation_date as creationDate
 			FROM users WHERE id = ?`,
-			[ insertResult.insertId ]
+			[insertResult.insertId]
 		);
 
 		return newUser[0];
@@ -36,10 +36,10 @@ module.exports = {
 	async findOne(params) {
 		const connection = await require('./index');
 
-		const [ result ] = await connection.execute(
+		const [result] = await connection.execute(
 			`SELECT DISTINCT id, email, username, password, creation_date AS creationDate
 			FROM users WHERE email = ?`,
-			[ params.email ]
+			[params.email]
 		);
 
 		return result[0];
@@ -50,19 +50,19 @@ module.exports = {
 
 		await connection.execute(
 			`DELETE FROM users WHERE id = ? AND email = ?`,
-			[ params.id, params.email ]
+			[params.id, params.email]
 		);
 	},
 
 	async getWonGames(pId) {
 		const connection = await require('./index');
 
-		const [ result ] = await connection.execute(
+		const [result] = await connection.execute(
 			`SELECT COUNT(users_matchs.win) AS wonGames
 			FROM users_matchs 
 			WHERE users_matchs.win = true 
 			AND users_matchs.user_id = ?`,
-			[ pId ]
+			[pId]
 		);
 
 		return result[0].wonGames;
@@ -71,20 +71,20 @@ module.exports = {
 	async getAllGames(pId) {
 		const connection = await require('./index');
 
-		const [ result ] = await connection.execute(
+		const [result] = await connection.execute(
 			`SELECT COUNT(*) AS totalGames 
 			FROM users_matchs 
 			WHERE users_matchs.user_id = ?`,
-			[ pId ]
+			[pId]
 		);
-		
+
 		return result[0].totalGames;
 	},
 
 	async findAllPlayers() {
 		const connection = await require('./index');
 
-		const [ result ] = await connection.execute(
+		const [result] = await connection.execute(
 			`SELECT DISTINCT users.id, users.username, avatar_id as avatarId 
 			FROM users 
 			JOIN users_matchs ON users.id = users_matchs.user_id`

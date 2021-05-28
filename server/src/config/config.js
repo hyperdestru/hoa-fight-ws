@@ -1,5 +1,6 @@
 module.exports = {
 	port: process.env.PORT || 3000,
+	origin: 'http://localhost:8080',
 	db: {
 		database: process.env.DB_NAME || 'hoafight',
 		user: process.env.DB_USER || 'root',

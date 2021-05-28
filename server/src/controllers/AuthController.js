@@ -5,7 +5,7 @@ module.exports = {
 		try {
 
 			const newUser = await User.create(req.body);
-			
+
 			req.session.auth = true;
 
 			req.session.user = {
@@ -42,7 +42,7 @@ module.exports = {
 			}
 		}
 	},
-	
+
 	async login(req, res) {
 		try {
 			const user = await User.findOne(req.body);
